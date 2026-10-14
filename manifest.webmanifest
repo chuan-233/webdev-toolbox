@@ -1,0 +1,22 @@
+{
+  "name": "Web 学习工具箱 · HTML / CSS / JavaScript",
+  "short_name": "Web 工具箱",
+  "description": "面向初学者的网页开发速查与试验工具箱：查标签、查属性、改代码、看效果。",
+  "lang": "zh-CN",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0e1014",
+  "theme_color": "#0e1014",
+  "categories": ["education", "developer", "productivity"],
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "搜索词条", "url": "./index.html?focus=1" },
+    { "name": "词条自检", "url": "./index.html#__audit" }
+  ]
+}

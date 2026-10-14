@@ -1,0 +1,4189 @@
+<!--
+  Web 学习工具箱 · 单文件版
+  ------------------------------------------------------------------
+  这一个文件就是完整工具：样式和全部词条都内联在里面，不联网也能用。
+  手机：存到「文件」里，点开选浏览器打开即可；也可以「添加到主屏幕」。
+  电脑：双击就能开。
+  注意：这是自动生成的产物，请改源码（index.html / css / js），
+        然后重新运行 build_single.py，不要直接改这个文件。
+  ------------------------------------------------------------------
+  词条数据全部在 js/data/*.js 里，加内容只改那些文件。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web 学习工具箱（单文件版）</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAF70lEQVR4nLVXWWxUVRj+znLnztZp6bRAC5SWpewKqCEoqAlLXCKEAIkvvqg8GB6MiDEmGh9cotHgi/GFN2IkkRfDC9EAkogRQliUFNmkpKatbek2nZl7557NnDNtWQsUyj+ZzJ25Z/7v/7/zf/9/D0HZKAA9eXLTFE2xA8ZsMDDzABBMjBkCcgGE7Kcau7q7W7tGMMnIRXVd43pqsBtAA+McjHFQam89rBEYo6GUghQCMLqNULKtp/PqLxbbZZitn7WGGhwEDPx4QsGASiWJ1uqhKTAGLhHGuaGU6VIpYFprGELW9nZcOUSmTp1TKyHPEELqfD+hpRRMRCWATBT71yNh3EPM91UUlaiWspMTbymXEDsBUm8zl0KwKCpNEPW3GCFQSqIUahZPpFRoivVSi53UaGy19NglQjwi8NEYCOy2SimI58WM1thKQUwTY5xIKR8d8s1hQElBKWU2niYKEGOzNlqNS3XkAZkqs6BdiRFCjPVCxuvAyioqDN3h3rgbBxlHGmXXSgrE4ilMX756mAVbPgCjBFIb6HFmRO93oc2aMg+en0aQ78P6D75FdmYzRBi4wu0rClTGODxGoM0EB0ApRykYxMKVr+K1jw+gdupidJ47genLn4WOQoTK4KUFtfj1/VV4fcV09AcCvNzj7u3bDBffmEETCiECVNU04ol1byFb14hMdgZ6Lp9F7ZzFrsFE0qAxm0Dj1DTeWTMLs2uSKAo93GfHdFxmVSt588+EuPdwmbprJUI8vfFD1Eyrw7k/DqHl2F5cu9SCSQ1z4KUrUelTfHe0DYdOdKCmPoMvX5mHQKjR/498uusbTEsJqmQErSUIaBlMCpTCIkrFIURhEbm+DjQteQGLntmM/q5+HN77HkAYOs6dBE+kEMtMQmGwF1QGePvHk8h157Fp5QxsXjwJvX39iMK882V9SilGE7NdSKkI1FJvlIIxCmGQR1gcgohCSCUgRQSjDeYu3wDuaRz96XN0tp4Gj6fQ334Fhd5OZJvmoVgYRJwDLVd78On+szAex5Zl9aBaugmolHA+XSBB3oGXtx7lbTIwDtgCjtJlXzZYyqCVZUkj19vmvlPGILVEz+UW1C16qiw9K0lKcbWv6ABsXbi27mi/vhVKRAgKOWhTFix1DNiZObz/txagkiVcaz/vlPDclk+QrMhC2pkBoOviGUxbsgIMBJHQmFTh44tNjzvglo5BlKS6vRAdhnEF6BjQRjma7zR+7SLPT+H4gW9w5a/jmN7cjFWbPkIw1A/PS6Drwp9I19QhlalCcaiAzzY+hlnNtTh1th1f/XwOCd+DHk7udt/2rawMLfgYSjEGlHFYpRz84V3kBwp4ct0baF7+MjTKW0AJQbxhIdbMr8aba+cjHAiwfe8pSGXAmZXa2ELU2oCOLhhjoS0WP5nBv+d/x+nDe+AnfVTWzHS1EOYHkL/WieqmBWisisFL+dhz5BKOXexGOhGDukdLtFtP4smMyVRlERYLsM8Dt9WBNTvBZIRU5RRksg1oO/+bq4WhgW6s3/E1Js9ehO+3v4jnl8zFPz05dA8G4JzeNfuKyiyGBnvB7xri9VDBeAzFXA+G+toRT1U6acVicbQc2IvcstVIxJM4crELPiP3BL/R+P0tG6aL2WHjOZlZ8/wEelvP47+/T8GvqEJ6WNL3Cz4SgHscu88oHMCNQTEvBu7HoZVy/WCcZqg9M9gmY5vLmJV415iMAx+PUVrGMsa4B5JWKSLDYzHtJDlhh6E7m02WezGtlDJGq1bKGNsXlQLCmWe8mO+aw6MMwqoskUyZsJgnhNJ9JJ1O10pDz3ieX5dIVehCboDZCiekPB0nxoxrOtZfuqJKSSloUMx3cppc6hBSqewaQ+RBKzW7oBQGNIpCcuuzwoOaHVSe55t4Iq1LYYHZqUvhrS0Ueg+NHk6Tmer1RsndlLIGP5EC57EJYaA8euBORRZYCdFGON9WzPVdP5yOBJFKTZ6iabTDKLWBEDKPEEYeRBm3hmCMNkbrC4SS/RTxXYVC9+jx/H8EZ++jism8/AAAAABJRU5ErkJggg==">
+<meta name="description" content="面向初学者的网页开发速查与试验工具箱：HTML 标签、HTML 属性、CSS 属性、JavaScript 方法，边查边改边看效果。">
+<meta name="theme-color" content="#0e1014">
+<meta name="color-scheme" content="dark light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Web 工具箱">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+/* ==========================================================================
+   Web 学习工具箱 — 样式表
+   结构：1 变量  2 基础重置  3 顶栏  4 布局  5 侧边栏  6 详情面板
+        7 代码实验区  8 自检结果  9 响应式
+   原则：排版优先、动画克制、长阅读不累。
+   ========================================================================== */
+
+/* ---------- 1. 主题变量 ---------- */
+:root {
+  --bg:            #0e1014;
+  --bg-elev:       #14171d;
+  --bg-elev-2:     #191d24;
+  --bg-sunken:     #0a0c10;
+  --border:        #23272f;
+  --border-soft:   #1b1f26;
+
+  --fg:            #e7e9ee;
+  --fg-muted:      #99a1ae;
+  --fg-dim:        #6c7480;
+
+  --accent:        #7aa2f7;
+  --accent-soft:   rgba(122, 162, 247, .14);
+  --accent-line:   rgba(122, 162, 247, .38);
+
+  --c-tag:     #ff9e64;
+  --c-attr:    #e0af68;
+  --c-css:     #7dcfff;
+  --c-js:      #bb9af7;
+  --c-concept: #9aa5ce;
+
+  --ok:     #9ece6a;
+  --warn:   #e0af68;
+  --danger: #f7768e;
+
+  --radius:    10px;
+  --radius-sm: 6px;
+
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Cascadia Mono", "Microsoft YaHei", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", sans-serif;
+
+  --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.28);
+}
+
+html[data-theme="light"] {
+  --bg:          #f7f8fa;
+  --bg-elev:     #ffffff;
+  --bg-elev-2:   #f1f3f7;
+  --bg-sunken:   #eceef3;
+  --border:      #dde1e8;
+  --border-soft: #e8ebf0;
+
+  --fg:          #1c2129;
+  --fg-muted:    #5b6371;
+  --fg-dim:      #8b93a1;
+
+  --accent:      #2f6fdd;
+  --accent-soft: rgba(47, 111, 221, .10);
+  --accent-line: rgba(47, 111, 221, .35);
+
+  --c-tag:     #c2571a;
+  --c-attr:    #9a6a10;
+  --c-css:     #1a6f8f;
+  --c-js:      #7c4bbf;
+  --c-concept: #5a6684;
+
+  --ok:     #4a7c20;
+  --warn:   #9a6a10;
+  --danger: #c03a52;
+
+  --shadow: 0 1px 2px rgba(16,24,40,.06), 0 8px 24px rgba(16,24,40,.08);
+}
+
+/* ---------- 2. 基础重置 ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 16px/1.7 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;              /* 三栏各自滚动 */
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 650; line-height: 1.35; }
+p { margin: 0 0 .9em; }
+ul { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+
+code, kbd, pre { font-family: var(--mono); font-size: .92em; }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  background: var(--accent); color: #fff; padding: 8px 14px; border-radius: 0 0 var(--radius-sm) 0;
+}
+.skip-link:focus { left: 0; }
+
+.muted { color: var(--fg-dim); font-size: 12px; }
+
+/* ---------- 3. 顶栏 ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 30;
+  display: flex; align-items: center; gap: 14px;
+  height: 56px; padding: 0 16px;
+  background: var(--bg-elev);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+.brand-mark {
+  font-family: var(--mono); font-weight: 700; font-size: 15px;
+  color: var(--accent); background: var(--accent-soft);
+  border: 1px solid var(--accent-line); border-radius: var(--radius-sm);
+  padding: 2px 7px; letter-spacing: -.5px;
+}
+.brand-text { font-weight: 650; font-size: 15px; letter-spacing: .2px; }
+
+.search {
+  position: relative; flex: 1 1 auto; max-width: 620px; margin: 0 auto;
+  display: flex; align-items: center;
+}
+.search input {
+  width: 100%; height: 36px;
+  padding: 0 62px 0 34px;
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--fg); font: 14px/1 var(--sans);
+  outline: none;
+  transition: border-color .12s ease, box-shadow .12s ease;
+}
+.search input::placeholder { color: var(--fg-dim); }
+.search input:focus {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.search::before {
+  content: "⌕"; position: absolute; left: 13px;
+  color: var(--fg-dim); font-size: 15px; pointer-events: none;
+}
+.q-clear {
+  position: absolute; right: 40px;
+  background: none; border: 0; color: var(--fg-dim);
+  font-size: 13px; line-height: 1; padding: 6px;
+}
+.q-clear:hover { color: var(--fg); }
+.q-kbd {
+  position: absolute; right: 12px;
+  font-size: 11px; color: var(--fg-dim);
+  border: 1px solid var(--border); border-radius: 4px;
+  padding: 1px 6px; background: var(--bg-elev-2);
+}
+
+.topbar-right { display: flex; gap: 8px; flex: 0 0 auto; }
+
+.icon-btn {
+  height: 32px; padding: 0 11px;
+  background: var(--bg-elev-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg-muted); font-size: 13px;
+}
+.icon-btn:hover { color: var(--fg); border-color: var(--accent-line); }
+
+.ghost-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--fg-muted);
+  font-size: 12px; padding: 5px 10px;
+}
+.ghost-btn:hover { color: var(--fg); border-color: var(--accent-line); }
+
+.only-narrow { display: none; }
+
+/* ---------- 4. 布局 ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 268px minmax(0, 1fr) minmax(360px, 440px);
+  height: calc(100vh - 56px);
+}
+
+.sidebar, .detail, .playground {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.sidebar {
+  display: flex; flex-direction: column;
+  background: var(--bg-elev);
+  border-right: 1px solid var(--border);
+  padding: 14px 10px 0;
+}
+.detail { padding: 26px 34px 80px; }
+.playground {
+  background: var(--bg-elev);
+  border-left: 1px solid var(--border);
+  display: flex; flex-direction: column;
+}
+
+/* 滚动条 */
+.sidebar::-webkit-scrollbar, .detail::-webkit-scrollbar, .playground::-webkit-scrollbar,
+.pg-code::-webkit-scrollbar { width: 10px; height: 10px; }
+.sidebar::-webkit-scrollbar-thumb, .detail::-webkit-scrollbar-thumb,
+.playground::-webkit-scrollbar-thumb, .pg-code::-webkit-scrollbar-thumb {
+  background: var(--border); border-radius: 6px;
+  border: 3px solid transparent; background-clip: content-box;
+}
+.sidebar::-webkit-scrollbar-thumb:hover, .detail::-webkit-scrollbar-thumb:hover,
+.playground::-webkit-scrollbar-thumb:hover, .pg-code::-webkit-scrollbar-thumb:hover {
+  background: var(--fg-dim); background-clip: content-box;
+}
+
+/* ---------- 5. 侧边栏 ---------- */
+.cats { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+
+.cat {
+  display: flex; align-items: center; gap: 9px;
+  padding: 7px 10px; border: 1px solid transparent; border-radius: var(--radius-sm);
+  background: none; text-align: left; width: 100%;
+  color: var(--fg-muted); font-size: 13.5px;
+}
+.cat:hover { background: var(--bg-elev-2); color: var(--fg); }
+.cat.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+  color: var(--fg); font-weight: 600;
+}
+.cat-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex: 0 0 auto;
+  background: var(--dot, var(--c-concept));
+}
+.cat-name { flex: 1 1 auto; }
+.cat-n { font-size: 11.5px; color: var(--fg-dim); font-family: var(--mono); }
+.cat.is-active .cat-n { color: var(--fg-muted); }
+
+.list-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 0 10px 7px; margin-top: 4px;
+  border-top: 1px solid var(--border-soft); padding-top: 12px;
+}
+.list-head span:first-child {
+  font-size: 11.5px; font-weight: 650; letter-spacing: .7px;
+  text-transform: uppercase; color: var(--fg-dim);
+}
+
+.entries { flex: 1 1 auto; padding-bottom: 10px; }
+
+.entry-item {
+  display: block; width: 100%; text-align: left;
+  padding: 7px 10px; border: 0; border-radius: var(--radius-sm);
+  background: none; color: var(--fg-muted);
+  font-size: 13.5px; line-height: 1.45;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.entry-item:hover { background: var(--bg-elev-2); color: var(--fg); }
+.entry-item.is-active {
+  background: var(--bg-elev-2); color: var(--fg);
+  font-weight: 600; box-shadow: inset 2px 0 0 var(--accent);
+}
+.entry-item .ei-mark { font-family: var(--mono); }
+.entry-item .ei-zh { color: var(--fg-dim); font-weight: 400; margin-left: 7px; font-size: 12px; }
+.entry-item .ei-star { color: var(--warn); margin-right: 5px; }
+.entry-item.is-cursor { background: var(--accent-soft); color: var(--fg); }
+
+.empty-note { padding: 16px 12px; color: var(--fg-dim); font-size: 13px; line-height: 1.7; }
+
+.sidebar-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 10px 4px 12px; border-top: 1px solid var(--border-soft);
+  position: sticky; bottom: 0; background: var(--bg-elev);
+}
+
+/* ---------- 6. 详情面板 ---------- */
+.entry-head { border-bottom: 1px solid var(--border); padding-bottom: 14px; margin-bottom: 20px; }
+
+.crumbs { font-size: 12px; color: var(--fg-dim); margin-bottom: 8px; letter-spacing: .3px; }
+.crumbs b { color: var(--fg-muted); font-weight: 600; }
+
+.entry-title {
+  font-size: 30px; line-height: 1.2; letter-spacing: -.4px;
+  font-family: var(--mono); font-weight: 700;
+  word-break: break-word;
+}
+.entry-title .t-zh {
+  font-family: var(--sans); font-size: 15px; font-weight: 400;
+  color: var(--fg-muted); margin-left: 12px; letter-spacing: 0;
+}
+
+.badges { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 12px; align-items: center; }
+.badge {
+  font-size: 11.5px; padding: 2px 9px; border-radius: 999px;
+  border: 1px solid var(--border); color: var(--fg-muted); background: var(--bg-elev-2);
+}
+.badge-cat { color: var(--bc); border-color: color-mix(in srgb, var(--bc) 40%, transparent);
+             background: color-mix(in srgb, var(--bc) 12%, transparent); font-weight: 600; }
+.badge-warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, transparent);
+              background: color-mix(in srgb, var(--warn) 12%, transparent); font-weight: 600; }
+.badge-ok   { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent);
+              background: color-mix(in srgb, var(--ok) 10%, transparent); }
+
+.star-btn {
+  margin-left: auto; background: none; border: 1px solid var(--border);
+  border-radius: 999px; padding: 2px 12px; font-size: 12px; color: var(--fg-muted);
+}
+.star-btn:hover { color: var(--fg); border-color: var(--accent-line); }
+.star-btn.is-on { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+
+.section { margin-bottom: 24px; max-width: 74ch; }
+.section-title {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .9px; text-transform: uppercase;
+  color: var(--fg-dim); margin-bottom: 9px;
+}
+.purpose { font-size: 16.5px; line-height: 1.75; color: var(--fg); }
+
+.code-block { position: relative; margin: 0; }
+.code-block pre {
+  margin: 0; padding: 13px 15px;
+  background: var(--bg-sunken); border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow-x: auto; font-size: 13.5px; line-height: 1.65;
+  color: var(--fg);
+  white-space: pre;
+  tab-size: 2;
+}
+.code-block .copy {
+  position: absolute; top: 7px; right: 7px;
+  background: var(--bg-elev-2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--fg-dim);
+  font-size: 11.5px; padding: 3px 8px; opacity: 0;
+  transition: opacity .12s ease;
+}
+.code-block:hover .copy, .copy:focus-visible { opacity: 1; }
+.code-block .copy:hover { color: var(--fg); }
+
+.err-list li {
+  position: relative; padding-left: 24px; margin-bottom: 9px;
+  font-size: 15px; line-height: 1.7; color: var(--fg-muted);
+}
+.err-list li::before {
+  content: "✕"; position: absolute; left: 4px; top: 0;
+  color: var(--danger); font-size: 13px; font-weight: 700;
+}
+
+.ok-list li {
+  position: relative; padding-left: 24px; margin-bottom: 9px;
+  font-size: 15px; line-height: 1.7; color: var(--fg-muted);
+}
+.ok-list li::before {
+  content: "✓"; position: absolute; left: 4px; top: 0;
+  color: var(--ok); font-size: 13px; font-weight: 700;
+}
+
+.tip {
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  padding: 11px 15px; border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 15px; line-height: 1.7; color: var(--fg);
+}
+.tip b { color: var(--accent); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  background: var(--bg-elev-2); border: 1px solid var(--border);
+  border-radius: 999px; padding: 3px 12px;
+  font-size: 13px; color: var(--fg-muted);
+}
+.chip:hover { color: var(--fg); border-color: var(--accent-line); background: var(--accent-soft); }
+.chip .chip-zh { color: var(--fg-dim); margin-left: 6px; font-size: 12px; }
+
+.welcome { max-width: 66ch; }
+.welcome h2 { font-size: 22px; margin-bottom: 12px; }
+.welcome p { color: var(--fg-muted); font-size: 15.5px; }
+.welcome .kv { display: flex; gap: 10px; margin-bottom: 8px; align-items: baseline; }
+.welcome .kv b { font-family: var(--mono); color: var(--fg); font-weight: 600; min-width: 150px; }
+.welcome .kv span { color: var(--fg-muted); font-size: 14.5px; }
+
+.audit-out {
+  margin-top: 16px; background: var(--bg-sunken); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px;
+}
+.audit-out h3 { font-size: 14px; margin-bottom: 8px; }
+.audit-out ul li { font-size: 13.5px; color: var(--fg-muted); line-height: 1.7;
+                   padding-left: 16px; position: relative; }
+.audit-out ul li::before { content: "·"; position: absolute; left: 4px; color: var(--fg-dim); }
+.audit-out .ok-msg { color: var(--ok); font-size: 14px; }
+
+/* ---------- 7. 代码实验区 ---------- */
+.pg-head {
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+.pg-title { font-size: 11.5px; font-weight: 700; letter-spacing: .9px;
+            text-transform: uppercase; color: var(--fg-dim); margin-bottom: 10px; }
+.pg-tabs { display: flex; gap: 4px; }
+.pg-tab {
+  flex: 1 1 0; padding: 6px 0; text-align: center;
+  background: var(--bg-elev-2); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); color: var(--fg-dim);
+  font-size: 12.5px; font-family: var(--mono);
+}
+.pg-tab:hover { color: var(--fg); }
+.pg-tab.is-active { background: var(--accent-soft); border-color: var(--accent-line);
+                    color: var(--fg); font-weight: 600; }
+.pg-tab .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%;
+               background: var(--fg-dim); margin-left: 6px; vertical-align: middle; }
+.pg-tab.has-code .dot { background: var(--ok); }
+
+.pg-body { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
+
+.pg-code {
+  flex: 0 0 34%;
+  min-height: 130px;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+}
+.pg-code textarea {
+  width: 100%; height: 100%; resize: none;
+  background: var(--bg-sunken); color: var(--fg);
+  border: 0; outline: none;
+  padding: 12px 14px;
+  font: 13px/1.65 var(--mono);
+  tab-size: 2; white-space: pre; overflow: auto;
+}
+.pg-code textarea::placeholder { color: var(--fg-dim); }
+
+.pg-actions {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 14px; border-bottom: 1px solid var(--border);
+  flex: 0 0 auto;
+}
+.btn-run {
+  background: var(--accent); color: #fff; border: 0;
+  border-radius: var(--radius-sm); padding: 6px 16px;
+  font-size: 13px; font-weight: 600;
+}
+.btn-run:hover { filter: brightness(1.08); }
+.pg-hint { font-size: 11.5px; color: var(--fg-dim); margin-left: auto; font-family: var(--mono); }
+
+.pg-preview-wrap { flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; }
+.pg-preview-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 14px; border-bottom: 1px solid var(--border-soft);
+  font-size: 11.5px; color: var(--fg-dim); letter-spacing: .5px;
+  text-transform: uppercase; font-weight: 650;
+  flex: 0 0 auto;
+}
+.pg-preview-head .live { margin-left: auto; text-transform: none; letter-spacing: 0;
+                         font-weight: 400; font-family: var(--mono); }
+#pg-frame {
+  flex: 1 1 auto; width: 100%; border: 0; background: #fff; min-height: 160px;
+}
+
+.pg-console {
+  flex: 0 0 auto; max-height: 132px; overflow-y: auto;
+  border-top: 1px solid var(--border);
+  background: var(--bg-sunken);
+  padding: 8px 14px;
+  font: 12.5px/1.6 var(--mono);
+}
+.pg-console:empty::before {
+  content: "控制台输出会显示在这里（console.log）";
+  color: var(--fg-dim); font-family: var(--sans); font-size: 12px;
+}
+.console-line { white-space: pre-wrap; word-break: break-word; padding: 1px 0; }
+.console-line .lv { color: var(--fg-dim); margin-right: 7px; }
+.console-line.lv-log { color: var(--fg-muted); }
+.console-line.lv-error { color: var(--danger); }
+.console-line.lv-warn { color: var(--warn); }
+.console-line.lv-return { color: var(--ok); }
+
+/* ---------- 8. 自检 ---------- */
+.audit-ok { color: var(--ok); font-size: 14px; line-height: 1.7; }
+
+/* ---------- 9. 响应式 ---------- */
+/* 中等屏：预览区移到详情下面 */
+@media (max-width: 1200px) {
+  .layout {
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) 420px;
+    height: calc(100vh - 56px);
+  }
+  .sidebar  { grid-column: 1; grid-row: 1 / span 2; }
+  .detail   { grid-column: 2; grid-row: 1; }
+  .playground { grid-column: 2; grid-row: 2; border-left: 0;
+                border-top: 1px solid var(--border); }
+}
+
+/* 窄屏：单栏 + 抽屉式目录 */
+@media (max-width: 820px) {
+  body { overflow: auto; }
+
+  .layout {
+    display: block;
+    height: auto;
+  }
+  .detail { padding: 20px 18px 60px; }
+  .playground { height: auto; }
+  .pg-code { flex: 0 0 auto; height: 190px; }
+  #pg-frame { height: 300px; flex: 0 0 auto; }
+
+  .sidebar {
+    position: fixed; top: 56px; bottom: 0; left: 0; z-index: 40;
+    width: 280px; max-width: 86vw;
+    transform: translateX(-102%);
+    box-shadow: var(--shadow);
+  }
+  .sidebar.is-open { transform: none; }
+
+  .scrim {
+    position: fixed; inset: 56px 0 0 0; z-index: 35;
+    background: rgba(0,0,0,.45);
+  }
+
+  .only-narrow { display: inline-block; }
+  .brand-text { display: none; }
+  .search { max-width: none; }
+  .q-kbd { display: none; }
+  .q-clear { right: 10px; }
+  .topbar-right #random-btn { display: none; }
+
+  .entry-title { font-size: 24px; }
+  .entry-title .t-zh { display: block; margin: 6px 0 0; }
+}
+
+@media (max-width: 430px) {
+  .topbar { gap: 8px; padding: 0 10px; }
+  .search input { padding-left: 30px; font-size: 13px; }
+  .detail { padding: 16px 14px 50px; }
+}
+
+/* 尊重系统的「减少动态效果」设置 —— 本来也几乎没有动画 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#detail">跳到内容</a>
+
+<header class="topbar">
+  <button id="menu-btn" class="icon-btn only-narrow" aria-label="打开目录">☰</button>
+
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+    <span class="brand-text">Web 学习工具箱</span>
+  </div>
+
+  <div class="search" role="search">
+    <input id="q" type="search" placeholder="搜索名称、用途或关键词…" autocomplete="off"
+           spellcheck="false" aria-label="搜索词条">
+    <button id="q-clear" class="q-clear" aria-label="清空搜索" hidden>✕</button>
+    <kbd class="q-kbd" aria-hidden="true">/</kbd>
+  </div>
+
+  <div class="topbar-right">
+    <button id="random-btn" class="icon-btn" title="随机看一条" aria-label="随机词条">随机</button>
+    <button id="theme-btn" class="icon-btn" title="切换浅色 / 深色" aria-label="切换主题">主题</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar" aria-label="分类与词条列表">
+    <nav class="cats" id="cats" aria-label="分类导航"></nav>
+
+    <div class="list-head">
+      <span id="list-title">全部词条</span>
+      <span id="list-count" class="muted"></span>
+    </div>
+
+    <ul class="entries" id="entries"></ul>
+
+    <div class="sidebar-foot">
+      <button id="audit-btn" class="ghost-btn" title="检查词条字段是否完整、id 是否重复">词条自检</button>
+      <span id="stats" class="muted"></span>
+    </div>
+  </aside>
+
+  <main class="detail" id="detail" tabindex="-1" aria-label="词条详情"></main>
+
+  <section class="playground" id="playground" aria-label="代码实验区"></section>
+
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<noscript>
+  <p style="padding:24px;font:16px/1.7 system-ui,sans-serif">
+    这个工具需要 JavaScript 才能运行，请在浏览器设置里开启后刷新页面。
+  </p>
+</noscript>
+
+<script>
+/* ==========================================================================
+   HTML 标签 词条
+   --------------------------------------------------------------------------
+   加词条：往下面的数组里加一个对象就行，界面上会自动出现。
+   字段说明看 README「如何扩展词条库」。
+   注意：本文件只放「标签」，HTML 属性放 html-attrs.js，不要混在一起。
+   ========================================================================== */
+
+window.WDT_HTML_TAGS = [
+
+  {
+    id: 'html-html', name: '<html>', zh: '文档根元素',
+    purpose: '整个 HTML 文档的根元素，其他所有元素都必须放在它里面。每个页面只能有一个。',
+    syntax: '<html lang="zh-CN"> … </html>',
+    status: 'modern',
+    keywords: ['根元素', '根标签', '文档', 'lang'],
+    example: {
+      html: '<!-- 结构示意：<html> 包住 head 和 body -->\n<p>页面真正显示出来的部分，都在 &lt;body&gt; 里。</p>',
+      css: '',
+      js: ''
+    },
+    errors: [
+      '写了两个 <html>：一个页面只允许一个根元素',
+      '忘了写 lang 属性：屏幕阅读器读不出该用哪种语言发音，搜索引擎也不容易判断语种'
+    ],
+    related: ['html-head', 'html-body', 'attr-lang']
+  },
+
+  {
+    id: 'html-head', name: '<head>', zh: '文档头部',
+    purpose: '放「给浏览器和搜索引擎看」的信息：字符编码、页面标题、样式表、脚本等。里面的内容不会直接显示在页面上。',
+    syntax: '<head> … </head>',
+    status: 'modern',
+    keywords: ['头部', '元数据', 'meta', 'title', '信息'],
+    example: {
+      html: '<p>&lt;head&gt; 里的东西一个字都不会显示在页面上。</p>\n<p>页面顶部那个标签页文字，来自 &lt;title&gt;。</p>',
+      css: '',
+      js: ''
+    },
+    errors: [
+      '把要显示的文字写进 <head> 里 —— 看不见，还会被浏览器纠正到 body',
+      '把 <title> 写在 <head> 外面'
+    ],
+    related: ['html-html', 'html-body', 'html-title', 'html-meta']
+  },
+
+  {
+    id: 'html-body', name: '<body>', zh: '文档主体',
+    purpose: '页面所有「看得见」的内容都放在这里：文字、图片、按钮、表单……',
+    syntax: '<body> 页面内容 </body>',
+    status: 'modern',
+    keywords: ['主体', '内容', '可见'],
+    example: {
+      html: '<h1>标题</h1>\n<p>段落文字。</p>\n<p>这些全都在 &lt;body&gt; 里。</p>',
+      css: 'body { font-family: system-ui, sans-serif; padding: 16px; }',
+      js: ''
+    },
+    errors: [
+      '把 <body> 写成 <boby>：浏览器虽然会猜，但不要指望它'
+    ],
+    related: ['html-head', 'html-html']
+  },
+
+  {
+    id: 'html-title', name: '<title>', zh: '页面标题',
+    purpose: '页面标题。显示在浏览器标签页上，也是收藏夹默认名称和搜索结果里的蓝色标题。每个页面必须有，且要唯一。',
+    syntax: '<title>页面标题</title>',
+    status: 'modern',
+    keywords: ['标题', '标签页', '收藏', 'SEO'],
+    example: {
+      html: '<p>看看浏览器标签页上的文字 —— 那就是 &lt;title&gt; 的内容。</p>\n<p>它不是 &lt;h1&gt;：&lt;h1&gt; 是页面里给读者看的大标题。</p>',
+      css: '',
+      js: "document.title = '标题被 JS 改过了';"
+    },
+    errors: [
+      '把 <title> 当成页面大标题用 —— 应该用 <h1>',
+      '所有页面用同一个 title，收藏夹里分不清'
+    ],
+    related: ['html-head', 'html-h1h6'],
+    tip: '<b>title 和 h1 是两回事</b>：title 在浏览器外框上，h1 在页面内容里。一个页面可以有多个 h1，但只能有一个 title。'
+  },
+
+  {
+    id: 'html-meta', name: '<meta>', zh: '元数据',
+    purpose: '声明无法用其他标签表达的文档级信息：字符编码、移动端视口、页面描述等。空元素，没有结束标签。',
+    syntax: '<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">',
+    status: 'modern',
+    keywords: ['编码', 'charset', '视口', 'viewport', '描述', 'SEO'],
+    example: {
+      html: '<p>charset 和 viewport 这两行几乎是每个页面的标配。</p>\n<p>少了 viewport，手机上页面会整页缩小成"缩略图"。</p>',
+      css: '.note { color: #666; }',
+      js: ''
+    },
+    errors: [
+      '忘了写 <meta charset="utf-8">：中文变成乱码（锟斤拷）',
+      'charset 写在第 1024 字节之后：浏览器可能来不及识别，规范要求它在最前面'
+    ],
+    related: ['html-head', 'attr-charset', 'html-link'],
+    tip: '<b>空元素</b>指没有内容、也没有结束标签的元素。类似的还有 &lt;img&gt;、&lt;br&gt;、&lt;input&gt;、&lt;link&gt;。'
+  },
+
+  {
+    id: 'html-link', name: '<link>', zh: '外部资源链接',
+    purpose: '把外部文件接进当前页面，最常用是引入 CSS 样式表、网站图标。空元素。',
+    syntax: '<link rel="stylesheet" href="style.css">',
+    status: 'modern',
+    keywords: ['样式表', 'css', '图标', 'favicon', 'rel'],
+    example: {
+      html: '<p>本页的样式就是用 &lt;link&gt; 接进来的。</p>\n<p>注意它和 &lt;a&gt; 完全不同：&lt;a&gt; 给人点，&lt;link&gt; 给浏览器用。</p>',
+      css: '.demo { padding: 8px; background: #eef2ff; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      'rel 写错或漏写：浏览器不知道这是什么资源，直接忽略',
+      '想引入自己写的 CSS 文件，却用了 <script>'
+    ],
+    related: ['html-script', 'attr-rel', 'attr-href']
+  },
+
+  {
+    id: 'html-script', name: '<script>', zh: '脚本',
+    purpose: '在页面里放 JavaScript：可以内嵌写在标签中间，也可以用 src 引入外部文件。',
+    syntax: '<script src="app.js"><\/script>\n<script> console.log(1); <\/script>',
+    status: 'modern',
+    keywords: ['脚本', 'js', 'javascript', '引入'],
+    example: {
+      html: '<button id="b">点我</button>',
+      css: 'button { padding: 8px 16px; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  console.log('被点了');\n});"
+    },
+    errors: [
+      '用 src 引入外部文件时，标签中间又写了代码 —— 中间的代码会被直接忽略',
+      '把 <script> 写在 <head> 里，然后立刻去拿 body 里的元素：那时元素还不存在，得到 null'
+    ],
+    related: ['attr-src', 'attr-defer', 'js-addeventlistener'],
+    tip: '<b>html 里的 script 标签</b>是「怎么把 JS 接进页面」；<b>js-methods 里的方法</b>是「JS 本身能干什么」。两回事。'
+  },
+
+  {
+    id: 'html-h1h6', name: '<h1> – <h6>', zh: '标题层级',
+    purpose: '表示内容大纲的层级。h1 是最高级（通常整页只一个），h6 是最低级。按层级使用，不要跳级。',
+    syntax: '<h1>一级标题</h1>\n<h2>二级标题</h2>',
+    status: 'modern',
+    keywords: ['标题', 'h1', '层级', '大纲', '结构'],
+    example: {
+      html: '<h1>文章标题</h1>\n<h2>第一节</h2>\n<p>正文……</p>\n<h2>第二节</h2>\n<h3>2.1 小节</h3>\n<p>正文……</p>',
+      css: 'h1 { font-size: 24px; margin: 0 0 10px; }\nh2 { font-size: 18px; margin: 18px 0 6px; }\nh3 { font-size: 15px; color: #555; margin: 12px 0 4px; }',
+      js: ''
+    },
+    errors: [
+      '为了「字大」而用 h1 包所有文字 —— 字号该由 CSS 负责，标题负责的是结构',
+      '跳过层级，h1 后面直接 h4：屏幕阅读器会以为漏了内容'
+    ],
+    related: ['html-p', 'html-section', 'css-font-size'],
+    tip: '<b>内容负责结构，CSS 负责外观。</b>想让一段普通文字变大，用 CSS；想表达「这是本节的标题」，才用 h2。'
+  },
+
+  {
+    id: 'html-p', name: '<p>', zh: '段落',
+    purpose: '表示一个段落。浏览器会自动在段落之间加空白，这是排版而不是样式。',
+    syntax: '<p>一段文字</p>',
+    status: 'modern',
+    keywords: ['段落', '文本', '文字'],
+    example: {
+      html: '<p>第一个段落。</p>\n<p>第二个段落 —— 中间的空隙是浏览器自动加的。</p>',
+      css: 'p { line-height: 1.8; }',
+      js: ''
+    },
+    errors: [
+      '把 <p> 嵌套在另一个 <p> 里：浏览器会自动帮你闭合外层，结构就乱了',
+      '在 <p> 里放块级元素（如 <div>、<p>）'
+    ],
+    related: ['html-br', 'html-div', 'html-h1h6']
+  },
+
+  {
+    id: 'html-a', name: '<a>', zh: '超链接',
+    purpose: '创建链接：可以跳到别的页面、跳到当前页的某个位置（锚点）、下载文件、发起邮件或电话。',
+    syntax: '<a href="目标地址">可点击的文字</a>',
+    status: 'modern',
+    keywords: ['链接', '跳转', 'href', '锚点', '超链接', '下载'],
+    example: {
+      html: '<p>去 <a href="https://developer.mozilla.org/zh-CN/">MDN</a> 查文档</p>\n<p><a href="#bottom">跳到本页底部</a></p>\n<p style="margin-top: 120px" id="bottom">这里就是底部。</p>',
+      css: 'a { color: #2f6fdd; }\na:hover { text-decoration: none; }',
+      js: ''
+    },
+    errors: [
+      '把 href 拼成 herf / hraf —— 属性名拼错不报错，只是「点了没反应」',
+      '用 <a> 当按钮却忘了 href：没有 href 的 <a> 键盘不可聚焦、不能回车触发，该用 <button>',
+      '外链用 target="_blank" 时忘了 rel="noopener"'
+    ],
+    related: ['attr-href', 'attr-target', 'html-button'],
+    tip: '<b>&lt;a&gt; 是标签，href 是属性，中间的文字是内容。</b>初学者最容易把这三个说成一个东西。'
+  },
+
+  {
+    id: 'html-img', name: '<img>', zh: '图片',
+    purpose: '嵌入图片。空元素，靠 src 指定图片来源，alt 提供文字替代。',
+    syntax: '<img src="图片地址" alt="图片说明">',
+    status: 'modern',
+    keywords: ['图片', '图像', 'alt', 'src', '插图'],
+    example: {
+      html: '<img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2790%27 height=%2790%27%3E%3Crect width=%2790%27 height=%2790%27 rx=%2712%27 fill=%27%237aa2f7%27/%3E%3Ccircle cx=%2745%27 cy=%2745%27 r=%2724%27 fill=%27white%27/%3E%3C/svg%3E"\n     alt="蓝色方块图标" width="90" height="90">\n<p>上面这张图其实是几行代码画出来的，所以断网也能显示。</p>',
+      css: 'img { border-radius: 8px; }',
+      js: ''
+    },
+    errors: [
+      '忘了 alt：图片加载失败时用户只看到一个空白破图，读屏软件也无从朗读',
+      '只改 width 不写 height：图片没加载完时页面会跳动',
+      '给 <img> 加结束标签 </img>：它是空元素，没有结束标签'
+    ],
+    related: ['attr-alt', 'attr-src', 'css-width', 'html-meta'],
+    tip: '示例里的 src 是一段 <b>data: URI</b> —— 它把图片内容直接写进了代码，所以不联网也能显示。平时我们写的是文件路径或网址。'
+  },
+
+  {
+    id: 'html-br', name: '<br>', zh: '换行',
+    purpose: '在文字中间强制换行。只用于「换行本身就是内容」的场合，比如诗歌、地址、歌词。空元素。',
+    syntax: '第一行<br>第二行',
+    status: 'modern',
+    keywords: ['换行', '折行'],
+    example: {
+      html: '<p>床前明月光，<br>疑是地上霜。</p>\n<p>地址：重庆市渝中区<br>XX 路 1 号</p>',
+      css: 'p { line-height: 2; }',
+      js: ''
+    },
+    errors: [
+      '用一堆 <br> 来「撑开间距」—— 间距是 CSS 的 margin 该干的事',
+      '用 <br> 来分段 —— 分段要用 <p>'
+    ],
+    related: ['html-p', 'css-margin'],
+    tip: '<b>判断标准</b>：换行删掉后文字意思变了吗？变了（诗歌）就用 &lt;br&gt;，没变（只是想要间距）就用 CSS。'
+  },
+
+  {
+    id: 'html-strong', name: '<strong>', zh: '重要强调',
+    purpose: '表示内容是「重要的」。浏览器默认显示为粗体，但它的本职是语义，不是加粗。',
+    syntax: '<strong>重要内容</strong>',
+    status: 'modern',
+    keywords: ['加粗', '重要', '强调', 'bold'],
+    example: {
+      html: '<p><strong>警告：</strong>本操作不可撤销。</p>\n<p>想单纯变粗？那也是用这个标签，但要知道你同时表达了"重要"。</p>',
+      css: 'strong { color: #c03a52; }',
+      js: ''
+    },
+    errors: [
+      '为了「字粗一点」而满页用 <strong>：其实想要的是 CSS 的 font-weight',
+      '用 <b> 和 <strong> 混着用 —— 前者只是视觉加粗，后者是语义重要'
+    ],
+    related: ['html-em', 'css-font-weight']
+  },
+
+  {
+    id: 'html-em', name: '<em>', zh: '着重强调',
+    purpose: '表示语气上的着重，默认显示为斜体。读屏软件会改变语调来体现它。',
+    syntax: '<em>着重的词</em>',
+    status: 'modern',
+    keywords: ['斜体', '强调', 'italic', '着重'],
+    example: {
+      html: '<p>我<em>没有</em>说过这句话。</p>\n<p>斜起来的是 &lt;em&gt;，粗起来的是 &lt;strong&gt;。</p>',
+      css: 'em { color: #1a6f8f; font-style: normal; font-weight: 700; }',
+      js: ''
+    },
+    errors: [
+      '想显示斜体却用 <i>：<i> 只是视觉斜体，不表示强调',
+      '中文排版里斜体不好看，常用「加粗」或「变色」代替 —— 但语义标签可以照用，外观交给 CSS'
+    ],
+    related: ['html-strong', 'css-font-weight']
+  },
+
+  {
+    id: 'html-code', name: '<code>', zh: '行内代码',
+    purpose: '表示一小段代码。默认用等宽字体显示。多行代码要配合 <pre>。',
+    syntax: '<code>console.log(1)</code>',
+    status: 'modern',
+    keywords: ['代码', '等宽', '行内代码'],
+    example: {
+      html: '<p>用 <code>console.log()</code> 打印调试信息。</p>\n<pre><code>for (let i = 0; i &lt; 3; i++) {\n  console.log(i);\n}</code></pre>',
+      css: 'code { background: #eef1f6; padding: 2px 6px; border-radius: 4px; font-size: 13px; }\npre code { display: block; padding: 12px; line-height: 1.6; overflow-x: auto; }',
+      js: ''
+    },
+    errors: [
+      '在 HTML 里直接写 < > 当代码内容：必须写成 &amp;lt; &amp;gt;，否则浏览器会当成标签解析',
+      '多行代码只用 <code> 不用 <pre>：所有换行和空格会被浏览器压成一行'
+    ],
+    related: ['html-pre', 'html-p'],
+    tip: 'HTML 里 <b>&amp;lt;</b> 表示一个「小于号」字符本身。要显示标签文字又不想被当成标签，就得这样转义。'
+  },
+
+  {
+    id: 'html-pre', name: '<pre>', zh: '预格式化文本',
+    purpose: '保留原文里的空格和换行。适合放代码块、ASCII 图、终端输出。',
+    syntax: '<pre> 原样  保留   空 格 </pre>',
+    status: 'modern',
+    keywords: ['预格式化', '代码块', '保留空格', '换行'],
+    example: {
+      html: '<pre>\n  对齐  测试\n  第一列   第二列\n  内容     内容\n</pre>',
+      css: 'pre { background: #f5f7fa; padding: 12px; border-radius: 8px; font-size: 13px; overflow-x: auto; }',
+      js: ''
+    },
+    errors: [
+      '在 <pre> 里写 HTML 标签文字却不转义',
+      '用 <pre> 排版整个页面布局 —— 那是 CSS 该做的'
+    ],
+    related: ['html-code']
+  },
+
+  {
+    id: 'html-ul', name: '<ul>', zh: '无序列表',
+    purpose: '一组顺序不重要的项目，默认显示为圆点列表。子项必须是 <li>。',
+    syntax: '<ul>\n  <li>项目</li>\n</ul>',
+    status: 'modern',
+    keywords: ['列表', '无序', '圆点', 'ul'],
+    example: {
+      html: '<p>准备材料：</p>\n<ul>\n  <li>鸡蛋</li>\n  <li>面粉</li>\n  <li>牛奶</li>\n</ul>',
+      css: 'ul { padding-left: 22px; list-style: disc; }',
+      js: ''
+    },
+    errors: [
+      '把 <ul> 的直接子元素写成 <div> 或 <p>：内容应该是 <li>',
+      '为了去掉小圆点而删掉 <ul> 换成 <div>：用 CSS 的 list-style 控制就行'
+    ],
+    related: ['html-ol', 'html-li', 'css-margin']
+  },
+
+  {
+    id: 'html-ol', name: '<ol>', zh: '有序列表',
+    purpose: '一组有先后顺序的项目，默认显示为 1. 2. 3.，顺序本身就是信息。',
+    syntax: '<ol>\n  <li>第一步</li>\n</ol>',
+    status: 'modern',
+    keywords: ['列表', '有序', '编号', '步骤', 'ol'],
+    example: {
+      html: '<p>开机步骤：</p>\n<ol>\n  <li>插电源</li>\n  <li>按开机键</li>\n  <li>等系统启动</li>\n</ol>',
+      css: 'ol { padding-left: 22px; }',
+      js: ''
+    },
+    errors: [
+      '步骤用 <ul> 写 —— 顺序重要就该用 <ol>，读屏软件会读出"第几步"'
+    ],
+    related: ['html-ul', 'html-li']
+  },
+
+  {
+    id: 'html-li', name: '<li>', zh: '列表项',
+    purpose: '列表里的一项，只能作为 <ul>、<ol>、<menu> 的直接子元素。',
+    syntax: '<li>一项内容</li>',
+    status: 'modern',
+    keywords: ['列表项', '条目', 'li'],
+    example: {
+      html: '<ul>\n  <li>第一项</li>\n  <li>第二项</li>\n</ul>',
+      css: 'li { margin-bottom: 6px; }',
+      js: ''
+    },
+    errors: [
+      '把 <li> 直接放在 <div> 里 —— 它必须是列表的子元素',
+      '在想嵌套时把子列表放到 <li> 外面：子列表应写在某个 <li> 内部'
+    ],
+    related: ['html-ul', 'html-ol']
+  },
+
+  {
+    id: 'html-div', name: '<div>', zh: '块级容器',
+    purpose: '通用的块级容器，自己没有任何语义，纯粹用来「把东西装在一起」，方便用 CSS 排版或 JS 操作。',
+    syntax: '<div class="卡片"> … </div>',
+    status: 'modern',
+    keywords: ['容器', '盒子', 'div', '块级', '布局'],
+    example: {
+      html: '<div class="card">\n  <h3>卡片标题</h3>\n  <p>卡片里的说明文字。</p>\n</div>',
+      css: '.card { border: 1px solid #ddd; border-radius: 10px; padding: 16px; max-width: 280px; }',
+      js: ''
+    },
+    errors: [
+      '整页都用 <div>：有更合适的语义标签时应该用 <header> / <nav> / <section> / <footer>',
+      '拿 <div> 装文字就以为能当段落用 —— 该用 <p>'
+    ],
+    related: ['html-span', 'html-section', 'css-display'],
+    tip: '<b>div 没有语义</b>。当你想表达"这里是头部/导航/正文段落"时，用对应的语义标签，对读屏软件和搜索引擎都更友好。'
+  },
+
+  {
+    id: 'html-span', name: '<span>', zh: '行内容器',
+    purpose: '通用的行内容器，没有语义。用来给一小段文字单独上样式或挂 JS 行为。',
+    syntax: '<span class="高亮">几个字</span>',
+    status: 'modern',
+    keywords: ['容器', '行内', 'span', '文字'],
+    example: {
+      html: '<p>价格：<span class="price">¥ 128</span>（含税）</p>',
+      css: '.price { color: #c03a52; font-weight: 700; }',
+      js: ''
+    },
+    errors: [
+      '在 <span> 里放块级元素（<div>、<p>）：行内元素不能包块级元素',
+      '用 <span> 包一大段文字并设宽高 —— 行内元素不吃 width/height，得改成 display: inline-block'
+    ],
+    related: ['html-div', 'css-display'],
+    tip: '<b>div 和 span 的区别</b>：div 是块级（独占一行），span 是行内（跟着文字走）。两者都没有语义。'
+  },
+
+  {
+    id: 'html-button', name: '<button>', zh: '按钮',
+    purpose: '可点击的按钮。默认就带键盘支持（Tab 聚焦、回车/空格触发），比用 <div> 模拟要好得多。',
+    syntax: '<button type="button">点我</button>',
+    status: 'modern',
+    keywords: ['按钮', '点击', '提交', 'button'],
+    example: {
+      html: '<button id="b1" type="button">点我</button>\n<p id="out">还没点</p>',
+      css: 'button { padding: 8px 18px; border: 0; border-radius: 8px; background: #2f6fdd; color: #fff; }',
+      js: "let n = 0;\ndocument.getElementById('b1').addEventListener('click', function () {\n  n++;\n  document.getElementById('out').textContent = '被点了 ' + n + ' 次';\n});"
+    },
+    errors: [
+      '把按钮写成 <div onclick="...">：键盘用户按不到，读屏软件也读不出这是按钮',
+      '在 <form> 里的按钮忘了写 type：默认是 type="submit"，会意外提交表单'
+    ],
+    related: ['html-input', 'html-form', 'js-addeventlistener'],
+    tip: '用 &lt;button&gt; 不用 div 做按钮，白送键盘可访问性 —— 这是「不用写一行额外代码就能做对」的例子。'
+  },
+
+  {
+    id: 'html-input', name: '<input>', zh: '输入控件',
+    purpose: '表单里最万能的输入控件。靠 type 决定长相和行为：text、password、checkbox、radio、date、file、color……空元素。',
+    syntax: '<input type="text" name="用户名">',
+    status: 'modern',
+    keywords: ['输入', '输入框', '表单', 'type', '复选框', '单选框'],
+    example: {
+      html: '<p>文字：<input type="text" placeholder="请输入昵称"></p>\n<p>密码：<input type="password" value="123456"></p>\n<p>同意条款：<input type="checkbox" id="ok"> <label for="ok">我已阅读</label></p>\n<p>颜色：<input type="color" value="#7aa2f7"></p>',
+      css: 'input { padding: 6px 10px; border: 1px solid #ccd2dc; border-radius: 6px; font: inherit; }',
+      js: ''
+    },
+    errors: [
+      '给 <input> 加结束标签 </input>：它是空元素',
+      'checkbox 和 radio 忘了配 <label>：点击区域太小，用户体验很差',
+      'value 和 placeholder 用混：placeholder 是灰字提示，value 是真正的值'
+    ],
+    related: ['attr-type', 'attr-placeholder', 'attr-value', 'html-label', 'html-form']
+  },
+
+  {
+    id: 'html-label', name: '<label>', zh: '表单标签',
+    purpose: '给表单控件起个说明文字，并用 for 绑定到控件。绑定后点文字等于点控件，对鼠标和读屏都友好。',
+    syntax: '<label for="id名">说明</label>\n<input id="id名">',
+    status: 'modern',
+    keywords: ['表单标签', 'label', 'for', '说明'],
+    example: {
+      html: '<p><label for="name">昵称：</label>\n   <input id="name" type="text"></p>\n<p>点上面那两个字"昵称"，光标会自己跳到输入框里。</p>',
+      css: 'label { font-weight: 600; }',
+      js: ''
+    },
+    errors: [
+      'for 的值和 input 的 id 不一致：绑不上，点了没反应',
+      'for 里写 name 值：for 对应的是 id，不是 name',
+      '把 input 包在 label 里同时又写了 for：重复绑定，虽然能用但别绕'
+    ],
+    related: ['html-input', 'attr-for', 'attr-id'],
+    tip: '<b>id 和 name 不一样</b>：id 是这一份文档里的唯一编号（给 label、JS、锚点用）；name 是提交表单时那个字段的名字（给服务器看）。'
+  },
+
+  {
+    id: 'html-form', name: '<form>', zh: '表单',
+    purpose: '把一组控件打包起来，负责「提交」这件事：按 action 送到哪、按 method 怎么送。',
+    syntax: '<form action="/submit" method="post"> … </form>',
+    status: 'modern',
+    keywords: ['表单', '提交', 'form', 'action', 'method'],
+    example: {
+      html: '<form id="f">\n  <p><label for="u">用户名：</label><input id="u" name="user" type="text"></p>\n  <p><button type="submit">提交</button></p>\n</form>\n<p id="msg"></p>',
+      css: 'form { display: grid; gap: 8px; max-width: 280px; }',
+      js: "document.getElementById('f').addEventListener('submit', function (e) {\n  e.preventDefault();            // 阻止真的跳转，只是演示\n  document.getElementById('msg').textContent = '提交事件被拦下来了';\n});"
+    },
+    errors: [
+      '控件没写 name：提交时该字段根本不会被发送',
+      '忘了 e.preventDefault()，一提交页面就刷新，JS 里存的状态全没了',
+      '用 method="get" 传密码：内容明晃晃挂在网址上'
+    ],
+    related: ['attr-action', 'attr-method', 'html-input', 'html-button', 'js-addeventlistener']
+  },
+
+  {
+    id: 'html-section', name: '<section>', zh: '语义分区',
+    purpose: '表示文档中一个独立的主题区块，通常自带一个标题。比 <div> 更有语义。',
+    syntax: '<section>\n  <h2>小节标题</h2>\n  …\n</section>',
+    status: 'modern',
+    keywords: ['语义', '分区', '章节', 'section'],
+    example: {
+      html: '<section>\n  <h2>关于我们</h2>\n  <p>这家店开了十年。</p>\n</section>\n<section>\n  <h2>联系方式</h2>\n  <p>邮箱：hi@example.com</p>\n</section>',
+      css: 'section { border-top: 2px solid #e5e8ee; padding-top: 12px; margin-bottom: 18px; }',
+      js: ''
+    },
+    errors: [
+      '用 <section> 纯粹当样式容器 —— 用 <div> 更合适',
+      '里面没有标题：<section> 这个标签暗示"这里有一个主题"，最好配 <h2>/<h3>'
+    ],
+    related: ['html-div', 'html-h1h6']
+  },
+
+  {
+    id: 'html-table', name: '<table>', zh: '表格',
+    purpose: '展示「行列关系」的数据，比如成绩单、价格表。用 tr 表示行、th 表示表头格、td 表示数据格。',
+    syntax: '<table>\n  <tr><th>表头</th></tr>\n  <tr><td>数据</td></tr>\n</table>',
+    status: 'modern',
+    keywords: ['表格', '行列', '数据', 'tr', 'td', 'th'],
+    example: {
+      html: '<table>\n  <thead>\n    <tr><th>城市</th><th>温度</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>重庆</td><td>22℃</td></tr>\n    <tr><td>昆明</td><td>18℃</td></tr>\n  </tbody>\n</table>',
+      css: 'table { border-collapse: collapse; }\nth, td { border: 1px solid #ccd2dc; padding: 6px 14px; text-align: left; }\nth { background: #f1f3f7; }',
+      js: ''
+    },
+    errors: [
+      '用 <table> 排版整个页面：这是上世纪的做法，现在用 flex / grid',
+      '把 <td> 直接放在 <table> 下：必须先有 <tr>',
+      '忘了 <th>：数据表用 <td> 当表头，读屏软件无法区分表头和内容'
+    ],
+    related: ['css-display', 'html-section'],
+    tip: '<b>表格只有一种正确用途：数据本身是二维的。</b>如果只是想「左右分栏」，用 CSS 布局。'
+  },
+
+  {
+    id: 'html-center', name: '<center>', zh: '居中（已废弃）',
+    purpose: '把内容居中。在 HTML4 时代很常用，如今已被标准废弃。',
+    syntax: '<center>内容</center>   ← 不要再用了',
+    status: 'deprecated',
+    keywords: ['居中', '过时', '废弃', 'align'],
+    example: {
+      html: '<p class="wrong">❌ 旧写法：&lt;center&gt;文字&lt;/center&gt;</p>\n<p class="right">✅ 现在：给元素加 CSS 的 text-align: center</p>',
+      css: '.wrong { text-decoration: line-through; color: #c03a52; }\n.right { text-align: center; background: #e9f7ec; padding: 8px; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      '<center> 仍在所有浏览器里能用，所以「看起来没问题」—— 但它不保证长期有效，也不受 CSS 控制',
+      '同类废弃写法还有 <font>、<big>、<strike>、bgcolor 属性、align 属性'
+    ],
+    related: ['html-font', 'css-text-align'],
+    tip: '<b>为什么废弃</b>：这些标签把「长什么样」写死在 HTML 里。现在统一由 CSS 掌管外观，HTML 只负责结构，改版时不用动内容。'
+  },
+
+  {
+    id: 'html-font', name: '<font>', zh: '字体（已废弃）',
+    purpose: '直接指定文字的颜色、字号、字体。HTML4 时代的做法，现已废弃。',
+    syntax: '<font color="red" size="5">文字</font>   ← 不要再用了',
+    status: 'deprecated',
+    keywords: ['字体', '颜色', '字号', '过时', '废弃'],
+    example: {
+      html: '<p class="wrong">❌ 旧写法：&lt;font color="red" size="5"&gt;红字&lt;/font&gt;</p>\n<p class="right">✅ 现在：<span class="red">用 CSS 的 color 和 font-size</span></p>',
+      css: '.wrong { text-decoration: line-through; color: #c03a52; }\n.red { color: #d64545; font-size: 20px; font-weight: 600; }',
+      js: ''
+    },
+    errors: [
+      '看到网上老教程里的 <font> 就直接抄 —— 那可能是十几年前的文章',
+      '想改颜色却去改 HTML：颜色归 CSS 的 color 管'
+    ],
+    related: ['html-center', 'css-color', 'css-font-size'],
+    tip: '<b>判断一条教程是否过时</b>：如果它用 &lt;font&gt;、&lt;center&gt;、&lt;table&gt; 排版页面，或者到处写 align=，基本可以直接关掉。'
+  }
+
+];
+
+</script>
+<script>
+/* ==========================================================================
+   HTML 属性 词条
+   --------------------------------------------------------------------------
+   注意：这里只放「写在 HTML 标签里的属性」，比如 <a href="..."> 的 href。
+   不要和 CSS 属性（css-props.js）混在一起，也不要和 JS 对象的属性混在一起。
+   ========================================================================== */
+
+window.WDT_HTML_ATTRS = [
+
+  {
+    id: 'attr-class', name: 'class', zh: '类名',
+    purpose: '给元素贴「标签」，用来分类。一个元素可以有多个 class（空格分隔），CSS 和 JS 都靠它来批量选中一组元素。',
+    syntax: '<div class="卡片 卡片-大"> … </div>',
+    status: 'modern',
+    keywords: ['类名', '样式钩子', '分组', '选择器'],
+    example: {
+      html: '<p class="tag red">红色标签</p>\n<p class="tag blue">蓝色标签</p>\n<p class="tag red big">又红又大</p>',
+      css: '.tag { padding: 4px 12px; border-radius: 999px; display: inline-block; font-size: 13px; }\n.red  { background: #ffe2e2; color: #c03a52; }\n.blue { background: #e2ecff; color: #2f6fdd; }\n.big  { font-size: 18px; }',
+      js: ''
+    },
+    errors: [
+      'class 名字用空格写成一整个词（class="red big" 是两个名字，不是"red big"这一个名字）',
+      '同一个页面里给不同东西起一样但含义不同的 class —— 一个月后自己看不懂',
+      '把 class 当成 id 用：class 可以重复，id 必须唯一'
+    ],
+    related: ['attr-id', 'concept-selector', 'concept-html-attr-vs-css'],
+    tip: '<b>class 是 HTML 属性，.类名 是 CSS 选择器。</b>写 HTML 时叫 class，写 CSS 时要加点号，写 JS 时用 classList。三个场景三种写法，别混。'
+  },
+
+  {
+    id: 'attr-id', name: 'id', zh: '唯一标识',
+    purpose: '给元素一个「身份证号」，同一份文档里必须唯一。用于页面内锚点跳转、label 绑定表单控件、JS 精确取元素。',
+    syntax: '<div id="标题区"> … </div>',
+    status: 'modern',
+    keywords: ['id', '唯一', '标识', '锚点'],
+    example: {
+      html: '<p><a href="#target">跳到下面的方块</a></p>\n<p style="height:200px"></p>\n<div id="target" class="box">我就是目标方块</div>',
+      css: '.box { padding: 16px; background: #eef2ff; border-left: 4px solid #2f6fdd; border-radius: 6px; }',
+      js: "const el = document.getElementById('target');\nconsole.log('取到了：', el.textContent);"
+    },
+    errors: [
+      '同一个页面出现两个相同 id：CSS 也许还能生效，但 JS 只会拿到第一个，锚点跳转行为也会变得不可预期',
+      '用 id 来写样式（#target { … }）：优先级太高，后期改样式到处都要 !important',
+      'id 里出现空格：HTML5 允许 id 里放除空格外几乎任何字符，但空格的写法问题极多，别用'
+    ],
+    related: ['attr-class', 'concept-selector', 'js-getelementbyid', 'html-label'],
+    tip: '<b>什么时候用 id，什么时候用 class</b>：这个元素全页只有它一个、而且 JS 要精确抓它 → id；样式、分组、可能会重复 → class。'
+  },
+
+  {
+    id: 'attr-href', name: 'href', zh: '超链接目标',
+    purpose: '指定 <a> 链接到哪儿、<link> 引入哪个文件。是 hypertext reference 的缩写。',
+    syntax: '<a href="https://example.com">文字</a>\n<a href="#锚点">文字</a>\n<a href="mailto:a@b.com">发邮件</a>',
+    status: 'modern',
+    keywords: ['链接', '地址', '目标', '锚点', '邮件', '电话'],
+    example: {
+      html: '<ul>\n  <li><a href="https://developer.mozilla.org/zh-CN/">外部网页</a></li>\n  <li><a href="#sec">本页锚点</a></li>\n  <li><a href="mailto:hi@example.com">发邮件</a></li>\n  <li><a href="tel:+8613800000000">打电话</a></li>\n</ul>\n<h3 id="sec">锚点位置</h3>',
+      css: 'a { color: #2f6fdd; }',
+      js: ''
+    },
+    errors: [
+      '拼成 herf / hraf —— 属性名拼错浏览器只是忽略，不会报错，表现为「点了没反应」',
+      'href="#" 用来当按钮：会让页面回到顶部，还会污染浏览器历史',
+      'href="javascript:void(0)" —— 老教程里的写法，现代做法是用 <button>'
+    ],
+    related: ['html-a', 'attr-target', 'attr-rel']
+  },
+
+  {
+    id: 'attr-src', name: 'src', zh: '资源地址',
+    purpose: '告诉浏览器去哪里加载资源，用在 <img>、<script>、<iframe>、<video> 等元素上。source 的缩写。',
+    syntax: '<img src="图片地址" alt="说明">\n<script src="app.js"><\/script>',
+    status: 'modern',
+    keywords: ['资源', '地址', '图片', '脚本', '加载'],
+    example: {
+      html: '<img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27120%27 height=%2760%27%3E%3Crect width=%27120%27 height=%2760%27 rx=%278%27 fill=%27%234fd1c5%27/%3E%3C/svg%3E"\n     alt="青色矩形" width="120" height="60">',
+      css: 'img { border-radius: 8px; }',
+      js: ''
+    },
+    errors: [
+      '和 href 用混：<img href="..."> 不生效，<a src="..."> 也不生效。记法：src = source（内容来源），href = hypertext reference（超文本引用）',
+      '路径写错一个字母：图片就变破图，且不报错',
+      '在 <a> 上用 src、在 <img> 上用 href —— 这是初学者最高频的错之一'
+    ],
+    related: ['html-img', 'attr-href', 'html-script'],
+    tip: '<b>怎么记</b>：src 是「这个元素本身的内容从哪来」（图片的图、脚本的代码）；href 是「这个元素指向别的什么地方」（链接的目标）。'
+  },
+
+  {
+    id: 'attr-alt', name: 'alt', zh: '替代文本',
+    purpose: '图片加载失败时显示的文字，也是读屏软件朗读的内容。它同时服务三种人：网速差的、用读屏的、搜索引擎。',
+    syntax: '<img src="cat.jpg" alt="一只橘猫趴在窗台上">',
+    status: 'modern',
+    keywords: ['替代文本', '无障碍', '图片说明', '读屏'],
+    example: {
+      html: '<p>下面这张图的 src 是错的，看看 alt 显示了什么：</p>\n<img src="不存在的图.png" alt="这里应该是一只猫" width="160" height="60">\n<p>故意把它删掉再刷新，你就只看到一个空破图了。</p>',
+      css: 'img { border: 1px solid #ddd; }',
+      js: ''
+    },
+    errors: [
+      '忘了写 alt：读屏软件可能直接念出整个文件名',
+      '纯装饰图片写了无意义的 alt（alt="图片"）—— 这种应该写 alt=""，明确告诉读屏"忽略它"',
+      '把一堆关键词塞进 alt 想骗 SEO：会被判作弊，也破坏了可访问性'
+    ],
+    related: ['html-img', 'attr-src'],
+    tip: '<b>alt 的写法</b>：写「这张图在讲什么」，而不是「这是一张图」。如果这张图纯粹是装饰（背景花纹），写 <b>alt=""</b>（空字符串）才是正确做法。'
+  },
+
+  {
+    id: 'attr-title', name: 'title（全局属性）', zh: '补充说明',
+    purpose: '鼠标悬停时弹出的提示文字。注意：它是 HTML 的全局属性，和 <title> 标签、CSS 的 title 都不是一回事。',
+    syntax: '<button title="点击后会上传文件">上传</button>',
+    status: 'legacy',
+    keywords: ['提示', '悬停', 'tooltip', '说明'],
+    example: {
+      html: '<p>把鼠标停在下面的按钮上：</p>\n<button title="我是悬停提示文字">悬停看看</button>\n<p>手机上没有"悬停"，所以别把重要信息放这里。</p>',
+      css: 'button { padding: 8px 16px; }',
+      js: ''
+    },
+    errors: [
+      '把关键信息放进 title：手机、触屏、键盘用户都看不到',
+      '和 <title> 标签混淆 —— 标签管页面标题，属性管悬停提示'
+    ],
+    related: ['html-title', 'attr-alt'],
+    tip: '<b>同一时刻，一个词在不同圈子里的意思可能完全不同</b>：HTML 属性 title、HTML 标签 &lt;title&gt;、CSS 属性里的文本、JS 里的对象属性 —— 这也是本项目把四大类严格分家的原因。'
+  },
+
+  {
+    id: 'attr-target', name: 'target', zh: '打开方式',
+    purpose: '规定链接在哪里打开：_self 当前页、_blank 新标签页。只对 <a>、<form> 等少数元素有效。',
+    syntax: '<a href="网址" target="_blank" rel="noopener">新标签页打开</a>',
+    status: 'modern',
+    keywords: ['新标签页', 'blank', '打开方式', '窗口'],
+    example: {
+      html: '<p><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">在新标签页打开 MDN</a></p>\n<p>默认（不写 target）是当前页打开。</p>',
+      css: 'a { color: #2f6fdd; }',
+      js: ''
+    },
+    errors: [
+      '所有链接都开新标签页：用户满屏都是标签，想回退都难。只在"跳到站外、看资料不会被我们打断"时才用',
+      '用 target="_blank" 却不写 rel="noopener"：新页面能通过 window.opener 操纵你的原页面'
+    ],
+    related: ['attr-rel', 'html-a']
+  },
+
+  {
+    id: 'attr-rel', name: 'rel', zh: '关系说明',
+    purpose: '说明「当前文档」和「目标资源」是什么关系。stylesheet 表示样式表，noopener / noreferrer 用于外链安全。',
+    syntax: '<link rel="stylesheet" href="a.css">\n<a href="..." target="_blank" rel="noopener">',
+    status: 'modern',
+    keywords: ['关系', 'stylesheet', 'noopener', '安全', 'nofollow'],
+    example: {
+      html: '<p>rel 是给浏览器/搜索引擎的说明，不影响肉眼看到的样子。</p>\n<p>本页的样式表就是用 rel="stylesheet" 接进来的。</p>',
+      css: '.box { background: #eef2ff; padding: 12px; border-radius: 8px; }',
+      js: ''
+    },
+    errors: [
+      '引入 CSS 时忘了 rel="stylesheet"：浏览器拿到文件但不知道要当样式用，直接忽略',
+      '外链新窗口忘记加 noopener'
+    ],
+    related: ['html-link', 'attr-target'],
+    tip: '<b>noopener 在防什么</b>：新打开的页面可以用 window.opener 访问原页面，甚至把你原来的页面偷偷换掉。加了 noopener，reference 被切断，就安全了。'
+  },
+
+  {
+    id: 'attr-type', name: 'type', zh: '类型',
+    purpose: '在不同标签上含义不同：<input> 上是控件种类，<button> 上是按钮行为（button / submit / reset），<script> 上是脚本类型。',
+    syntax: '<input type="email">\n<button type="button">\n<script type="module">',
+    status: 'modern',
+    keywords: ['类型', '输入框', 'email', 'number', 'date', 'submit'],
+    example: {
+      html: '<p>邮箱：<input type="email" placeholder="you@example.com"></p>\n<p>数字：<input type="number" min="1" max="10" value="3"></p>\n<p>日期：<input type="date"></p>\n<p>范围：<input type="range" min="0" max="100" value="50"></p>',
+      css: 'input { padding: 6px 10px; border: 1px solid #ccd2dc; border-radius: 6px; font: inherit; }',
+      js: ''
+    },
+    errors: [
+      '在 <form> 里的按钮不写 type：默认 type="submit"，点一下表单就提交/刷新了',
+      '用 type="text" 收邮箱：用 type="email" 能白拿浏览器自带的格式校验和手机专用键盘'
+    ],
+    related: ['html-input', 'html-button', 'attr-required'],
+    tip: '<b>type 是 HTML 属性</b>，写在标签里；<b>typeof 是 JS 运算符</b>，用来查数据类型。长得像，完全无关。'
+  },
+
+  {
+    id: 'attr-placeholder', name: 'placeholder', zh: '占位提示',
+    purpose: '输入框为空时显示的灰色提示文字。它只是提示，不是默认值。',
+    syntax: '<input type="text" placeholder="请输入手机号">',
+    status: 'modern',
+    keywords: ['占位', '提示', '灰字', '输入框'],
+    example: {
+      html: '<p><input type="text" placeholder="试试直接点提交，什么都不会发生" id="p1"></p>\n<p><button type="button" id="p2">看看 value 是什么</button></p>\n<p id="p3"></p>',
+      css: 'input { padding: 8px 12px; border: 1px solid #ccd2dc; border-radius: 6px; }\ninput::placeholder { color: #aab2c0; }',
+      js: "document.getElementById('p2').addEventListener('click', function () {\n  const v = document.getElementById('p1').value;\n  document.getElementById('p3').textContent = 'value 是：' + JSON.stringify(v) + '（空字符串，不是提示文字）';\n});"
+    },
+    errors: [
+      '把 placeholder 当默认值用：用户不输入的话，它根本不会提交，value 是空字符串',
+      '用 placeholder 代替 <label>：填到一半提示就没了，用户忘了这栏要填什么，读屏软件支持也不稳定',
+      '提示文字写太长被截断'
+    ],
+    related: ['attr-value', 'html-label', 'html-input'],
+    tip: '<b>placeholder 和 value 的区别</b>：placeholder 是"水印"，不参与提交；value 是真实内容，会被提交。两者长得像，作用完全不同。'
+  },
+
+  {
+    id: 'attr-value', name: 'value', zh: '值',
+    purpose: '控件的当前值。会作为表单数据提交出去，也会被 JS 的 .value 读到。',
+    syntax: '<input type="text" value="默认内容">',
+    status: 'modern',
+    keywords: ['值', '默认值', '内容', '提交'],
+    example: {
+      html: '<p><input id="v1" type="text" value="我是默认值"></p>\n<p><button type="button" id="v2">读出来</button></p>\n<p id="v3"></p>',
+      css: 'input { padding: 8px 12px; border: 1px solid #ccd2dc; border-radius: 6px; }',
+      js: "document.getElementById('v2').addEventListener('click', function () {\n  document.getElementById('v3').textContent =\n    'HTML 里写的 value：' + document.getElementById('v1').getAttribute('value') +\n    ' / 现在的 value：' + document.getElementById('v1').value;\n});"
+    },
+    errors: [
+      '以为改了 HTML 的 value 属性就能改输入框内容：用户改过之后，两者会不一致，应该用 JS 的 .value',
+      '把 value 和 placeholder 搞混：一个是真的内容，一个是灰字提示'
+    ],
+    related: ['attr-placeholder', 'html-input'],
+    tip: '<b>属性 value 和 JS 属性 .value 不是同一个东西</b>：前者是"初始值"（写在 HTML 里），后者是"当前值"（用户改过的）。这是初学者很常见的一个坑。'
+  },
+
+  {
+    id: 'attr-disabled', name: 'disabled', zh: '禁用',
+    purpose: '让表单控件不可用，呈灰化状态，不能点击也不能提交。布尔属性：写了就是真。',
+    syntax: '<button disabled>不能点</button>',
+    status: 'modern',
+    keywords: ['禁用', '灰化', '不可用', '布尔属性'],
+    example: {
+      html: '<p><button disabled>我是被禁用的</button></p>\n<p><button id="d1">点我解除禁用</button></p>\n<p><input id="d2" type="text" value="我被禁用了" disabled></p>',
+      css: 'button:disabled, input:disabled { opacity: .5; cursor: not-allowed; }',
+      js: "document.getElementById('d1').addEventListener('click', function () {\n  const i = document.getElementById('d2');\n  i.disabled = !i.disabled;\n  console.log('现在 disabled =', i.disabled);\n});"
+    },
+    errors: [
+      '写成 disabled="false"：布尔属性只要出现就是"真"，要取消必须整个删掉这个属性',
+      '用 disabled 做"提交后再禁用防重复提交"：被禁用的控件不会提交，值会丢，应该用 readonly 或只禁用按钮'
+    ],
+    related: ['attr-readonly', 'attr-required', 'html-input'],
+    tip: '<b>布尔属性</b>（disabled、checked、required、selected）的规则：出现即为真，不管值写什么。<b>要让它变假，得用 JS 删掉整个属性</b>。'
+  },
+
+  {
+    id: 'attr-readonly', name: 'readonly', zh: '只读',
+    purpose: '内容可以选中、可以复制，但不能修改；值仍然会随表单提交。和 disabled 的区别就在这里。',
+    syntax: '<input type="text" value="只能看" readonly>',
+    status: 'modern',
+    keywords: ['只读', '不可编辑', '布尔属性'],
+    example: {
+      html: '<p>只读（能选中、会提交）：<input type="text" value="我是 readonly" readonly></p>\n<p>禁用（不能选、不提交）：<input type="text" value="我是 disabled" disabled></p>',
+      css: 'input { padding: 6px 10px; border: 1px solid #ccd2dc; border-radius: 6px; margin-bottom: 8px; }',
+      js: ''
+    },
+    errors: [
+      '用 readonly 代替 disabled 来"锁住"按钮：readonly 对 button 无效',
+      '以为 readonly 能防篡改：用户照样能用开发者工具改掉值，安全校验必须在服务器做'
+    ],
+    related: ['attr-disabled', 'html-input'],
+    tip: '<b>readonly vs disabled 一句话</b>：readonly 是「你能看不能改，东西照样交上去」；disabled 是「这东西整个不存在了，连提交都不算它」。'
+  },
+
+  {
+    id: 'attr-required', name: 'required', zh: '必填',
+    purpose: '标记表单控件为必填，浏览器会在提交前自带校验，不填就拦下来并提示。',
+    syntax: '<input type="text" required>',
+    status: 'modern',
+    keywords: ['必填', '校验', '验证', '布尔属性'],
+    example: {
+      html: '<form>\n  <p><input type="text" placeholder="这里必填" required></p>\n  <p><button type="submit">提交试试</button></p>\n</form>',
+      css: 'input { padding: 8px 12px; border: 1px solid #ccd2dc; border-radius: 6px; }\ninput:invalid { border-color: #d64545; }',
+      js: ''
+    },
+    errors: [
+      '以为有了 required 就安全了：浏览器校验可以被绕过，服务器端必须再校验一次',
+      '在 hidden 或 readonly 的控件上写 required：会直接导致表单永远提交不了'
+    ],
+    related: ['attr-disabled', 'attr-type', 'html-form']
+  },
+
+  {
+    id: 'attr-data', name: 'data-*', zh: '自定义数据',
+    purpose: '给元素挂自定义数据，名字以 data- 开头。HTML 里随便写，JS 里统一用 dataset 读取。',
+    syntax: '<div data-user-id="42"> … </div>\nJS: el.dataset.userId',
+    status: 'modern',
+    keywords: ['自定义属性', 'data', 'dataset', '数据'],
+    example: {
+      html: '<button class="buy" data-id="101" data-price="29.9">买 A</button>\n<button class="buy" data-id="102" data-price="59.9">买 B</button>\n<p id="out"></p>',
+      css: 'button { padding: 6px 14px; margin-right: 8px; }',
+      js: "document.querySelectorAll('.buy').forEach(function (b) {\n  b.addEventListener('click', function () {\n    document.getElementById('out').textContent =\n      '选中商品 id=' + b.dataset.id + '，价格 ' + b.dataset.price;\n  });\n});"
+    },
+    errors: [
+      '用 random 属性名挂数据（比如 userid="42"）：不算错但很乱，规范做法就是 data-*',
+      '在 dataset 里找连字符：data-user-id 要读成 dataset.userId（自动转成小驼峰）'
+    ],
+    related: ['js-dataset', 'js-queryselectorall', 'attr-class'],
+    tip: '<b>data-user-id 变成 dataset.userId</b>：HTML 里用连字符，JS 里自动转成小驼峰。这是唯一一个"两边写法不一样"的属性。'
+  },
+
+  {
+    id: 'attr-lang', name: 'lang', zh: '语言',
+    purpose: '声明内容用哪种语言。影响读屏软件用哪种语音朗读，也影响浏览器判断要不要断词、用哪套引号。',
+    syntax: '<html lang="zh-CN">\n<p lang="en">Hello</p>',
+    status: 'modern',
+    keywords: ['语言', '中文', '读音', '无障碍', 'SEO'],
+    example: {
+      html: '<p>这段是中文，读屏软件会用中文念。</p>\n<p lang="en">This sentence is English, so screen readers switch voice.</p>',
+      css: 'p { margin-bottom: 10px; }',
+      js: ''
+    },
+    errors: [
+      '在 <html> 上漏写 lang：读屏软件可能用英文发音来念中文，完全听不懂',
+      '写 lang="cn" 而不是 "zh-CN"：语言代码用 ISO 标准，中文是 zh'
+    ],
+    related: ['html-html', 'attr-charset']
+  },
+
+  {
+    id: 'attr-charset', name: 'charset', zh: '字符编码',
+    purpose: '声明文档用哪种字符编码，配合 <meta> 使用。写 UTF-8 就对了，中文页面的必备行。',
+    syntax: '<meta charset="utf-8">',
+    status: 'modern',
+    keywords: ['编码', '乱码', 'utf-8', '中文'],
+    example: {
+      html: '<p>本页首行写了 &lt;meta charset="utf-8"&gt;，所以中文正常显示。</p>\n<p>如果编码写错或漏写，中文就会变成「锟斤拷」或者一串问号。</p>',
+      css: '.box { background: #fff8e1; padding: 12px; border-radius: 8px; }',
+      js: ''
+    },
+    errors: [
+      '漏写或写错：中文、emoji 全部乱码',
+      '把 <meta charset> 放在 <head> 很靠后的位置：浏览器前 1024 字节里没看到就可能猜错编码',
+      '声明了 utf-8，文件却是用 GBK 存的：照样乱码 —— 声明和实际保存格式必须一致'
+    ],
+    related: ['html-meta', 'attr-lang'],
+    tip: '<b>为什么会有乱码</b>：字符在文件里存的是一串字节，得用同一套规则翻译回来。文件用 UTF-8 存、页面声明 GBK 读，翻译错了就成了乱码。'
+  },
+
+  {
+    id: 'attr-defer', name: 'defer / async', zh: '脚本加载时机',
+    purpose: '控制外部脚本什么时候下载、什么时候执行。解决「脚本执行时元素还没生成」的经典问题。布尔属性。',
+    syntax: '<script src="app.js" defer><\/script>',
+    status: 'modern',
+    keywords: ['延迟', '异步', '加载', '执行顺序', 'defer', 'async'],
+    example: {
+      html: '<p>下面这个脚本用了 defer，所以它能拿到页面里的元素：</p>\n<p id="t">我被 JS 改过了</p>\n<p id="r"></p>',
+      css: 'p { margin-bottom: 8px; }',
+      js: "document.getElementById('t').textContent = '✅ 拿到元素了（defer 等到 HTML 解析完才执行）';\ndocument.getElementById('r').textContent = '如果没写 defer 又放在 head 里，这里会报 null 错误。';"
+    },
+    errors: [
+      '把 <script> 放 <head> 又不加 defer，然后去操作 body 里的元素：元素还不存在，得到 null',
+      'defer 和 async 同时写：async 生效，defer 被忽略',
+      '多个脚本有依赖关系却用 async：执行顺序不保证，可能后面的先跑'
+    ],
+    related: ['html-script', 'attr-src', 'js-queryselector'],
+    tip: '<b>一张表记住</b>：普通 script = 下载并立即执行（会卡住页面解析）；defer = 下载同时继续解析，全部解析完再按顺序执行；async = 下载完就执行，顺序不确定。日常首选 <b>defer</b>。'
+  },
+
+  {
+    id: 'attr-for', name: 'for', zh: '绑定到哪个控件',
+    purpose: '写在 <label> 上，值必须是某个表单控件的 id。绑定后点击文字就等于点击控件，读屏软件也能念出这栏是干什么的。',
+    syntax: '<label for="输入框的id">说明文字</label>\n<input id="输入框的id">',
+    status: 'modern',
+    keywords: ['label', 'for', '绑定', '表单'],
+    example: {
+      html: '<p><label for="c1">点这几个字，勾选框会跟着切换：</label><input id="c1" type="checkbox"></p>\n<p><label for="c2">点这几个字，光标会跳进输入框：</label><input id="c2" type="text" placeholder="试试"></p>\n<p>也可以省掉 for，把控件直接包在 label 里面：</p>\n<p><label><input type="checkbox"> 这样也能点</label></p>',
+      css: 'label { cursor: pointer; }\ninput[type=text] { padding: 5px 9px; border: 1px solid #ccd2dc; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      'for 的值和 id 不一致：绑不上，点了没反应，而且不报错',
+      'for 里写的是 name 值：for 对应的是 id，不是 name',
+      '表单里忘了 label：读屏软件只会念出「编辑框」，用户不知道这栏该填什么'
+    ],
+    related: ['html-label', 'html-input', 'attr-id', 'attr-value'],
+    tip: '<b>for 只认 id</b>，这一点和 CSS 里 . 认 class、# 认 id 的规则是一致的 —— id 在整份文档里唯一，所以能精确指到某一个控件。'
+  },
+
+  {
+    id: 'attr-action', name: 'action', zh: '表单提交到哪',
+    purpose: '写在 <form> 上，指定表单数据提交到哪个地址。不写的话默认提交回当前页面。',
+    syntax: '<form action="/api/login" method="post">',
+    status: 'modern',
+    keywords: ['表单', '提交地址', 'action', '后端'],
+    example: {
+      html: '<p>这个示例的表单不写 action，提交会回到当前页面 —— 所以我们用 JS 把它拦下来了。</p>\n<form id="f1" method="get">\n  <p><label for="kw">搜索：</label><input id="kw" name="q" type="text" value="测试"></p>\n  <p><button type="submit">提交</button></p>\n</form>\n<p id="out"></p>',
+      css: 'form { border: 1px solid #ccd2dc; padding: 12px; border-radius: 8px; max-width: 320px; }\ninput { padding: 6px 10px; border: 1px solid #ccd2dc; border-radius: 6px; }',
+      js: "document.getElementById('f1').addEventListener('submit', function (e) {\n  e.preventDefault();\n  const data = new FormData(e.target);\n  document.getElementById('out').textContent =\n    '本来会提交到 action 指定的地址，数据是：q=' + data.get('q');\n});"
+    },
+    errors: [
+      '本地双击打开页面时提交到相对路径：file:// 下表单提交行为很怪，开发表单请起本地服务器',
+      '地址写错却看不出来：表单会跳到一个 404 页面，让人以为是自己代码坏了'
+    ],
+    related: ['html-form', 'attr-method'],
+    tip: '<b>现代做法</b>：很多单页应用干脆不写 action，改用 JS 的 fetch 把数据以 JSON 发出去，然后 e.preventDefault() 阻止默认的页面跳转。'
+  },
+
+  {
+    id: 'attr-method', name: 'method', zh: '提交方式',
+    purpose: '写在 <form> 上，决定数据怎么发给服务器：get 拼在网址后面，post 放在请求体里。',
+    syntax: '<form method="get">   数据挂在网址上，能被看到、能加书签\n<form method="post">  放在请求体里，适合敏感/大量数据',
+    status: 'modern',
+    keywords: ['表单', 'get', 'post', '提交方式', '安全'],
+    example: {
+      html: '<p>下面这个表单用 get，看看提交时网址会变成什么样子 —— 我们拦下来了，只展示拼接结果：</p>\n<form id="g">\n  <p><input name="user" type="text" value="小明"></p>\n  <p><input name="pw" type="text" value="123456"></p>\n  <p><button type="submit">get 提交</button></p>\n</form>\n<p id="out"></p>',
+      css: 'form { border: 1px solid #ccd2dc; padding: 12px; border-radius: 8px; max-width: 340px; }\ninput { padding: 6px 10px; border: 1px solid #ccd2dc; border-radius: 6px; margin-bottom: 6px; }',
+      js: "document.getElementById('g').addEventListener('submit', function (e) {\n  e.preventDefault();\n  const d = new FormData(e.target);\n  const qs = new URLSearchParams(d).toString();\n  document.getElementById('out').textContent =\n    'get 提交后网址会变成：' + location.pathname + '?' + qs +\n    '\\n\\n看清楚了吗？密码明晃晃挂在网址上 —— 所以登录类表单必须用 post。';\n});"
+    },
+    errors: [
+      '登录、注册表单用 get：密码会出现在网址、浏览器历史和服务器日志里',
+      '以为 post 就安全了：post 只是不放在网址里，明文 http 下照样能被抓包，还得靠 https',
+      '刷新 post 提交的页面时浏览器弹「是否重新提交」：这是 post 语义的正常表现，用 JS + fetch 可以避免'
+    ],
+    related: ['html-form', 'attr-action'],
+    tip: '<b>一句话选</b>：只是「查询/筛选」用 get（可以收藏、可以前进后退）；「会改变数据」的操作一律用 post。'
+  }
+
+];
+
+</script>
+<script>
+/* ==========================================================================
+   CSS 属性 词条
+   --------------------------------------------------------------------------
+   注意：这里只放「CSS 属性」，比如 color、display。
+   不要和 HTML 属性（html-attrs.js）混在一起 —— 两者长得像但写法、位置完全不同。
+   ========================================================================== */
+
+window.WDT_CSS_PROPS = [
+
+  {
+    id: 'css-color', name: 'color', zh: '文字颜色',
+    purpose: '设置文字（和文字装饰线）的颜色。只影响前景色，不管背景。',
+    syntax: 'color: #333;\ncolor: rgb(255 0 0);\ncolor: hsl(210 80% 50%);',
+    status: 'modern',
+    keywords: ['颜色', '文字色', '前景色'],
+    example: {
+      html: '<p class="a">十六进制写法</p>\n<p class="b">rgb 写法</p>\n<p class="c">hsl 写法（最好调明暗）</p>',
+      css: '.a { color: #2f6fdd; }\n.b { color: rgb(192 58 82); }\n.c { color: hsl(160 60% 35%); }\np { font-size: 16px; }',
+      js: ''
+    },
+    errors: [
+      '忘了写 # 号：color: 2f6fdd 是无效值，整条声明被丢弃',
+      '以为 color 会改背景：改背景要用 background-color',
+      '颜色对比度太低（浅灰字配白底），长时间看很累，也过不了无障碍检查'
+    ],
+    related: ['css-background-color', 'css-opacity'],
+    tip: '<b>别写颜色名</b>（red、blue）：只有 140 来个且不好微调。用十六进制或 hsl —— hsl 的第三个数字控制明暗，调深浅最直观。'
+  },
+
+  {
+    id: 'css-background-color', name: 'background-color', zh: '背景色',
+    purpose: '设置元素的背景颜色。和 color 正好是一对：一个管底，一个管字。',
+    syntax: 'background-color: #f5f7fa;\nbackground-color: transparent;',
+    status: 'modern',
+    keywords: ['背景色', '底色', '背景'],
+    example: {
+      html: '<div class="box">有背景色的盒子</div>\n<div class="box hi">高亮背景</div>',
+      css: '.box { background-color: #f1f3f7; padding: 10px 14px; border-radius: 8px; margin-bottom: 10px; }\n.hi { background-color: #fff3cd; }',
+      js: ''
+    },
+    errors: [
+      '写成 background-color: 红色 —— CSS 不认识中文颜色名',
+      '以为 background-color 会连文字一起变色：它是背景，文字色是 color'
+    ],
+    related: ['css-color', 'css-padding', 'css-border-radius']
+  },
+
+  {
+    id: 'css-font-family', name: 'font-family', zh: '字体',
+    purpose: '指定文字用哪套字体。写一串候选，浏览器从左往右找第一个装了的。结尾一定要给通用族名兜底。',
+    syntax: 'font-family: "Microsoft YaHei", sans-serif;',
+    status: 'modern',
+    keywords: ['字体', '字型', 'font', 'sans-serif'],
+    example: {
+      html: '<p class="sans">无衬线：适合屏幕阅读</p>\n<p class="serif">衬线：适合长文印刷</p>\n<p class="mono">等宽：适合代码</p>',
+      css: '.sans  { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; }\n.serif { font-family: Georgia, "Songti SC", serif; }\n.mono  { font-family: Consolas, "Courier New", monospace; }',
+      js: ''
+    },
+    errors: [
+      '字体名带空格却不加引号：font-family: Microsoft YaHei 会解析失败，要写 "Microsoft YaHei"',
+      '结尾不写通用族名：候选字体都没装时浏览器只能自己乱猜',
+      '指望用户电脑上一定有某个字体：字体是本地资源，装了才有'
+    ],
+    related: ['css-font-size', 'css-font-weight']
+  },
+
+  {
+    id: 'css-font-size', name: 'font-size', zh: '字号',
+    purpose: '设置文字大小。浏览器默认约 16px。正文一般 15–18px 比较舒服。',
+    syntax: 'font-size: 16px;\nfont-size: 1rem;\nfont-size: 1.25em;',
+    status: 'modern',
+    keywords: ['字号', '文字大小', 'px', 'rem', 'em'],
+    example: {
+      html: '<p class="s">14px 偏小</p>\n<p class="m">16px 正文常用</p>\n<p class="l">1.5rem（= 24px，跟随根字号缩放）</p>',
+      css: '.s { font-size: 14px; }\n.m { font-size: 16px; }\n.l { font-size: 1.5rem; }',
+      js: ''
+    },
+    errors: [
+      '正文用 12px：屏幕上过小，斜视/老花的人根本看不清',
+      '到处用 px：用户把浏览器默认字号调大时，px 不会跟着变，用 rem 会',
+      '用 em 层层嵌套：会父子相乘，很容易算错，一般只在需要"相对父元素"时用'
+    ],
+    related: ['css-font-family', 'css-line-height'],
+    tip: '<b>px / rem / em 怎么选</b>：px 是死值；rem 相对根元素（&lt;html&gt;）字号，最推荐；em 相对父元素字号，会累积。'
+  },
+
+  {
+    id: 'css-font-weight', name: 'font-weight', zh: '字重',
+    purpose: '设置字体粗细。100–900，也可以写 normal（400）和 bold（700）。前提是这套字体真的提供了对应粗细。',
+    syntax: 'font-weight: 400 / 700;\nfont-weight: normal / bold;',
+    status: 'modern',
+    keywords: ['粗细', '加粗', 'bold', '字重'],
+    example: {
+      html: '<p class="w1">400 正常</p>\n<p class="w2">500 中等</p>\n<p class="w3">700 粗</p>\n<p class="w4">900 特粗</p>',
+      css: '.w1 { font-weight: 400; }\n.w2 { font-weight: 500; }\n.w3 { font-weight: 700; }\n.w4 { font-weight: 900; }',
+      js: ''
+    },
+    errors: [
+      '给没有 900 字重的字体写 900：浏览器会自己"描粗"变难看，或者直接退回 700',
+      '用 font-weight 代替 <strong>：一个管外观，一个表语义。只想视觉加粗就用 font-weight'
+    ],
+    related: ['css-font-size', 'html-strong']
+  },
+
+  {
+    id: 'css-line-height', name: 'line-height', zh: '行高',
+    purpose: '行与行之间的距离。这个属性对「读起来累不累」的影响，比字体本身还大。',
+    syntax: 'line-height: 1.7;\nline-height: 24px;',
+    status: 'modern',
+    keywords: ['行高', '行距', '可读性', 'leading'],
+    example: {
+      html: '<p class="tight">行高 1.2 —— 中文长文这样会挤在一起，读两行就串行了。</p>\n<p class="loose">行高 1.8 —— 中文正文推荐 1.6 到 1.8，眼睛不容易跳行。</p>',
+      css: 'p { font-size: 16px; background: #f7f8fa; padding: 10px 14px; border-radius: 8px; }\n.tight { line-height: 1.2; margin-bottom: 12px; }\n.loose { line-height: 1.8; }',
+      js: ''
+    },
+    errors: [
+      '写无单位数值时其实是"倍数"，写 px 是死高度 —— 推荐用无单位倍数（1.6），会跟着字号自动缩放',
+      '给中文正文用 1.2：拉丁字母还有余量，中文字面大，会显得挤'
+    ],
+    related: ['css-font-size', 'concept-selector']
+  },
+
+  {
+    id: 'css-text-align', name: 'text-align', zh: '水平对齐',
+    purpose: '让行内内容在水平方向上怎么排：left / center / right / justify。注意它对块级元素本身的位置无效，只影响里面的行内内容。',
+    syntax: 'text-align: center;',
+    status: 'modern',
+    keywords: ['对齐', '居中', '对齐方式'],
+    example: {
+      html: '<div class="box c">居中</div>\n<div class="box l">左对齐</div>\n<div class="box r">右对齐</div>',
+      css: '.box { background: #eef2ff; padding: 10px; margin-bottom: 8px; border-radius: 6px; }\n.c { text-align: center; }\n.l { text-align: left; }\n.r { text-align: right; }',
+      js: ''
+    },
+    errors: [
+      '想居中一个 div 却写 text-align: center：文字会居中，但 div 本身还是撑满整行。要居中块级元素得用 margin: auto 或 flex',
+      '给大段中文用 justify：中西混排时会出现难看的"河流"空隙'
+    ],
+    related: ['css-margin', 'css-justify-content', 'html-center'],
+    tip: '<b>「居中一个盒子」和「居中盒子里的字」是两件事</b>：前者用 <b>margin: 0 auto</b>（要有宽度）或 <b>flex + justify-content</b>；后者才是 text-align。'
+  },
+
+  {
+    id: 'css-text-decoration', name: 'text-decoration', zh: '文字装饰线',
+    purpose: '给文字加下划线、删除线、上划线。链接默认带下划线就是它。',
+    syntax: 'text-decoration: underline;\ntext-decoration: none;\ntext-decoration: line-through;',
+    status: 'modern',
+    keywords: ['下划线', '删除线', '装饰线', 'underline'],
+    example: {
+      html: '<p><a href="#" class="nolink">去掉下划线的链接（悬停时再加回来）</a></p>\n<p class="del">这是一段被划掉的旧价格</p>\n<p class="und">这是强调用的下划线</p>',
+      css: 'a.nolink { text-decoration: none; color: #2f6fdd; }\na.nolink:hover { text-decoration: underline; }\n.del { text-decoration: line-through; color: #8b93a1; }\n.und { text-decoration: underline; text-decoration-color: #f0a878; }',
+      js: ''
+    },
+    errors: [
+      '给所有链接都去掉下划线又不给别的提示：色盲用户分不清哪些字能点（记住悬停时要加回来）',
+      '用 text-decoration: none 去下划线却想当然以为它也能去掉 border'
+    ],
+    related: ['html-a', 'css-color']
+  },
+
+  {
+    id: 'css-margin', name: 'margin', zh: '外边距',
+    purpose: '元素「外面」的空白，推开别的元素。四个方向可以一起写，也可以分开写。',
+    syntax: 'margin: 10px;\nmargin: 10px 20px;\nmargin: 10px auto;   /* 水平居中 */',
+    status: 'modern',
+    keywords: ['外边距', '间距', '空隙', '居中'],
+    example: {
+      html: '<div class="a">margin-bottom: 24px</div>\n<div class="b">我和上面隔了 24px，我自己还有个左外边距</div>',
+      css: '.a { background: #eef2ff; padding: 10px; margin-bottom: 24px; }\n.b { background: #e9f7ec; padding: 10px; margin-left: 32px; }',
+      js: ''
+    },
+    errors: [
+      '用 margin 撑开盒子内部空间：那是 padding 的活',
+      '两个上下相邻的元素都设了 margin：外侧的会「塌陷」成一个，取两者较大的，而不是相加',
+      '给行内元素设上下 margin：多数情况不起作用'
+    ],
+    related: ['css-padding', 'css-width', 'css-text-align'],
+    tip: '<b>margin 和 padding 怎么记</b>：padding 是「贴在肉上的衣服内衬」（在边框里面，撑大盒子），margin 是「和别人保持的社交距离」（在边框外面，不影响自身大小）。'
+  },
+
+  {
+    id: 'css-padding', name: 'padding', zh: '内边距',
+    purpose: '元素「里面」的空白，把内容和边框推开。设了 padding 元素会变大（除非 box-sizing: border-box）。',
+    syntax: 'padding: 12px 16px;',
+    status: 'modern',
+    keywords: ['内边距', '内衬', '留白'],
+    example: {
+      html: '<div class="tight">padding: 2px —— 字贴着边框，很难看</div>\n<div class="comfy">padding: 14px 18px —— 舒服多了</div>',
+      css: '.tight { padding: 2px; background: #fff3cd; margin-bottom: 8px; }\n.comfy { padding: 14px 18px; background: #e9f7ec; border-radius: 8px; }',
+      js: ''
+    },
+    errors: [
+      '想调元素之间的距离却用 padding：元素会变大，该用 margin',
+      '按钮不设 padding：点着难受，视觉上也挤'
+    ],
+    related: ['css-margin', 'css-box-sizing', 'css-border']
+  },
+
+  {
+    id: 'css-border', name: 'border', zh: '边框',
+    purpose: '元素的边框，简写形式是「粗细 样式 颜色」三件套。只有写样式才会显示，粗细和颜色单独写是看不到的。',
+    syntax: 'border: 1px solid #ddd;\nborder-bottom: 2px solid #2f6fdd;',
+    status: 'modern',
+    keywords: ['边框', '描边', '边线', 'solid', 'dashed'],
+    example: {
+      html: '<div class="solid">实线边框</div>\n<div class="dashed">虚线边框</div>\n<div class="bottom">只有下边框</div>',
+      css: 'div { padding: 10px; margin-bottom: 8px; border-radius: 6px; }\n.solid { border: 2px solid #2f6fdd; }\n.dashed { border: 2px dashed #f0a878; }\n.bottom { border-bottom: 3px solid #4fd1c5; background: #f7f8fa; }',
+      js: ''
+    },
+    errors: [
+      '只写 border-width: 1px 没写样式：没有 border-style 就不显示边框，这是最常见的"边框失效"原因',
+      '给元素加边框后发现布局位移：因为 border 会占体积，用 box-sizing: border-box 解决'
+    ],
+    related: ['css-border-radius', 'css-box-sizing', 'css-padding']
+  },
+
+  {
+    id: 'css-border-radius', name: 'border-radius', zh: '圆角',
+    purpose: '把直角变圆角。值越大越圆，超过一半就变成圆形/胶囊形。',
+    syntax: 'border-radius: 8px;\nborder-radius: 999px;   /* 胶囊 */\nborder-radius: 50%;     /* 正圆 */',
+    status: 'modern',
+    keywords: ['圆角', '圆形', '胶囊', 'radius'],
+    example: {
+      html: '<div class="r1">8px 圆角</div>\n<div class="pill">胶囊按钮</div>\n<div class="circle">50%</div>',
+      css: 'div { background: #eef2ff; margin-bottom: 10px; }\n.r1 { border-radius: 8px; padding: 12px; }\n.pill { border-radius: 999px; padding: 8px 20px; display: inline-block; }\n.circle { border-radius: 50%; width: 70px; height: 70px; display: flex; align-items: center; justify-content: center; font-size: 12px; }',
+      js: ''
+    },
+    errors: [
+      '想要圆形却只写 border-radius: 50% 而元素是长方形：会得到椭圆，得让宽高相等',
+      '给图片加圆角但没加 overflow: hidden，图片本身照样是方的（其实 border-radius 对 img 是有效的，问题多出在父容器上）'
+    ],
+    related: ['css-border', 'css-width', 'css-height']
+  },
+
+  {
+    id: 'css-box-shadow', name: 'box-shadow', zh: '阴影',
+    purpose: '给元素加深浅阴影，营造层次。参数依次是：水平偏移 垂直偏移 模糊 扩散 颜色。',
+    syntax: 'box-shadow: 0 2px 8px rgba(0,0,0,.12);',
+    status: 'modern',
+    keywords: ['阴影', '立体', '投影', '层次'],
+    example: {
+      html: '<div class="flat">没有阴影（平的）</div>\n<div class="raised">有阴影（浮起来）</div>',
+      css: 'div { padding: 14px; border-radius: 10px; margin-bottom: 14px; background: #fff; border: 1px solid #eceef3; }\n.raised { box-shadow: 0 2px 10px rgba(16,24,40,.12); border: 0; }',
+      js: ''
+    },
+    errors: [
+      '给每个元素都加阴影：满屏都在飘，反而看不出层次',
+      '用纯黑 rgba(0,0,0,.5)：太重太脏，浅一点（.08–.15）更自然'
+    ],
+    related: ['css-border', 'css-border-radius']
+  },
+
+  {
+    id: 'css-width', name: 'width', zh: '宽度',
+    purpose: '设置元素内容区的宽度。对行内元素（如 span）无效，需要先改成 inline-block / block / flex。',
+    syntax: 'width: 240px;\nwidth: 50%;\nwidth: min(100%, 640px);',
+    status: 'modern',
+    keywords: ['宽度', '尺寸', '大小'],
+    example: {
+      html: '<div class="fixed">固定 200px</div>\n<div class="pct">父容器的 60%</div>',
+      css: '.fixed { width: 200px; background: #eef2ff; padding: 8px; margin-bottom: 8px; }\n.pct { width: 60%; background: #e9f7ec; padding: 8px; }',
+      js: ''
+    },
+    errors: [
+      '给 <span> 设 width：行内元素不响应，得先 display: inline-block',
+      '设了 width: 100% 又加 padding：总宽会超出父容器（默认 border-box 之外的计算方式），用 box-sizing: border-box 解决'
+    ],
+    related: ['css-max-width', 'css-height', 'css-box-sizing', 'css-display']
+  },
+
+  {
+    id: 'css-height', name: 'height', zh: '高度',
+    purpose: '设置元素高度。多数情况下应该让内容撑开高度，写死高度容易在文字变多时溢出。',
+    syntax: 'height: 120px;\nmin-height: 100vh;',
+    status: 'modern',
+    keywords: ['高度', '尺寸', '撑满屏幕'],
+    example: {
+      html: '<div class="h1">写死 height: 60px</div>\n<div class="h2">min-height: 60px（内容多了会自己长高）</div>',
+      css: '.h1 { height: 60px; background: #eef2ff; margin-bottom: 8px; }\n.h2 { min-height: 60px; background: #e9f7ec; padding: 8px; }',
+      js: ''
+    },
+    errors: [
+      '写死 height 装动态文字：文字一多就溢出到盒子外面',
+      '用 height: 100% 想撑满屏幕：父元素没有确定高度时百分比无效，应该用 min-height: 100vh'
+    ],
+    related: ['css-width', 'css-overflow', 'css-max-width']
+  },
+
+  {
+    id: 'css-max-width', name: 'max-width', zh: '最大宽度',
+    purpose: '限制元素不超过这个宽度，窗口变小时又会自动收窄。做「既能自适应又不会宽到读不下去」的正文，靠的就是它。',
+    syntax: 'max-width: 720px;\nmargin: 0 auto;',
+    status: 'modern',
+    keywords: ['最大宽度', '限宽', '响应式', '可读性'],
+    example: {
+      html: '<div class="col"><p>这一栏最宽 520px，行太长眼睛会累。窗口拉窄时它会自动收窄，不会出现横向滚动条。</p></div>',
+      css: '.col { max-width: 520px; margin: 0 auto; background: #f7f8fa; padding: 14px 18px; border-radius: 10px; }',
+      js: ''
+    },
+    errors: [
+      '正文不限宽：宽屏上一行 200 多个字，读两行就找不着下一行的开头了',
+      '用 width 代替 max-width：小屏上会出现横向滚动条'
+    ],
+    related: ['css-width', 'css-margin', 'css-line-height'],
+    tip: '<b>正文宽度的经验值</b>：一行 45–75 个字符最舒服，中文大约 30–45 字。所以正文栏一般限宽 620–760px。'
+  },
+
+  {
+    id: 'css-display', name: 'display', zh: '显示方式',
+    purpose: '决定元素以哪种方式参与布局：block 独占一行、inline 跟着文字走、flex/grid 变成容器。这是布局里最重要的属性。',
+    syntax: 'display: block | inline | inline-block | flex | grid | none;',
+    status: 'modern',
+    keywords: ['显示', '块级', '行内', 'flex', 'grid', '隐藏'],
+    example: {
+      html: '<span class="ib">我是 span</span>\n<span class="ib">但我们变成了 inline-block</span>\n<div class="d">我是 div</div>\n<div class="d none">我被 display:none 藏了</div>',
+      css: '.ib { display: inline-block; background: #eef2ff; padding: 6px 10px; border-radius: 6px; margin-right: 6px; }\n.d { display: block; background: #e9f7ec; padding: 6px 10px; margin-top: 8px; border-radius: 6px; }\n.none { display: none; }',
+      js: ''
+    },
+    errors: [
+      '用 display: none 隐藏元素后又想读取它的尺寸：读不到，元素完全不参与布局。要用 visibility: hidden 或 opacity: 0',
+      '给行内元素设 width/height：不生效，得先 inline-block',
+      '在 flex 容器里还去调 float：flex 会忽略 float'
+    ],
+    related: ['css-justify-content', 'css-align-items', 'html-span', 'html-div'],
+    tip: '<b>三种"隐藏"完全不同</b>：display:none（消失且不占位）、visibility:hidden（看不见但占位）、opacity:0（透明但还能点）。选错了会出现"按钮点不着"的怪事。'
+  },
+
+  {
+    id: 'css-box-sizing', name: 'box-sizing', zh: '盒模型计算方式',
+    purpose: '决定 width 包含不包含 padding 和 border。设成 border-box 后，width 就是"看得见的总宽"，最不容易算错。',
+    syntax: '* { box-sizing: border-box; }',
+    status: 'modern',
+    keywords: ['盒模型', 'border-box', '尺寸计算', '布局'],
+    example: {
+      html: '<div class="row">\n  <div class="cell a">A（50% + padding）</div>\n  <div class="cell b">B（50% + padding）</div>\n</div>\n<p>这两个格子并排没有溢出，因为用了 border-box。</p>',
+      css: '* { box-sizing: border-box; }\n.row { display: flex; gap: 10px; }\n.cell { width: 50%; padding: 10px; border-radius: 8px; }\n.a { background: #eef2ff; }\n.b { background: #e9f7ec; }',
+      js: ''
+    },
+    errors: [
+      '不设 border-box：设了 width: 100% 再加 padding，总宽就会超出父容器，撑出横向滚动条',
+      '以为 box-sizing 影响内容排版：它只改"宽度怎么算"，不改内容'
+    ],
+    related: ['css-width', 'css-padding', 'css-border'],
+    tip: '<b>推荐在样式表开头全局写上</b> <b>* { box-sizing: border-box }</b>。这是几乎每个项目都会做的一件事，能省掉一大类"为什么宽度超了"的困惑。'
+  },
+
+  {
+    id: 'css-overflow', name: 'overflow', zh: '溢出处理',
+    purpose: '内容超出盒子时怎么办：hidden 裁掉、scroll 出滚动条、auto 需要时才出。',
+    syntax: 'overflow: hidden | auto | scroll | visible;',
+    status: 'modern',
+    keywords: ['溢出', '滚动条', '裁剪', 'scroll'],
+    example: {
+      html: '<div class="box hidden">overflow: hidden —— 超出的部分被裁掉了，你看不到这句话的后半段后半段后半段后半段</div>\n<div class="box auto">overflow: auto —— 内容超了就出现滚动条，可以滚。后面还有很多字很多字很多字很多字很多字很多字很多字</div>',
+      css: '.box { height: 62px; padding: 8px 10px; border: 1px solid #ccd2dc; border-radius: 8px; margin-bottom: 12px; background: #fff; }\n.hidden { overflow: hidden; }\n.auto { overflow: auto; }',
+      js: ''
+    },
+    errors: [
+      '用 overflow: hidden 掩盖布局问题：内容其实是丢掉了，用户看不到',
+      '给 body 设 overflow: hidden 想锁滚动：手机浏览器行为不一致，可能整页都滚不了'
+    ],
+    related: ['css-height', 'css-width']
+  },
+
+  {
+    id: 'css-position', name: 'position', zh: '定位方式',
+    purpose: '决定元素怎么"脱离"正常文档流：static 默认、relative 相对自身微调、absolute 相对最近的定位祖先、fixed 相对视口、sticky 滚动到阈值就吸附。',
+    syntax: 'position: relative | absolute | fixed | sticky;',
+    status: 'modern',
+    keywords: ['定位', 'absolute', 'fixed', 'sticky', 'relative'],
+    example: {
+      html: '<div class="wrap">\n  <div class="sticky">sticky：往下滚我会吸在顶部</div>\n  <p>第一段内容</p><p>第二段内容</p><p>第三段内容</p><p>第四段内容</p><p>第五段内容</p>\n</div>',
+      css: '.wrap { height: 190px; overflow-y: auto; border: 1px solid #ccd2dc; border-radius: 8px; padding: 10px; }\n.sticky { position: sticky; top: 0; background: #fff3cd; padding: 6px 10px; border-radius: 6px; margin-bottom: 8px; }\np { margin: 0 0 40px; }',
+      js: ''
+    },
+    errors: [
+      '用 absolute 却发现位置不对：它相对「最近的、position 不是 static 的祖先」定位。父元素没设 relative 就会一路往上找到 <html>',
+      'absolute 的元素宽度塌成一条：没有宽度约束时会收缩到内容宽，需要显式给 width',
+      'sticky 不生效：常见原因是没写 top/bottom，或者祖先元素有 overflow: hidden'
+    ],
+    related: ['css-z-index', 'css-top', 'css-display']
+  },
+
+  {
+    id: 'css-z-index', name: 'z-index', zh: '层叠顺序',
+    purpose: '控制元素在"垂直屏幕方向"上谁压谁。数值大的在上面。',
+    syntax: 'z-index: 10;',
+    status: 'modern',
+    keywords: ['层级', '覆盖', '谁在上面', '层叠'],
+    example: {
+      html: '<div class="stack">\n  <div class="l1">底层 z-index: 1</div>\n  <div class="l2">上层 z-index: 2（我压着它）</div>\n</div>',
+      css: '.stack { position: relative; height: 110px; }\n.l1, .l2 { position: absolute; width: 190px; padding: 12px; border-radius: 8px; }\n.l1 { left: 0; top: 0; background: #eef2ff; z-index: 1; }\n.l2 { left: 40px; top: 40px; background: #fff3cd; z-index: 2; }',
+      js: ''
+    },
+    errors: [
+      '给没定位的元素写 z-index：对 static 元素无效，要先设 position（relative/absolute/fixed/sticky）',
+      '疯狂加 z-index: 9999：治不了根，说明层级结构有问题',
+      '父元素层级比另一个父元素低，孩子再高的 z-index 也翻不过去 —— 这叫「层叠上下文」，是新手最容易被坑的地方'
+    ],
+    related: ['css-position', 'css-opacity'],
+    tip: '<b>层叠上下文</b>：父元素一旦形成了层叠上下文（比如设了 opacity &lt; 1、transform、position + z-index），它的所有子元素就只能在父元素那一层内部排序。<b>所以子元素 z-index 再大也压不过别的层</b>。'
+  },
+
+  {
+    id: 'css-top', name: 'top / right / bottom / left', zh: '偏移量',
+    purpose: '配合 position 使用，指定元素往哪边偏移多少。对 static 元素无效。',
+    syntax: 'position: absolute;\ntop: 0; left: 50%;',
+    status: 'modern',
+    keywords: ['偏移', '定位', '坐标', 'top', 'left'],
+    example: {
+      html: '<div class="stage">\n  <div class="badge">左上角</div>\n  <div class="center">水平居中</div>\n</div>',
+      css: '.stage { position: relative; height: 150px; background: #f7f8fa; border-radius: 10px; }\n.badge { position: absolute; top: 8px; left: 8px; background: #ffd7d7; padding: 3px 10px; border-radius: 6px; font-size: 13px; }\n.center { position: absolute; top: 70px; left: 50%; transform: translateX(-50%); background: #d9f2ff; padding: 6px 14px; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      '只想水平居中就写 left: 50%，结果偏右一半：还要 transform: translateX(-50%) 把自身宽度拉回来',
+      '同时写 top 和 bottom 又写死了 height：拉伸规则会打架'
+    ],
+    related: ['css-position', 'css-transform', 'css-z-index'],
+    tip: '<b>left: 50% + transform: translateX(-50%)</b> 是「水平居中一个绝对定位元素」的经典组合，前面的 50% 是"父容器的一半"，后面的 -50% 是"自己的一半"。'
+  },
+
+  {
+    id: 'css-flex-direction', name: 'flex-direction', zh: '主轴方向',
+    purpose: '弹性布局的主轴方向：row 横排（默认）、column 竖排。它决定了 justify-content 是管"横"还是管"竖"。',
+    syntax: 'display: flex;\nflex-direction: row | column;',
+    status: 'modern',
+    keywords: ['弹性布局', '主轴', '横排', '竖排', 'flex'],
+    example: {
+      html: '<div class="row">\n  <div>1</div><div>2</div><div>3</div>\n</div>\n<div class="col">\n  <div>1</div><div>2</div><div>3</div>\n</div>',
+      css: '.row, .col { display: flex; gap: 8px; background: #f7f8fa; padding: 10px; border-radius: 8px; margin-bottom: 12px; }\n.row { flex-direction: row; }\n.col { flex-direction: column; }\ndiv div { background: #eef2ff; padding: 8px 16px; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      '改了 flex-direction 却还用老思路理解 justify-content：主轴一变，justify 和 align 管的轴就跟着调换了',
+      '在 flex 容器上写 text-align 想让子元素居中：对 flex 子项无效，要用 justify-content'
+    ],
+    related: ['css-justify-content', 'css-align-items', 'css-gap', 'css-display']
+  },
+
+  {
+    id: 'css-justify-content', name: 'justify-content', zh: '主轴对齐',
+    purpose: '在弹性/网格容器里，让子项沿「主轴」排布：居中、两端对齐、均匀分布。',
+    syntax: 'display: flex;\njustify-content: center | space-between | flex-start;',
+    status: 'modern',
+    keywords: ['居中', '主轴', '对齐', 'space-between', 'flex'],
+    example: {
+      html: '<div class="bar"><span>居中</span><b>right</b></div>\n<div class="bar between"><span>两端</span><b>对齐</b></div>\n<div class="bar around"><span>均匀</span><b>分布</b></div>',
+      css: '.bar { display: flex; justify-content: center; gap: 10px; background: #f7f8fa; padding: 10px; border-radius: 8px; margin-bottom: 8px; }\n.bar span, .bar b { background: #eef2ff; padding: 4px 12px; border-radius: 6px; font-weight: 400; }\n.between { justify-content: space-between; }\n.around { justify-content: space-around; }',
+      js: ''
+    },
+    errors: [
+      '用 justify-content: center 想让子项「上下」居中：那是 align-items 的活（在 flex-direction: row 时）',
+      '给非 flex/grid 元素写 justify-content：完全无效'
+    ],
+    related: ['css-align-items', 'css-flex-direction', 'css-text-align'],
+    tip: '<b>一句话分清</b>：在 <b>flex-direction: row</b>（默认横排）下，justify-content 管左右、align-items 管上下。主轴一变，两者主管的方向就对调。'
+  },
+
+  {
+    id: 'css-align-items', name: 'align-items', zh: '交叉轴对齐',
+    purpose: '让子项沿「交叉轴」对齐。横排时管上下，竖排时管左右。做「垂直居中」最常用的就是它。',
+    syntax: 'display: flex;\nalign-items: center;',
+    status: 'modern',
+    keywords: ['垂直居中', '交叉轴', '对齐', 'flex'],
+    example: {
+      html: '<div class="box"><span>我在这个盒子里正中间</span></div>',
+      css: '.box { display: flex; align-items: center; justify-content: center; height: 130px; background: #eef2ff; border-radius: 10px; }\nspan { background: #fff; padding: 6px 14px; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      '用 line-height 等于 height 来垂直居中单行文字：多行文字一来就崩了，用 flex + align-items 更稳',
+      '和 align-content 混：align-content 管"多行之间"的分布，只在换行/多行时才有意义'
+    ],
+    related: ['css-justify-content', 'css-flex-direction', 'css-height'],
+    tip: '<b>「水平垂直都居中」的万能三行</b>：display: flex; justify-content: center; align-items: center; —— 这是现代 CSS 最常用的一段代码。'
+  },
+
+  {
+    id: 'css-gap', name: 'gap', zh: '间隙',
+    purpose: '给弹性/网格布局的子项之间统一留间距，比给每个子项写 margin 干净得多（不会在边缘多出一截）。',
+    syntax: 'display: flex;\ngap: 12px;\ngap: 12px 20px;   /* 行间距 列间距 */',
+    status: 'modern',
+    keywords: ['间距', '间隙', 'flex', 'grid', '排版'],
+    example: {
+      html: '<div class="g1"><div>1</div><div>2</div><div>3</div></div>\n<p>用 gap，首尾不会多出空隙。</p>',
+      css: '.g1 { display: flex; gap: 14px; background: #f7f8fa; padding: 10px; border-radius: 8px; }\n.g1 div { flex: 1; background: #e9f7ec; padding: 10px; text-align: center; border-radius: 6px; }',
+      js: ''
+    },
+    errors: [
+      '在很旧的浏览器上 gap 对 flex 不支持（现在主流浏览器都支持了）',
+      '给每个子项写 margin-right 然后在最后一个上又要删掉：直接用 gap 更省事'
+    ],
+    related: ['css-flex-direction', 'css-margin', 'css-justify-content']
+  },
+
+  {
+    id: 'css-grid-template-columns', name: 'grid-template-columns', zh: '网格列定义',
+    purpose: '直接描述"我要几列、每列多宽"。配合 repeat()、fr、auto-fit 能做很强的不写媒体查询就自适应的布局。',
+    syntax: 'display: grid;\ngrid-template-columns: repeat(3, 1fr);\ngrid-template-columns: repeat(auto-fit, minmax(180px, 1fr));',
+    status: 'modern',
+    keywords: ['网格', '栅格', '多列', 'auto-fit', 'fr', 'grid'],
+    example: {
+      html: '<div class="cards">\n  <div>卡片 1</div><div>卡片 2</div><div>卡片 3</div><div>卡片 4</div>\n</div>\n<p>把预览窗口拉窄，它们会自动换行 —— 没有写一行媒体查询。</p>',
+      css: '.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }\n.cards div { background: #eef2ff; padding: 16px 12px; border-radius: 10px; text-align: center; }',
+      js: ''
+    },
+    errors: [
+      '用 grid 却只想排一维（一行或一列）：那种情况 flex 更合适',
+      '忘记 display: grid：单独写 grid-template-columns 不起作用',
+      '1fr 和 px 混用时算错：1fr 分的是"剩余空间"，不是"总宽度"'
+    ],
+    related: ['css-gap', 'css-display', 'css-flex-direction'],
+    tip: '<b>这一行值得背下来</b>：<b>grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))</b> —— 「每个格子最小 180px，剩下的平均分，装不下就换行」。卡片列表几乎不用再写响应式断点。'
+  },
+
+  {
+    id: 'css-transition', name: 'transition', zh: '过渡',
+    purpose: '让属性变化"慢慢变"而不是瞬间切换。参数：哪个属性、多久、什么曲线、延迟多久。',
+    syntax: 'transition: background-color .15s ease;',
+    status: 'modern',
+    keywords: ['过渡', '动画', '渐变', 'hover'],
+    example: {
+      html: '<button class="btn">鼠标悬停我</button>\n<button class="btn no">我没有过渡（瞬间变）</button>',
+      css: '.btn { padding: 9px 20px; border: 0; border-radius: 8px; background: #2f6fdd; color: #fff; margin-right: 8px; transition: background-color .15s ease; }\n.btn:hover { background: #1f4fa8; }\n.no { transition: none; }',
+      js: ''
+    },
+    errors: [
+      '写 transition: all .5s：什么都animate，会连布局属性一起过渡，卡顿且不可控',
+      '时长写 1s 以上：界面反馈会显得迟钝，150–250ms 通常最舒服',
+      '用 transition 过渡 display：display 不是可过渡属性，要配合 visibility 或 opacity'
+    ],
+    related: ['css-transform', 'css-opacity', 'css-background-color'],
+    tip: '<b>克制一点</b>：过渡应该让"状态变化更容易被察觉"，而不是表演。&lt;150ms 按钮反馈、200ms 左右的面板展开就够了。'
+  },
+
+  {
+    id: 'css-transform', name: 'transform', zh: '变换',
+    purpose: '平移、旋转、缩放、倾斜。它只影响绘制，不改动布局，所以做动效性能好。',
+    syntax: 'transform: translateX(-50%);\ntransform: rotate(45deg) scale(1.1);',
+    status: 'modern',
+    keywords: ['变换', '旋转', '缩放', '位移', 'translate', 'rotate'],
+    example: {
+      html: '<div class="row">\n  <div class="t shift">translate</div>\n  <div class="t rot">rotate</div>\n  <div class="t scale">scale</div>\n</div>',
+      css: '.row { display: flex; gap: 16px; align-items: center; padding: 20px 10px; }\n.t { background: #eef2ff; padding: 10px 14px; border-radius: 8px; font-size: 13px; }\n.shift { transform: translateY(-8px); }\n.rot { transform: rotate(-6deg); }\n.scale { transform: scale(1.15); }',
+      js: ''
+    },
+    errors: [
+      '用 top/left 做位移动画：会触发重排，性能差；用 transform 更顺',
+      '多个变换分开写两条 transform：后面那条会覆盖前面，要写在同一条里',
+      'transform 会创建新的层叠上下文，可能让 z-index 表现变得意外'
+    ],
+    related: ['css-transition', 'css-top', 'css-z-index']
+  },
+
+  {
+    id: 'css-opacity', name: 'opacity', zh: '透明度',
+    purpose: '整个元素（连同子元素一起）的透明程度，0 全透明、1 不透明。',
+    syntax: 'opacity: 0.6;',
+    status: 'modern',
+    keywords: ['透明', '不透明度', '淡出'],
+    example: {
+      html: '<div class="o">opacity: 1（默认）</div>\n<div class="o o6">opacity: 0.6 —— 注意里面的文字也跟着变淡了</div>\n<div class="o o2">opacity: 0.2</div>',
+      css: '.o { background: #2f6fdd; color: #fff; padding: 10px; border-radius: 8px; margin-bottom: 8px; }\n.o6 { opacity: .6; }\n.o2 { opacity: .2; }',
+      js: ''
+    },
+    errors: [
+      '只想让背景半透明，却用 opacity：文字也会一起变淡。应该用 rgba() 或 hsl() 的 alpha 通道写背景色',
+      'opacity: 0 的元素还能被点到：它只是透明，仍然占位且响应鼠标，要彻底无效得加 pointer-events: none 或 display: none'
+    ],
+    related: ['css-display', 'css-background-color', 'css-z-index']
+  },
+
+  {
+    id: 'css-cursor', name: 'cursor', zh: '鼠标指针样式',
+    purpose: '指定鼠标移上来时显示什么指针。pointer 是"这是可点的"，是最有用的一种。',
+    syntax: 'cursor: pointer | default | text | not-allowed | grab;',
+    status: 'modern',
+    keywords: ['鼠标', '指针', '手型', 'pointer'],
+    example: {
+      html: '<p class="c1">cursor: pointer（手型）</p>\n<p class="c2">cursor: text（文本光标）</p>\n<p class="c3">cursor: not-allowed（禁止）</p>\n<p class="c4">cursor: help（问号）</p>',
+      css: 'p { padding: 8px 12px; background: #f7f8fa; border-radius: 6px; margin-bottom: 8px; }\n.c1 { cursor: pointer; }\n.c2 { cursor: text; }\n.c3 { cursor: not-allowed; }\n.c4 { cursor: help; }',
+      js: ''
+    },
+    errors: [
+      '给 <div> 加了点击事件却忘了 cursor: pointer：用户根本不知道这里能点',
+      '给禁用的按钮设 cursor: pointer：应该用 not-allowed，否则是在骗用户'
+    ],
+    related: ['css-display', 'attr-disabled', 'html-button']
+  }
+
+];
+
+</script>
+<script>
+/* ==========================================================================
+   JavaScript 方法 / 函数 / 常用属性 词条
+   --------------------------------------------------------------------------
+   注意区分（这也是「基础概念」那几篇在讲的事）：
+     · 方法   = 挂在某个对象上的函数，用点号调用：arr.map(...)、el.addEventListener(...)
+     · 函数   = 独立存在、直接调用：parseInt(...)、setTimeout(...)
+     · 属性   = 不是函数，不用括号：arr.length、el.textContent
+   本文件把常用的都收进来，每条都注明了它属于哪一种。
+   ========================================================================== */
+
+window.WDT_JS_METHODS = [
+
+  {
+    id: 'js-queryselector', name: 'document.querySelector()', zh: '查询单个元素',
+    purpose: '用 CSS 选择器语法找到「第一个」匹配的元素，找不到返回 null。取元素的万能入口。',
+    syntax: "document.querySelector('CSS选择器')",
+    status: 'modern',
+    keywords: ['选择器', '取元素', '查找', 'querySelector'],
+    example: {
+      html: '<div class="card"><h3>标题</h3><p class="desc">正文</p></div>\n<p id="out"></p>',
+      css: '.card { border: 1px solid #ddd; padding: 12px; border-radius: 8px; }',
+      js: "const p = document.querySelector('.card .desc');\nconsole.log('找到的文字：', p.textContent);\ndocument.querySelector('#out').textContent = '用选择器取到了：' + p.textContent;"
+    },
+    errors: [
+      '选择器忘了加点或井号：querySelector("card") 是在找叫 card 的标签，不是 class',
+      '拿到 null 就直接用：元素不存在时返回 null，必须先判断再用，否则报 "Cannot read properties of null"',
+      '脚本写在元素之前执行：那时元素还没生成，只会拿到 null（加 defer 或把脚本放最后）'
+    ],
+    related: ['js-queryselectorall', 'js-getelementbyid', 'concept-selector'],
+    tip: '参数用的是 <b>CSS 选择器语法</b>，这点很关键 —— 你会的每一个 CSS 选择器都能直接拿来选元素。'
+  },
+
+  {
+    id: 'js-queryselectorall', name: 'document.querySelectorAll()', zh: '查询多个元素',
+    purpose: '找到「所有」匹配的元素，返回一个 NodeList（类数组，不是真数组）。用 forEach 可以遍历。',
+    syntax: "document.querySelectorAll('CSS选择器')",
+    status: 'modern',
+    keywords: ['选择器', '多个元素', '列表', 'querySelectorAll', 'NodeList'],
+    example: {
+      html: '<ul>\n  <li class="item">苹果</li>\n  <li class="item">香蕉</li>\n  <li class="item">橘子</li>\n</ul>\n<button id="btn">全部变红</button>',
+      css: '.item { padding: 4px 0; }\n.item.on { color: #d64545; font-weight: 700; }',
+      js: "const items = document.querySelectorAll('.item');\nconsole.log('找到', items.length, '个，类型是', items.constructor.name);\ndocument.getElementById('btn').addEventListener('click', function () {\n  items.forEach(function (el) { el.classList.toggle('on'); });\n});"
+    },
+    errors: [
+      '以为它返回数组：它是 NodeList，没有 map/filter/reduce。要转数组用 [...items] 或 Array.from(items)',
+      '在循环里反复调用 querySelectorAll：性能差，先存到变量里',
+      '只取第一个就直接用：querySelectorAll 的结果也是要用下标或 forEach 的'
+    ],
+    related: ['js-queryselector', 'js-foreach', 'concept-selector']
+  },
+
+  {
+    id: 'js-getelementbyid', name: 'document.getElementById()', zh: '按 id 取元素',
+    purpose: '按 id 精确取一个元素。比 querySelector 快一点点，代码也更直白。',
+    syntax: "document.getElementById('id名')",
+    status: 'modern',
+    keywords: ['id', '取元素', 'getElementById'],
+    example: {
+      html: '<p id="hello">原始文字</p>\n<button id="change">改名</button>',
+      css: '#hello { font-size: 18px; }',
+      js: "document.getElementById('change').addEventListener('click', function () {\n  document.getElementById('hello').textContent = '被 JS 改过了';\n});"
+    },
+    errors: [
+      '参数里加了 # 号：getElementById("#hello") 找不到，它只要纯 id 名（这是和 querySelector 最大的区别）',
+      'id 拼错：返回 null 而不是报错，然后你会在下一行看到 null 相关的报错'
+    ],
+    related: ['js-queryselector', 'attr-id'],
+    tip: '<b>querySelector("#hello")</b> 要带井号，<b>getElementById("hello")</b> 不带 —— 两个函数对参数格式的要求不一样，混用会得到 null。'
+  },
+
+  {
+    id: 'js-createelement', name: 'document.createElement()', zh: '创建元素',
+    purpose: '凭空造一个新元素。刚创建时它还在内存里，没被放进页面，要用 appendChild 之类插进去。',
+    syntax: "document.createElement('标签名')",
+    status: 'modern',
+    keywords: ['创建', '新元素', '动态添加', 'createElement'],
+    example: {
+      html: '<button id="add">添加一条</button>\n<ul id="list"></ul>',
+      css: 'li { padding: 6px 10px; background: #f7f8fa; border-radius: 6px; margin-top: 6px; list-style: none; }',
+      js: "let i = 0;\ndocument.getElementById('add').addEventListener('click', function () {\n  const li = document.createElement('li');\n  i++;\n  li.textContent = '第 ' + i + ' 条';\n  document.getElementById('list').appendChild(li);\n});"
+    },
+    errors: [
+      '创建完就以为它出现了：必须插进页面（appendChild / append / insertBefore）',
+      '用 createElement("div.class") 想带样式：标签名只能写标签名，class 要另外用 el.className 设',
+      '在循环里反复操作 DOM：每次都会触发页面重排，可以先用文档片段攒起来再一次性插入'
+    ],
+    related: ['js-appendchild', 'js-textcontent', 'js-innerhtml']
+  },
+
+  {
+    id: 'js-appendchild', name: 'element.appendChild()', zh: '追加子元素',
+    purpose: '把一个节点放到指定元素的末尾，成为它的最后一个子元素。',
+    syntax: '父元素.appendChild(新节点)',
+    status: 'modern',
+    keywords: ['追加', '插入', '添加', 'appendChild', 'dom'],
+    example: {
+      html: '<button id="b">加一行</button>\n<div id="box"></div>',
+      css: '#box div { background: #e9f7ec; padding: 8px; border-radius: 6px; margin-top: 6px; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const d = document.createElement('div');\n  d.textContent = '新的一行 ' + new Date().toLocaleTimeString();\n  document.getElementById('box').appendChild(d);\n});"
+    },
+    errors: [
+      '同一个节点 appendChild 两次：它会被"移动"过去，而不是复制两份。要复制得用 cloneNode(true)',
+      '往 null 上 appendChild：父元素没取到，报错',
+      '以为 appendChild 会返回插入的节点：它返回的是父元素，不是子元素'
+    ],
+    related: ['js-createelement', 'js-queryselector'],
+    tip: '<b>append() 和 appendChild() 的区别</b>：appendChild 只能接节点，append 还能直接接字符串，而且能一次接多个。日常用 append 更省事。'
+  },
+
+  {
+    id: 'js-setattribute', name: 'element.setAttribute()', zh: '设置属性',
+    purpose: '给元素设置 HTML 属性。属性名和值都是字符串。',
+    syntax: "el.setAttribute('属性名', '值')",
+    status: 'modern',
+    keywords: ['属性', '设置属性', 'setAttribute'],
+    example: {
+      html: '<img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27100%27 height=%2750%27%3E%3Crect width=%27100%27 height=%2750%27 fill=%27%23bb9af7%27/%3E%3C/svg%3E" alt="占位图">\n<button id="b">换 alt 文字</button>\n<p id="out"></p>',
+      css: 'img { border-radius: 6px; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const img = document.querySelector('img');\n  img.setAttribute('alt', '紫色矩形（alt 被改过了）');\n  document.getElementById('out').textContent = '现在的 alt = ' + img.getAttribute('alt');\n});"
+    },
+    errors: [
+      '想改输入框内容却用 setAttribute("value", ...)：用户改过之后属性值和当前值就分家了，应该改 el.value',
+      '想改文字却用 setAttribute("textContent", ...)：那不是 HTML 属性，该用 el.textContent',
+      '以为 setAttribute 能设样式：设 class 用 className 或 classList 更合适'
+    ],
+    related: ['js-getattribute', 'js-classlist', 'js-dataset', 'concept-html-attr-vs-css'],
+    tip: '<b>属性 vs JavaScript 属性</b>：setAttribute 改的是"HTML 上写的那种属性"；而 el.value、el.textContent 是 JS 对象上的属性。<b>它们有时会同步，有时会分家</b>，所以各有各的用法。'
+  },
+
+  {
+    id: 'js-getattribute', name: 'element.getAttribute()', zh: '读取属性',
+    purpose: '读出元素上某个 HTML 属性写的是什么。没写这个属性就返回 null。',
+    syntax: "el.getAttribute('属性名')",
+    status: 'modern',
+    keywords: ['读属性', '获取属性', 'getAttribute'],
+    example: {
+      html: '<a id="link" href="https://example.com" title="示例站点">一个链接</a>\n<p id="out"></p>',
+      css: 'a { color: #2f6fdd; }',
+      js: "const a = document.getElementById('link');\nconsole.log('href =', a.getAttribute('href'));\nconsole.log('title =', a.getAttribute('title'));\nconsole.log('data-x =', a.getAttribute('data-x'));   // 没写，返回 null\ndocument.getElementById('out').textContent = 'href 是 ' + a.getAttribute('href');"
+    },
+    errors: [
+      '和 el.href 混：el.href 会返回"解析后的完整绝对地址"，getAttribute("href") 返回"你写的原文"。两个结果不一样、用途也不一样',
+      '用 getAttribute("class") 后又去分开处理：多个 class 时用 el.classList 更方便'
+    ],
+    related: ['js-setattribute', 'js-dataset', 'attr-href'],
+    tip: '<b>想验证这句话</b>：把示例里的 <b>a.getAttribute("href")</b> 改成 <b>a.href</b> 再运行，看看 console 里的结果有什么不同。'
+  },
+
+  {
+    id: 'js-classlist', name: 'element.classList', zh: '类名操作',
+    purpose: '增删切换元素的 class，比直接拼 className 字符串安全得多。常用 add / remove / toggle / contains。',
+    syntax: "el.classList.add('类名')\nel.classList.remove('类名')\nel.classList.toggle('类名')\nel.classList.contains('类名')",
+    status: 'modern',
+    keywords: ['class', '类名', '添加', '删除', '切换', 'classList'],
+    example: {
+      html: '<div id="card" class="card">点下面的按钮</div>\n<button id="b">切换高亮</button>',
+      css: '.card { padding: 14px 18px; border: 1px solid #ccd2dc; border-radius: 10px; transition: all .15s ease; }\n.card.hi { background: #fff3cd; border-color: #e0af68; }',
+      js: "const card = document.getElementById('card');\ndocument.getElementById('b').addEventListener('click', function () {\n  card.classList.toggle('hi');\n  console.log('现在有 hi 吗？', card.classList.contains('hi'));\n});"
+    },
+    errors: [
+      '用 el.className = "hi" 直接赋值：会把原有的所有 class 冲掉，应该用 classList.add',
+      '类名前面加点号：classList.add(".hi") 加进去的就是一个叫 ".hi" 的怪名字，CSS 匹配不上',
+      '用 contains 判断时写了多个类名：contains 一次只判断一个'
+    ],
+    related: ['attr-class', 'js-setattribute', 'concept-selector'],
+    tip: '<b>为什么推荐 classList</b>：用 className 拼字符串很容易手滑（少个空格就连成一个类名），classList 帮你处理了这些细节。'
+  },
+
+  {
+    id: 'js-dataset', name: 'element.dataset', zh: '读自定义数据',
+    purpose: '读写 HTML 里 data-* 挂的数据。属性：不是方法，不用加括号。',
+    syntax: "el.dataset.userId      // 对应 data-user-id",
+    status: 'modern',
+    keywords: ['data', 'dataset', '自定义属性', '数据'],
+    example: {
+      html: '<button class="item" data-id="7" data-name="苹果">点我看数据</button>\n<p id="out"></p>',
+      css: 'button { padding: 8px 16px; }',
+      js: "document.querySelector('.item').addEventListener('click', function (e) {\n  const d = e.target.dataset;\n  document.getElementById('out').textContent = 'id=' + d.id + '，name=' + d.name;\n});"
+    },
+    errors: [
+      '用 dataset["user-id"]：JS 里要写成小驼峰 dataset.userId',
+      '把敏感数据放 data-* 里：前端代码用户都能看到，不能放密钥'
+    ],
+    related: ['attr-data', 'js-setattribute']
+  },
+
+  {
+    id: 'js-textcontent', name: 'element.textContent', zh: '纯文本内容',
+    purpose: '读写元素的纯文字，不会解析 HTML。属性：不是方法。',
+    syntax: 'el.textContent',
+    status: 'modern',
+    keywords: ['文字', '文本', '内容', 'textContent'],
+    example: {
+      html: '<div id="t">原始文字</div>\n<p id="out"></p>',
+      css: '#t { background: #f7f8fa; padding: 10px; border-radius: 6px; }',
+      js: "const t = document.getElementById('t');\nt.textContent = '我把 <b>标签</b> 当普通文字写进去，不会被解析成粗体';\ndocument.getElementById('out').textContent = '结果就是原样显示，很安全。';"
+    },
+    errors: [
+      '以为它会解析 HTML：不会，&lt;b&gt; 会原样显示。要插入 HTML 得用 innerHTML（但有安全风险）',
+      '读隐藏元素的内容：textContent 读得到，但它不反映屏幕上的换行和空白折叠（那是 innerText）'
+    ],
+    related: ['js-innerhtml', 'js-createelement'],
+    tip: '<b>写文字一律优先用 textContent</b>。它不会执行代码、不会解析标签，天然免疫一类注入攻击。'
+  },
+
+  {
+    id: 'js-innerhtml', name: 'element.innerHTML', zh: 'HTML 内容',
+    purpose: '读写元素内部的 HTML，读写都会被浏览器当成标签解析。方便，但有一类安全风险。',
+    syntax: 'el.innerHTML',
+    status: 'modern',
+    keywords: ['html', '内容', '插入标签', 'innerHTML', 'XSS'],
+    example: {
+      html: '<div id="box">原来的内容</div>\n<button id="b1">插入 HTML</button>\n<button id="b2">安全地插入</button>',
+      css: '#box { padding: 12px; background: #f7f8fa; border-radius: 8px; margin-bottom: 10px; }\nbutton { margin-right: 8px; }',
+      js: "document.getElementById('b1').addEventListener('click', function () {\n  document.getElementById('box').innerHTML = '这是 <b>粗体</b>，还有 <a href=\"#\">链接</a>';\n});\ndocument.getElementById('b2').addEventListener('click', function () {\n  const box = document.getElementById('box');\n  box.textContent = '';\n  const b = document.createElement('b');\n  b.textContent = '粗体';\n  box.appendChild(b);\n  box.appendChild(document.createTextNode('，但用 DOM 方式创建，安全'));\n});"
+    },
+    errors: [
+      '把用户输入直接塞进 innerHTML：如果输入里有 <script> 或 onerror=，就会执行 —— 这就是 XSS 攻击',
+      '用 innerHTML 往循环里反复追加（+=）：每次都会重建整个子树的 DOM，很慢',
+      '以为 innerHTML 里写的 <script> 会执行：用 innerHTML 插入的 script 不会自动运行，这是另一类容易误解的点'
+    ],
+    related: ['js-textcontent', 'js-createelement'],
+    tip: '<b>记住一句就够</b>：内容来自"你自己写死的字符串" → innerHTML 没问题；内容来自"用户输入或接口数据" → 用 textContent 或 DOM 创建方式，不要用 innerHTML。'
+  },
+
+  {
+    id: 'js-addeventlistener', name: 'element.addEventListener()', zh: '绑定事件',
+    purpose: '给元素绑定事件处理函数。一个元素可以绑多个，互不覆盖。',
+    syntax: "el.addEventListener('事件名', 处理函数)",
+    status: 'modern',
+    keywords: ['事件', '监听', '点击', 'click', 'addEventListener'],
+    example: {
+      html: '<button id="b">点我</button>\n<p id="out">等点击…</p>',
+      css: 'button { padding: 8px 18px; }',
+      js: "const out = document.getElementById('out');\ndocument.getElementById('b').addEventListener('click', function () {\n  out.textContent = '第一次处理：被点了 ' + Date.now();\n});\ndocument.getElementById('b').addEventListener('click', function () {\n  out.textContent += ' ｜ 第二次处理也跑了（两个监听互不覆盖）';\n});"
+    },
+    errors: [
+      '在循环里给每个元素都绑同一个函数又需要区分它们：用 event.target 或闭包，别指望下标能在回调里直接用 var 拿到',
+      '给不存在的元素绑定（null.addEventListener）：报错',
+      '用 onclick = fn 覆盖掉了之前绑的：addEventListener 不会覆盖，这是它比 onclick 好的地方',
+      '忘了第三个参数：默认只在冒泡阶段触发；想让父元素也能捕获要写 { capture: true }'
+    ],
+    related: ['js-queryselectorall', 'html-button', 'html-form'],
+    tip: '<b>为什么推荐 addEventListener 而不是 onclick 属性</b>：onclick 只能挂一个、还把 JS 混进了 HTML；addEventListener 能挂多个，而且代码和结构分得开。'
+  },
+
+  {
+    id: 'js-foreach', name: 'array.forEach()', zh: '遍历数组',
+    purpose: '把数组每一项都过一遍，主要用来「做点什么」（打印、改 DOM）。它不返回新数组。',
+    syntax: 'arr.forEach(function (item, index) { … })',
+    status: 'modern',
+    keywords: ['遍历', '循环', 'forEach'],
+    example: {
+      html: '<ul id="list"></ul>',
+      css: 'li { padding: 6px 10px; background: #eef2ff; border-radius: 6px; margin-top: 6px; list-style: none; }',
+      js: "const fruits = ['苹果', '香蕉', '橘子'];\nfruits.forEach(function (name, i) {\n  console.log(i, name);\n  const li = document.createElement('li');\n  li.textContent = (i + 1) + '. ' + name;\n  document.getElementById('list').appendChild(li);\n});"
+    },
+    errors: [
+      '用它来"生成新数组"：它返回 undefined，要生成新数组用 map',
+      '在回调里 return 想中断循环：forEach 不能 break/continue，要中断得用 for 或 .some()/.find()'
+    ],
+    related: ['js-map', 'js-filter', 'js-queryselectorall']
+  },
+
+  {
+    id: 'js-map', name: 'array.map()', zh: '映射成新数组',
+    purpose: '把每一项「变换」成另一个值，返回一个长度相同的新数组。原数组不动。',
+    syntax: 'const newArr = arr.map(item => 新值)',
+    status: 'modern',
+    keywords: ['映射', '转换', 'map', '新数组'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const nums = [1, 2, 3, 4];\nconst doubled = nums.map(n => n * 2);\nconsole.log('原数组', nums);       // 没变\nconsole.log('新数组', doubled);\ndocument.getElementById('out').textContent =\n  '原数组：' + JSON.stringify(nums) + '\\n新数组：' + JSON.stringify(doubled);"
+    },
+    errors: [
+      '以为 map 会改原数组：不会，它返回新的',
+      '在 map 里只做副作用（打印/改 DOM）不用返回值：那是 forEach 的场景，用 map 会得到一堆 undefined',
+      '忘了 return（用花括号写函数体时）：会得到 undefined 数组'
+    ],
+    related: ['js-foreach', 'js-filter', 'js-reduce'],
+    tip: '<b>map 和 forEach 怎么选</b>：要「得到一个新数组」用 map；只是「遍历做点什么」用 forEach。'
+  },
+
+  {
+    id: 'js-filter', name: 'array.filter()', zh: '筛选',
+    purpose: '按条件挑出符合条件的项，返回新数组（长度可能变短，也可能是空数组）。',
+    syntax: 'const arr2 = arr.filter(item => 条件)',
+    status: 'modern',
+    keywords: ['筛选', '过滤', 'filter', '条件'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const users = [\n  { name: '小明', age: 17 },\n  { name: '小红', age: 24 },\n  { name: '小刚', age: 31 }\n];\nconst adults = users.filter(u => u.age >= 18);\nconsole.log(adults);\ndocument.getElementById('out').textContent = JSON.stringify(adults.map(u => u.name));"
+    },
+    errors: [
+      '过滤条件写成赋值（u.age = 18）而不是比较：永远是 truthy，全过',
+      '想找"第一个"符合的却用 filter：filter 会遍历整个数组，找第一个应该用 find'
+    ],
+    related: ['js-find', 'js-map', 'js-includes']
+  },
+
+  {
+    id: 'js-find', name: 'array.find()', zh: '找第一个符合的',
+    purpose: '返回第一个符合条件的元素本身；没找到返回 undefined。找到就停，不会遍历完。',
+    syntax: 'const item = arr.find(x => 条件)',
+    status: 'modern',
+    keywords: ['查找', '第一个', 'find', '定位'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const items = [{ id: 1, n: '笔' }, { id: 2, n: '本' }, { id: 3, n: '尺' }];\nconst hit = items.find(x => x.id === 2);\nconst miss = items.find(x => x.id === 99);\nconsole.log('找到：', hit);\nconsole.log('没找到：', miss);\ndocument.getElementById('out').textContent =\n  '找到 ' + hit.n + '\\n没找到时返回：' + miss;"
+    },
+    errors: [
+      '没找到时不判断就取属性：undefined.n 会报错，要先判断',
+      '找"所有"符合的却用 find：那要用 filter',
+      '把 find 和 filter 的返回值当成一种东西：find 返回单个元素（或 undefined），filter 永远返回数组'
+    ],
+    related: ['js-filter', 'js-includes']
+  },
+
+  {
+    id: 'js-reduce', name: 'array.reduce()', zh: '归并成一个值',
+    purpose: '把整个数组「累积」成单个结果：求和、求最大值、按条件分组、拼字符串。',
+    syntax: 'arr.reduce((累计值, 当前项) => 新累计值, 初始值)',
+    status: 'modern',
+    keywords: ['归并', '累加', '求和', 'reduce', '汇总'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const cart = [\n  { name: '书', price: 45 },\n  { name: '笔', price: 8 },\n  { name: '本', price: 12 }\n];\nconst total = cart.reduce((sum, item) => sum + item.price, 0);\nconsole.log('总价', total);\ndocument.getElementById('out').textContent = '购物车总价：¥' + total;"
+    },
+    errors: [
+      '忘了写初始值：没有初始值时，第一次循环会拿数组第一项当初值，容易算错（尤其是求和的场景）',
+      '忘了 return：累加值会变成 undefined，最后结果是 NaN',
+      '把简单的事写成 reduce：如果 forEach 或 map 更清楚，就别用 reduce 炫技'
+    ],
+    related: ['js-map', 'js-filter', 'js-foreach'],
+    tip: '<b>reduce 是最容易写错、也最容易用错的方法</b>。判断标准：如果你自己隔一周看这段代码要想三秒，就换成 for 循环 + 普通变量。'
+  },
+
+  {
+    id: 'js-includes', name: 'array.includes() / string.includes()', zh: '是否包含',
+    purpose: '判断数组里有没有某个值、或字符串里有没有某段文字，返回 true / false。',
+    syntax: 'arr.includes(值)\nstr.includes("文字")',
+    status: 'modern',
+    keywords: ['包含', '存在', 'includes', '查找'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const roles = ['读者', '作者', '管理员'];\nconst text = '今天重庆在下雨';\nconsole.log(roles.includes('作者'));       // true\nconsole.log(roles.includes('游客'));       // false\nconsole.log(text.includes('下雨'));        // true\ndocument.getElementById('out').textContent =\n  'roles 里有\"作者\"？' + roles.includes('作者') + '\\n' +\n  '文本里有\"下雨\"？' + text.includes('下雨') + '\\n' +\n  '文本里有\"下雪\"？' + text.includes('下雪');"
+    },
+    errors: [
+      '对 null / undefined 调 includes：会报错，先确保有值',
+      '用它判断"包含某个对象"：对象比较的是引用，内容一样也不算包含，要按某个字段用 some/find'
+    ],
+    related: ['js-indexof', 'js-find', 'js-filter']
+  },
+
+  {
+    id: 'js-indexof', name: 'array.indexOf() / string.indexOf()', zh: '找位置',
+    purpose: '返回某个值第一次出现的位置（从 0 开始）；找不到返回 -1。',
+    syntax: 'arr.indexOf(值)   // 找不到返回 -1',
+    status: 'legacy',
+    keywords: ['位置', '下标', 'indexOf', '查找'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const arr = ['a', 'b', 'c'];\nconsole.log(arr.indexOf('b'));    // 1\nconsole.log(arr.indexOf('z'));    // -1\ndocument.getElementById('out').textContent =\n  '\"b\" 下标是 ' + arr.indexOf('b') + '\\n' +\n  '\"z\" 下标是 ' + arr.indexOf('z') + '（-1 表示没有）';"
+    },
+    errors: [
+      '判空写成 if (arr.indexOf(x))：0 也是 falsy！必须写 !== -1。这是经典 bug',
+      '只想知道"有没有"却用 indexOf：现在直接写 includes 更清楚'
+    ],
+    related: ['js-includes'],
+    tip: '<b>状态是 legacy（旧写法）</b>：想知道"有没有"用 <b>includes</b>；真的需要下标才用 indexOf，并且判断要写 <b>!== -1</b>，不要直接当布尔值用。'
+  },
+
+  {
+    id: 'js-slice', name: 'array.slice() / string.slice()', zh: '截取片段',
+    purpose: '截取一段，返回新数组/新字符串，原数据不动。也支持负数下标（从末尾数）。',
+    syntax: 'arr.slice(开始, 结束)   // 不含"结束"那一位',
+    status: 'modern',
+    keywords: ['截取', '切片', '片段', 'slice'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const arr = ['a', 'b', 'c', 'd', 'e'];\nconsole.log(arr.slice(1, 3));    // ['b','c']\nconsole.log(arr.slice(-2));      // ['d','e']\nconsole.log(arr);                // 原数组没变\ndocument.getElementById('out').textContent =\n  'slice(1,3) → ' + JSON.stringify(arr.slice(1, 3)) + '\\n' +\n  'slice(-2) → ' + JSON.stringify(arr.slice(-2)) + '\\n' +\n  '原数组 → ' + JSON.stringify(arr);"
+    },
+    errors: [
+      '以为结束位置也算进去：slice(1, 3) 拿到的是下标 1、2，不含 3',
+      '和 splice 混：slice 不动原数组，splice 会改原数组'
+    ],
+    related: ['js-splice', 'js-join'],
+    tip: '<b>slice 和 splice 一字之差，行为完全不同</b>：<b>slice</b> = 切一段出来（原样不动）；<b>splice</b> = 动手术（会改原数组）。'
+  },
+
+  {
+    id: 'js-splice', name: 'array.splice()', zh: '删除/插入',
+    purpose: '直接改动原数组：从某位置删掉几个，并可在该处插入新项。返回被删掉的项。',
+    syntax: 'arr.splice(开始, 删几个, 要插入的…)',
+    status: 'modern',
+    keywords: ['删除', '插入', '替换', 'splice'],
+    example: {
+      html: '<button id="b">删掉第 2 个</button>\n<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const list = ['苹果', '香蕉', '橘子', '葡萄'];\nfunction show(tip) {\n  document.getElementById('out').textContent = tip + '\\n现在：' + JSON.stringify(list);\n}\nshow('初始状态');\ndocument.getElementById('b').addEventListener('click', function () {\n  const removed = list.splice(1, 1);\n  show('删掉了 ' + removed.join('、') + '（原数组已被改动）');\n});"
+    },
+    errors: [
+      '以为它和 slice 一样安全：splice 会改原数组，如果不想要副作用得先复制一份（[...arr]）',
+      '在循环里 splice 又同时递增下标：会跳过元素，这类 bug 很难查'
+    ],
+    related: ['js-slice', 'js-push']
+  },
+
+  {
+    id: 'js-push', name: 'array.push() / pop()', zh: '尾部增删',
+    purpose: 'push 在数组末尾加一项并返回新的长度；pop 删掉最后一项并返回被删的元素。都是改原数组。',
+    syntax: 'arr.push(值)\narr.pop()',
+    status: 'modern',
+    keywords: ['添加', '删除', '末尾', 'push', 'pop', '栈'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const stack = ['第一层'];\nconst len = stack.push('第二层');\nconsole.log('push 返回的是长度：', len);   // 2\nconst last = stack.pop();\nconsole.log('pop 返回的是被删的元素：', last);\ndocument.getElementById('out').textContent =\n  'push 返回 ' + len + '（长度，不是数组）\\n' +\n  'pop 返回 \"' + last + '\"（被删掉的元素）\\n' +\n  '现在数组：' + JSON.stringify(stack);"
+    },
+    errors: [
+      '把 push 的返回值当成新数组用：它返回的是长度这个数字',
+      '对空数组 pop：返回 undefined，不会报错，所以很容易静默出错',
+      '在 Vue/React 里直接 push 却发现界面没更新：某些框架不侦测这种原地修改'
+    ],
+    related: ['js-splice', 'js-slice', 'js-join']
+  },
+
+  {
+    id: 'js-join', name: 'array.join()', zh: '拼成字符串',
+    purpose: '把数组所有项用一个分隔符连成一个字符串。想反过来（字符串变数组）用 split。',
+    syntax: "arr.join('分隔符')\narr.join('')      // 不要分隔符",
+    status: 'modern',
+    keywords: ['拼接', '连接', '字符串', 'join'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const tags = ['HTML', 'CSS', 'JS'];\ndocument.getElementById('out').textContent =\n  \"join(', ') → \" + tags.join(', ') + '\\n' +\n  \"join(' / ') → \" + tags.join(' / ') + '\\n' +\n  \"join('') → \" + tags.join('') + '\\n' +\n  '不写参数 → ' + tags.join();"
+    },
+    errors: [
+      '数组里含 null / undefined：join 会转成空字符串，不会显示 "null"',
+      '想拼 HTML 列表时用了 join 又没转义内容：如果项里含特殊字符可能出事'
+    ],
+    related: ['js-split', 'js-map']
+  },
+
+  {
+    id: 'js-split', name: 'string.split()', zh: '字符串切分',
+    purpose: '按分隔符把字符串切成数组。和 join 正好是一对反操作。',
+    syntax: "str.split('分隔符')",
+    status: 'modern',
+    keywords: ['切分', '拆分', '字符串', '数组', 'split'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const s = '苹果,香蕉,橘子';\nconsole.log(s.split(','));          // 三个元素\ndocument.getElementById('out').textContent =\n  \"split(',') → \" + JSON.stringify(s.split(',')) + '\\n' +\n  \"split('') → \" + JSON.stringify(s.split('')) + '\\n' +\n  '连起来再切：' + s.split(',').join(' + ');"
+    },
+    errors: [
+      '分隔符写错：切不开就得到只有一个元素的数组',
+      '以为 split 会去掉空白：每一项的前后空格还在，要配合 trim',
+      '对非字符串用 split：数字没有这个方法，会报错'
+    ],
+    related: ['js-join', 'js-trim']
+  },
+
+  {
+    id: 'js-trim', name: 'string.trim()', zh: '去掉首尾空白',
+    purpose: '去掉字符串两端的空格、换行、制表符。校验用户输入时几乎必用。',
+    syntax: 'str.trim()',
+    status: 'modern',
+    keywords: ['去空格', '首尾', 'trim', '输入校验'],
+    example: {
+      html: '<input id="in" type="text" value="   前后都有空格   ">\n<button id="b">判断是否为空</button>\n<p id="out"></p>',
+      css: 'input { padding: 6px 10px; width: 220px; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const raw = document.getElementById('in').value;\n  document.getElementById('out').textContent =\n    '原始长度 ' + raw.length + '，trim 之后长度 ' + raw.trim().length + '\\n' +\n    'trim 后是空字符串吗？' + (raw.trim() === '');\n});"
+    },
+    errors: [
+      '校验输入时忘了 trim：用户打几个空格就能"通过"必填校验',
+      '以为 trim 会去掉中间的空格：只去首尾，中间的要 replace'
+    ],
+    related: ['js-split', 'attr-required']
+  },
+
+  {
+    id: 'js-sort', name: 'array.sort()', zh: '排序',
+    purpose: '给数组排序。**默认按字符串比较**，所以排序数字时必须自己提供比较函数 —— 这是新手最常翻车的地方之一。',
+    syntax: 'arr.sort()                    // 按字符串排，数字会出错\narr.sort((a, b) => a - b)      // 数字升序\narr.sort((a, b) => b - a)      // 数字降序',
+    status: 'modern',
+    keywords: ['排序', 'sort', '比较函数', '升序', '降序'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const nums = [10, 9, 100, 1];\nconst bad = [...nums].sort();                     // 默认排序（按字符串）\nconst good = [...nums].sort((a, b) => a - b);     // 正确做法\ndocument.getElementById('out').textContent =\n  '原始：      ' + JSON.stringify(nums) + '\\n' +\n  '默认排序：  ' + JSON.stringify(bad) + '   ← 100 跑到前面了\\n' +\n  '数字排序：  ' + JSON.stringify(good);"
+    },
+    errors: [
+      '排数字不写比较函数：它会把数字转成字符串比，"10" < "9" 于是 100 排到了最前面',
+      '以为 sort 返回新数组：它改的是原数组，而且返回的也是同一个数组。要保留原顺序先复制',
+      '比较函数忘记 return：会按 undefined 处理，排序结果随机'
+    ],
+    related: ['js-map', 'js-filter', 'js-foreach'],
+    tip: '<b>为什么默认会出错</b>：sort 默认把元素转成字符串再按字典序比。"100" 和 "9" 比，先比第一个字符 "1" 和 "9"，1 更小，所以 100 排在前面。<b>排数字永远要写 (a, b) =&gt; a - b</b>。'
+  },
+
+  {
+    id: 'js-json-parse', name: 'JSON.parse()', zh: '字符串转对象',
+    purpose: '把符合 JSON 格式的字符串解析成 JS 对象/数组。常用于读接口返回的数据或本地存储。',
+    syntax: 'const obj = JSON.parse(字符串)',
+    status: 'modern',
+    keywords: ['json', '解析', '转换', '对象', 'parse'],
+    example: {
+      html: '<button id="b">解析两个字符串</button>\n<p id="out"></p>',
+      css: 'p { font: 14px/1.7 monospace; white-space: pre-wrap; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const ok = '{ \"name\": \"小明\", \"age\": 17 }';\n  const bad = \"{ 'name': '小明', }\";        // 单引号 + 尾逗号，不是合法 JSON\n  let msg = '正常那个：' + JSON.stringify(JSON.parse(ok)) + '\\n';\n  try {\n    JSON.parse(bad);\n  } catch (e) {\n    msg += '出错那个：' + e.message;\n  }\n  document.getElementById('out').textContent = msg;\n});"
+    },
+    errors: [
+      'JSON 里用单引号或尾逗号：JS 对象可以，JSON 不行，会抛 "Unexpected token"',
+      '不写 try/catch：数据格式一旦不对就整个脚本崩掉',
+      'JSON 里的键必须用双引号：{ name: "x" } 不是合法 JSON'
+    ],
+    related: ['js-json-stringify'],
+    tip: '<b>JSON 不是 JavaScript 对象</b>：它是"文本格式"，规则更严 —— 键必须双引号、不能有注释、不能有尾逗号、不能是 undefined。'
+  },
+
+  {
+    id: 'js-json-stringify', name: 'JSON.stringify()', zh: '对象转字符串',
+    purpose: '把 JS 值转成 JSON 字符串。常用于存本地、发请求，以及调试时打印对象全貌。',
+    syntax: 'const s = JSON.stringify(对象, null, 2)',
+    status: 'modern',
+    keywords: ['json', '序列化', '转字符串', 'stringify', '调试'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 14px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const user = { name: '小明', age: 17, tags: ['a', 'b'] };\nconsole.log('直接打印对象看不全：', user);\nconsole.log('转成字符串就完整了：', JSON.stringify(user));\ndocument.getElementById('out').textContent =\n  JSON.stringify(user, null, 2);"
+    },
+    errors: [
+      '以为能转所有东西：函数、undefined、Symbol 会被丢掉，循环引用的对象会直接报错',
+      '存本地存储时忘了转字符串：localStorage 只能存字符串，存对象会变成 "[object Object]"',
+      '滥用它做深拷贝：会把 Date 变成字符串、丢掉 undefined，要深拷贝用 structuredClone'
+    ],
+    related: ['js-json-parse'],
+    tip: '<b>调试时的小技巧</b>：console.log 打印对象时展开很麻烦，写 <b>console.log(JSON.stringify(obj, null, 2))</b> 能一次看到完整内容。'
+  },
+
+  {
+    id: 'js-parseint', name: 'parseInt() / parseFloat()', zh: '字符串转数字',
+    purpose: '把字符串开头的数字部分解析成整数或小数。输入框里的值都是字符串，计算前得转。',
+    syntax: 'parseInt(字符串, 10)\nparseFloat(字符串)',
+    status: 'modern',
+    keywords: ['转换', '数字', '整数', 'parseInt', 'parseFloat'],
+    example: {
+      html: '<input id="a" type="text" value="12">\n<input id="b" type="text" value="5">\n<button id="go">相加</button>\n<p id="out"></p>',
+      css: 'input { width: 70px; padding: 6px 8px; }',
+      js: "document.getElementById('go').addEventListener('click', function () {\n  const a = document.getElementById('a').value;\n  const b = document.getElementById('b').value;\n  const wrong = a + b;                      // 字符串相加 = 拼接\n  const right = parseInt(a, 10) + parseInt(b, 10);\n  document.getElementById('out').textContent =\n    '直接 a + b = ' + wrong + '   ← 变成了拼接！\\n' +\n    'parseInt 之后 = ' + right;\n});"
+    },
+    errors: [
+      '忘了写第二个参数 10：老式写法可能把 "08" 当八进制解析，永远显式写 10',
+      '对非数字字符串用：parseInt("abc") 返回 NaN，而 NaN 参与运算会污染整个结果',
+      '以为 parseFloat("1.2.3") 会报错：它返回 1.2，后面的直接忽略'
+    ],
+    related: ['js-number', 'concept-function'],
+    tip: '<b>输入框的 .value 永远是字符串</b>。这就是为什么 "1" + "1" 得到 "11" 而不是 2 —— 做算术前必须先转数字。'
+  },
+
+  {
+    id: 'js-setTimeout', name: 'setTimeout() / setInterval()', zh: '定时器',
+    purpose: 'setTimeout 延迟一段时间后执行一次；setInterval 每隔一段时间反复执行。两者都返回一个 id，用来取消。',
+    syntax: 'const id = setTimeout(函数, 毫秒)\nclearTimeout(id)',
+    status: 'modern',
+    keywords: ['定时', '延迟', '延时', '循环', 'setTimeout', 'setInterval'],
+    example: {
+      html: '<p id="out">等着…</p>\n<button id="stop">取消（趁 2 秒内点）</button>',
+      css: 'p { font-size: 16px; }',
+      js: "const out = document.getElementById('out');\nlet n = 0;\nconst timer = setInterval(function () {\n  n++;\n  out.textContent = '已经过了 ' + n + ' 秒';\n  if (n >= 5) clearInterval(timer);\n}, 1000);\n\ndocument.getElementById('stop').addEventListener('click', function () {\n  clearInterval(timer);\n  out.textContent = '被取消了';\n});"
+    },
+    errors: [
+      '忘了 clearInterval：定时器会一直跑，离开页面也不停（内存泄漏）',
+      '以为 setTimeout(fn, 0) 是"立刻执行"：它是"尽快插入队列"，仍然会等当前同步代码跑完',
+      'setInterval 里做耗时操作：上一次还没跑完下一次就来了，会堆积。耗时任务应该用 setTimeout 递归'
+    ],
+    related: ['concept-function', 'js-consolelog']
+  },
+
+  {
+    id: 'js-consolelog', name: 'console.log()', zh: '控制台输出',
+    purpose: '把内容打印到浏览器开发者工具的控制台。调试的第一件工具。',
+    syntax: 'console.log(值1, 值2, …)',
+    status: 'modern',
+    keywords: ['控制台', '打印', '调试', 'log', 'console'],
+    example: {
+      html: '<p id="out">按 F12 或右键→检查，切到「控制台」标签看看</p>',
+      css: 'p { font-size: 15px; }',
+      js: "console.log('普通信息');\nconsole.warn('警告信息');\nconsole.error('错误信息');\nconsole.log('多个值', 1, 2, { a: 3 });\nconsole.table([{ n: 'A', v: 1 }, { n: 'B', v: 2 }]);"
+    },
+    errors: [
+      '调试完忘了删：上线后满屏日志，还可能把内部数据打出来',
+      '打印对象看到的是"当前值"：控制台里展开的对象是实时更新的，想定格要用 JSON.stringify 或 console.log(JSON.parse(JSON.stringify(o)))',
+      '以为 console 是标准 API：它不在 ECMAScript 标准里，是浏览器/Node 提供的宿主对象'
+    ],
+    related: ['js-json-stringify', 'js-setTimeout']
+  },
+
+  {
+    id: 'js-fetch', name: 'fetch()', zh: '发起网络请求',
+    purpose: '向服务器要数据（拿到的是 Promise）。现代浏览器里替代老的 XMLHttpRequest。',
+    syntax: "fetch('地址').then(res => res.json()).then(data => …)",
+    status: 'modern',
+    keywords: ['请求', '接口', 'ajax', '网络', 'fetch', 'promise'],
+    example: {
+      html: '<button id="b">试着请求一下</button>\n<p id="out"></p>',
+      css: 'p { font: 14px/1.7 monospace; white-space: pre-wrap; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const out = document.getElementById('out');\n  out.textContent = '请求中…';\n  fetch('https://example.com/api')\n    .then(function (res) { return res.json(); })\n    .then(function (data) { out.textContent = '成功：' + JSON.stringify(data); })\n    .catch(function (err) {\n      out.textContent = '失败了：' + err.message +\n        '\\n\\n如果你是用双击 index.html 的方式打开，这个失败是正常的 ——' +\n        '浏览器的安全策略禁止 file:// 页面发跨域请求。';\n    });\n});"
+    },
+    errors: [
+      '以为网络错误会被 then 捕获：服务器返回 404 / 500 时 fetch 仍然算"成功"，要自己判断 res.ok',
+      '在 file:// 打开的页面里用 fetch：会被浏览器直接拦掉，必须起本地服务器',
+      '忘了 .catch：请求失败时静默无反应，用户只看到页面一直转圈'
+    ],
+    related: ['js-promise', 'js-json-parse'],
+    tip: '<b>这条示例故意演示了一种常见困惑</b>：如果你双击打开本页（地址栏是 file://），点按钮会失败；起个本地服务器用 http://localhost 打开就会是"网络其实不通但请求发出去了"。这不是代码 bug，是浏览器的安全机制。'
+  },
+
+  {
+    id: 'js-promise', name: 'Promise', zh: '承诺对象',
+    purpose: '表示"一件以后才会有结果的事"。fetch、定时器、读写文件都用它。用 then 处理成功、catch 处理失败，或者用 async/await 写得更像同步代码。',
+    syntax: 'Promise.resolve(值).then(值 => …)\nasync function f() { const x = await 某个Promise; }',
+    status: 'modern',
+    keywords: ['异步', 'promise', 'then', 'async', 'await'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 14px/1.7 monospace; white-space: pre-wrap; }',
+      js: "function wait(ms, value) {\n  return new Promise(function (resolve) {\n    setTimeout(function () { resolve(value); }, ms);\n  });\n}\n\nasync function main() {\n  const out = document.getElementById('out');\n  out.textContent = '开始…';\n  const a = await wait(400, '第一步好了');\n  out.textContent += '\\n' + a;\n  const b = await wait(400, '第二步也好了');\n  out.textContent += '\\n' + b;\n  out.textContent += '\\n（注意：代码是「等」出来的顺序，但没有卡住页面）';\n}\nmain();"
+    },
+    errors: [
+      '忘了 await：拿到的是 Promise 对象而不是结果，后面会得到 undefined',
+      'await 写在普通函数里：await 只能在 async 函数里用，否则语法错误',
+      '忘了 try/catch：await 一个失败的 Promise 会抛异常，没接住就变成未捕获错误'
+    ],
+    related: ['js-fetch', 'concept-function'],
+    tip: '<b>如果这块看不懂，先跳过</b>。异步是 JS 里最难的部分，等你写过几次 fetch 再回来看会豁然开朗。'
+  },
+
+  {
+    id: 'js-length', name: 'length', zh: '长度',
+    purpose: '字符串有几个字符、数组有几项。属性不是方法，所以不加括号。',
+    syntax: 'str.length\narr.length',
+    status: 'modern',
+    keywords: ['长度', '个数', 'length', '属性'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const s = 'hello';\nconst arr = [1, 2, 3, 4];\nconsole.log(s.length);\nconsole.log(arr.length);\ndocument.getElementById('out').textContent =\n  '\"hello\".length = ' + s.length + '\\n' +\n  '[1,2,3,4].length = ' + arr.length + '\\n' +\n  '注意：不加括号，它不是函数';"
+    },
+    errors: [
+      '写成 arr.length()：length 是属性不是方法，加括号会报 "not a function"',
+      '用它判断空数组：length === 0 可以，但别写 if (arr.length) 来判空（0 是 falsy，其实这样写也对，但可读性差）',
+      '字符串的 length 按 UTF-16 码元算：emoji 和部分生僻字会计成 2'
+    ],
+    related: ['concept-method', 'js-indexof'],
+    tip: '<b>属性 vs 方法</b>：<b>length</b> 是属性（不加括号），<b>slice()</b> 是方法（要加括号）。看到括号就是"要执行一段代码"，没有括号就是"读一个已经存在的值"。'
+  },
+
+  {
+    id: 'js-number', name: 'Number() / toFixed()', zh: '数字转换与小数位',
+    purpose: 'Number() 把值转成数字；toFixed(n) 把数字保留 n 位小数（返回的是字符串）。',
+    syntax: 'Number("12")      // 12\ntoFixed(2)        // "12.00"（字符串）',
+    status: 'modern',
+    keywords: ['数字', '小数', '保留位数', 'number', 'toFixed', 'NaN'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const price = 19.9788;\nconst s = price.toFixed(2);\nconsole.log(typeof s);        // string！\ndocument.getElementById('out').textContent =\n  '原值：' + price + '\\n' +\n  'toFixed(2)：' + s + '（类型是 ' + typeof s + '）\\n' +\n  '想再算数要转回来：' + (Number(s) * 2) + '\\n' +\n  'Number(\"abc\") = ' + Number('abc') + '   ← 转不了就是 NaN';"
+    },
+    errors: [
+      '拿 toFixed 的结果直接做运算：它是字符串，"12" + 1 会变成 "121"',
+      '用 toFixed 算钱：它有舍入误差，金额计算应该用整数分或专门的库',
+      '不判断 NaN：NaN === NaN 是 false，要用 Number.isNaN() 判断'
+    ],
+    related: ['js-parseint'],
+    tip: '<b>toFixed 返回字符串</b>，这是很常见的坑。要小数位又要继续算，得再包一层 Number()。'
+  },
+
+  {
+    id: 'js-document-write', name: 'document.write()', zh: '写入文档（不推荐）',
+    purpose: '往页面里写内容。在页面加载完成后调用它，会清空整个页面。',
+    syntax: 'document.write(内容)   ← 不要再用',
+    status: 'deprecated',
+    keywords: ['写入', '输出', '不推荐', '过时', 'write'],
+    example: {
+      html: '<p>这个示例不会真的调用 document.write —— 因为页面加载完之后调用它，会把整页清空，示例就没法看了。</p>\n<button id="b">显示正确做法</button>\n<p id="out"></p>',
+      css: 'p { font-size: 15px; }',
+      js: "document.getElementById('b').addEventListener('click', function () {\n  const out = document.getElementById('out');\n  out.textContent =\n    '❌ 旧写法：document.write(\"文字\") —— 页面加载完再调用会清空整页\\n' +\n    '✅ 正确做法：先用 document.createElement 造元素，再 appendChild 插进去';\n});"
+    },
+    errors: [
+      '在页面加载完之后调用：会把整个文档替换掉，用户看到空白页',
+      '看到老教程里的 document.write 就照抄 —— 那是 2005 年前后的写法',
+      '想"输出调试信息"却用 document.write：应该用 console.log'
+    ],
+    related: ['js-createelement', 'js-appendchild', 'js-consolelog'],
+    tip: '<b>为什么它还存在</b>：有些老网站的统计脚本还在用，浏览器为了兼容不敢删。但你写新代码时没有理由用它。'
+  },
+
+  {
+    id: 'js-substr', name: 'string.substr()', zh: '截取子串（已废弃）',
+    purpose: '按「起点 + 长度」截取字符串。因为参数含义容易和 slice 搞混，规范已不推荐使用。',
+    syntax: 'str.substr(起点, 长度)   ← 已被废弃，请改用 slice',
+    status: 'deprecated',
+    keywords: ['截取', '子串', '废弃', '过时', 'substr', 'substring'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const s = 'ABCDEFG';\nconst a = s.slice(1, 4);        // 起点 1，结束 4（不含）\ndocument.getElementById('out').textContent =\n  '原字符串：' + s + '\\n' +\n  '✅ s.slice(1, 4) = ' + a + '   （从 1 到 4，不含 4）\\n' +\n  '❌ s.substr(1, 4) 也能用，但第二个参数是「长度」而不是「结束位置」，\\n' +\n  '   两个函数太像、含义不同，规范已经不推荐 substr。\\n' +\n  '   而且 substr 处理负数参数的行为各浏览器不一致，踩过一次坑就懂了。';"
+    },
+    errors: [
+      '把 substr 和 substring 和 slice 混着用：三者参数含义都不同，最容易出错',
+      '用 substr 处理负数起点：行为不统一，别依赖'
+    ],
+    related: ['js-slice', 'js-indexof'],
+    tip: '<b>统一用 slice 就好</b>：slice(起点, 结束位置)，结束位置不含。数组和字符串都用同一个规则，记一次就够。'
+  }
+
+];
+
+</script>
+<script>
+/* ==========================================================================
+   基础概念 词条
+   --------------------------------------------------------------------------
+   这一组不是「某个具体语法」，而是把最容易混的几个词摆在一起讲清楚：
+   标签 / 元素 / HTML 属性 / CSS 属性 / 选择器 / 变量 / 函数 / 方法 / 参数 / 对象 …
+   如果你总觉得「这几个词好像差不多又不太一样」，先看这一组。
+   ========================================================================== */
+
+window.WDT_CONCEPTS = [
+
+  {
+    id: 'concept-tag', name: '标签 Tag', zh: 'element type',
+    purpose: 'HTML 里用尖括号写出来的「名字」，比如 <p>、<img>。它规定这一块是什么东西，但不包含具体内容。',
+    syntax: '<p>          ← 开始标签\n</p>         ← 结束标签\n<img>        ← 空元素，没有结束标签',
+    status: 'modern',
+    keywords: ['标签', 'tag', '尖括号', '开始标签', '结束标签', '空元素'],
+    example: {
+      html: '<p>这里 <strong>p</strong> 是标签，中间的文字是内容。</p>\n<img src="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2740%27 height=%2720%27%3E%3Crect width=%2740%27 height=%2720%27 fill=%27%23ff9e64%27/%3E%3C/svg%3E" alt="示例">\n<p>上面的 img 是空元素，不写结束标签。</p>',
+      css: '',
+      js: ''
+    },
+    errors: [
+      '把 <img>、<br>、<input>、<meta>、<link> 写成有结束标签的形式',
+      '标签名拼错：浏览器会把不认识的标签当成一个普通的行内元素，不报错但样式全乱'
+    ],
+    related: ['concept-element', 'concept-html-attr'],
+    tip: '<b>标签管「是什么」，属性管「怎么样的」，中间的文字管「说什么」。</b>&lt;p class="hi"&gt;你好&lt;/p&gt; —— p 是标签，class="hi" 是属性，你好是内容。'
+  },
+
+  {
+    id: 'concept-element', name: '元素 Element', zh: 'tag + content',
+    purpose: '「开始标签 + 内容 + 结束标签」合起来才叫一个元素。<p>这是文字</p> 整体是一个 p 元素。',
+    syntax: '<p class="hi">这是文字</p>\n└────── 一个完整的 p 元素 ──────┘',
+    status: 'modern',
+    keywords: ['元素', 'element', '节点', 'node'],
+    example: {
+      html: '<p id="demo">我整个是一个元素，包含标签、属性和文字。</p>',
+      css: '#demo { background: #fff3cd; padding: 8px; }',
+      js: "const el = document.getElementById('demo');\nconsole.log('这是元素对象：', el);\nconsole.log('它的标签名是：', el.tagName);\nconsole.log('它里面的文字是：', el.textContent);"
+    },
+    errors: [
+      '把「标签」和「元素」当同义词：日常聊天混着说没关系，但看文档时需要分清 —— 「p 标签」通常指 &lt;p&gt; 这个名，而「p 元素」指的是带内容的那一整块'
+    ],
+    related: ['concept-tag', 'concept-dom'],
+    tip: '<b>在 JS 里，元素是一个对象</b>。所以 document.getElementById() 拿到的是一个元素对象，可以读它的 .textContent、调它的 .appendChild()。'
+  },
+
+  {
+    id: 'concept-html-attr', name: 'HTML 属性 Attribute', zh: '写在开始标签里',
+    purpose: '写在开始标签的尖括号里，用来配置这个元素：href 给链接指定目标、class 给它分类、src 给图片指定来源。',
+    syntax: '<a href="https://example.com" class="btn" target="_blank">文字</a>\n   └──────────── 这些是 HTML 属性 ────────────┘',
+    status: 'modern',
+    keywords: ['属性', 'attribute', '标签属性', 'class', 'href', 'src'],
+    example: {
+      html: '<a href="https://example.com" class="btn" title="提示文字">一个配了三种属性的链接</a>',
+      css: '.btn { display: inline-block; padding: 8px 18px; background: #2f6fdd; color: #fff; border-radius: 8px; text-decoration: none; }',
+      js: ''
+    },
+    errors: [
+      '属性名拼错：不报错、不提示，只是这个配置静默失效',
+      '把 CSS 的写法混进 HTML：写 <p style="margin: 0"> 属于"内联样式"，偶尔应急可以，长期应该搬到 CSS 文件里',
+      '以为所有属性都能加在任何标签上：href 加在 <img> 上没有任何作用（<img> 用的是 src）'
+    ],
+    related: ['concept-css-prop', 'concept-html-attr-vs-css', 'concept-tag'],
+    tip: '<b>HTML 属性和 CSS 属性是两套东西</b>：写在 HTML 标签里的是 HTML 属性；写在 CSS 花括号里的是 CSS 属性。点击下面的「相关概念」看详细区别。'
+  },
+
+  {
+    id: 'concept-css-prop', name: 'CSS 属性 Property', zh: '写在花括号里',
+    purpose: '写在 CSS 规则的花括号里，用「属性: 值;」的形式描述外观。颜色、大小、间距、布局都归它管。',
+    syntax: '选择器 {\n  属性: 值;\n}\n\np {\n  color: #333;\n  font-size: 16px;\n}',
+    status: 'modern',
+    keywords: ['css属性', 'property', '样式', '花括号'],
+    example: {
+      html: '<p class="demo">我的颜色、字号、间距全都由 CSS 属性控制。</p>',
+      css: '.demo {\n  color: #2f6fdd;\n  font-size: 18px;\n  padding: 12px 16px;\n  background: #eef2ff;\n  border-radius: 8px;\n}',
+      js: ''
+    },
+    errors: [
+      '属性名写成驼峰：fontSize 在 CSS 里要写 font-size（带连字符）；但在 JS 里设置时又要写驼峰 el.style.fontSize —— 两边写法不一样',
+      '漏写冒号或分号：整条声明被浏览器丢弃 —— CSS 出问题时不报错，只是"没生效"，很难查',
+      '给同一个元素同时设 width 和 padding 却忘了 box-sizing：总宽超出预期'
+    ],
+    related: ['concept-html-attr', 'concept-html-attr-vs-css', 'css-box-sizing'],
+    tip: '<b>CSS 的容错方式是「跳过」</b>：写错一条声明，浏览器只是忽略它，不报错。所以 CSS 调试的第一件事是打开开发者工具看那条属性有没有被划掉。'
+  },
+
+  {
+    id: 'concept-html-attr-vs-css', name: 'HTML 属性 vs CSS 属性', zh: '最容易混的一对',
+    purpose: '两个都叫「属性」，但一个写在 HTML 标签里管结构，一个写在 CSS 花括号里管外观。这是初学者最先混的地方。',
+    syntax: '<p class="big">文字</p>       ← class 是 HTML 属性\n\n.big { font-size: 24px; }   ← font-size 是 CSS 属性',
+    status: 'modern',
+    keywords: ['区别', '混淆', 'html属性', 'css属性', '对比'],
+    example: {
+      html: '<p class="big">这一段的字号由 CSS 属性 font-size 控制。</p>\n<p style="font-size: 24px">这一行用的是内联样式 —— 也能用，但不推荐长期这么写。</p>',
+      css: '.big {\n  font-size: 24px;      /* ← CSS 属性 */\n  color: #1a6f8f;\n}',
+      js: ''
+    },
+    errors: [
+      '在 HTML 标签里写 font-size：<p font-size="24px"> 完全不生效',
+      '在 CSS 里写 href：p { href: "..." } 不存在这个 CSS 属性',
+      '把 HTML 的 class 属性名和 CSS 的 .类名选择器当成一个东西'
+    ],
+    related: ['concept-html-attr', 'concept-css-prop', 'concept-selector', 'attr-class'],
+    tip: '<b>三句话分清</b>：<br>① <b>HTML 属性</b>写在标签尖括号里，管"这个元素是什么/连到哪"；<br>② <b>CSS 属性</b>写在花括号里，管"长什么样"；<br>③ <b>选择器</b>用来"选中要改外观的元素"，就是 CSS 花括号前面那部分。'
+  },
+
+  {
+    id: 'concept-selector', name: '选择器 Selector', zh: '选中元素的方式',
+    purpose: 'CSS 花括号前面那一部分，用来指定「这条样式要作用在哪些元素上」。JS 的 querySelector 也用同一套语法。',
+    syntax: 'p            { }   标签选择器\n.card        { }   类选择器（点号）\n#header      { }   id 选择器（井号）\n.card .title { }   后代（空格）\n.card:hover  { }   伪类（冒号）',
+    status: 'modern',
+    keywords: ['选择器', 'selector', '类名', 'id', '伪类', 'css选择器'],
+    example: {
+      html: '<p>我是标签选择器选中的</p>\n<p class="card">我有 card 类</p>\n<p id="only">我有唯一 id</p>\n<div class="card"><span class="title">我是 card 里面的 title</span></div>',
+      css: 'p { color: #8b93a1; }\n.card { color: #2f6fdd; }\n#only { color: #c03a52; font-weight: 700; }\n.card .title { background: #fff3cd; padding: 2px 6px; border-radius: 4px; }',
+      js: "console.log('CSS 选择器语法也能直接给 JS 用：');\nconsole.log(document.querySelector('.card .title').textContent);"
+    },
+    errors: [
+      '类选择器忘了点号：写 card { } 是在找 card 标签，不是 class="card"',
+      'id 选择器写成 .：.only { } 是在找 class="only"，不是 id="only"',
+      '优先级搞不清：id 选择器 > 类选择器 > 标签选择器。样式不生效先查这个，别急着加 !important'
+    ],
+    related: ['attr-class', 'attr-id', 'js-queryselector', 'concept-html-attr-vs-css'],
+    tip: '<b>这套语法学一次，三处都能用</b>：CSS 里用它写样式、JS 里用它取元素（querySelector）、调试时在控制台用它临时验证。所以它是前端最值得先练熟的东西之一。'
+  },
+
+  {
+    id: 'concept-variable', name: '变量 Variable', zh: '给值起个名字',
+    purpose: '把值存起来并起个名字，后面用名字引用它。JS 里用 let（会变的）和 const（不会重新赋值的）声明。',
+    syntax: "let count = 0;          // 以后还会变\nconst name = '小明';    // 不再重新赋值",
+    status: 'modern',
+    keywords: ['变量', 'variable', 'let', 'const', 'var', '赋值'],
+    example: {
+      html: '<button id="b">点一次加一</button>\n<p id="out">还没点</p>',
+      css: 'p { font-size: 16px; }',
+      js: "let count = 0;                        // 会变的，用 let\nconst btn = document.getElementById('b');   // 不会换的，用 const\n\nbtn.addEventListener('click', function () {\n  count = count + 1;\n  document.getElementById('out').textContent = '点了 ' + count + ' 次';\n});"
+    },
+    errors: [
+      '给 const 声明的变量重新赋值：直接报 "Assignment to constant variable"',
+      '用 var：它是旧写法，作用域规则反直觉（会"提升"、不受块级限制），新代码用 let/const',
+      '起名太随意（a、b、x1）：过两天自己都看不懂',
+      '"还没声明就用"：let/const 有暂时性死区，在声明之前访问会直接报错，而不是得到 undefined'
+    ],
+    related: ['concept-function', 'concept-object'],
+    tip: '<b>let 还是 const 怎么选</b>：默认写 const，只有确实需要重新赋值时才改成 let。这样别人读代码时一眼就知道"这个名字不会变"。'
+  },
+
+  {
+    id: 'concept-function', name: '函数 Function', zh: '一段可复用的代码',
+    purpose: '把一段代码包起来起个名字，需要时调用它。接收输入（参数），可以给出输出（返回值）。',
+    syntax: 'function 名字(参数) {\n  return 结果;\n}\n\n名字(实参);',
+    status: 'modern',
+    keywords: ['函数', 'function', '调用', '返回', '参数'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "// 定义：接收两个参数，返回计算结果\nfunction add(a, b) {\n  return a + b;\n}\n\n// 调用：传入具体的值\ndocument.getElementById('out').textContent =\n  'add(2, 3) = ' + add(2, 3) + '\\n' +\n  'add(10, 20) = ' + add(10, 20) + '\\n' +\n  '定义了一次，可以调用无数次。';"
+    },
+    errors: [
+      '函数里忘了 return：调用结果会是 undefined',
+      '以为 return 之后的代码还会执行：return 会立刻结束函数',
+      '定义在调用之后（用 function 声明是可以的，但用 const f = () => {} 就不行，会报错）',
+      '搞混参数和实参：定义时写的是「形参」，调用时传进去的是「实参」'
+    ],
+    related: ['concept-method', 'concept-param', 'js-parseint'],
+    tip: '<b>函数 vs 方法</b>：独立的叫函数（parseInt、setTimeout）；挂在某个对象上的叫方法（arr.map、el.addEventListener）。<b>方法本质就是"属于某个对象的函数"。</b>'
+  },
+
+  {
+    id: 'concept-method', name: '方法 Method', zh: '属于对象的函数',
+    purpose: '挂在某个对象上的函数。用「对象.方法名()」调用，比如 arr.push()、el.addEventListener()。',
+    syntax: '对象.方法名(参数)\n\narr.push(值)\nel.addEventListener("click", fn)',
+    status: 'modern',
+    keywords: ['方法', 'method', '点号', '调用', '对象'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const arr = [1, 2, 3];\n\n// push 是「数组对象」上的方法\narr.push(4);\n\n// toUpperCase 是「字符串对象」上的方法\nconst up = 'hello'.toUpperCase();\n\ndocument.getElementById('out').textContent =\n  'arr.push(4) 之后：' + JSON.stringify(arr) + '\\n' +\n  \"'hello'.toUpperCase() → \" + up + '\\n' +\n  '↑ 都是「某个对象上的方法」，用点号调用。';"
+    },
+    errors: [
+      '把方法当属性用：arr.length 是属性（不加括号），arr.push() 是方法（要加括号）',
+      '对数字用字符串方法：123.toUpperCase() 会报错，因为数字对象上没有这个方法',
+      '以为方法能随便跨类型用：每个方法只属于特定类型的对象'
+    ],
+    related: ['concept-function', 'concept-param', 'js-length', 'js-push'],
+    tip: '<b>一眼分辨属性和方法</b>：后面有括号 → 方法（会执行一段代码）；没括号 → 属性（读一个已经存在的值）。'
+  },
+
+  {
+    id: 'concept-param', name: '参数与返回值', zh: 'parameter / return',
+    purpose: '参数是「喂进去的东西」，返回值是「吐出来的结果」。函数靠这两样和外界交换数据。',
+    syntax: 'function 加(a, b) {   ← a、b 是参数（形参）\n  return a + b;    ← 返回值\n}\n\n加(2, 3)            ← 2、3 是实参',
+    status: 'modern',
+    keywords: ['参数', '实参', '形参', '返回值', 'return', 'argument'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "function greet(name) {        // name 是形参\n  return '你好，' + name;      // 返回值\n}\n\nconsole.log(greet('小明'));     // '小明' 是实参\nconsole.log(greet('小红'));\n\n// 有些方法不返回东西，只做事\nconst arr = [1];\narr.push(2);                    // 有返回值，但要看清是什么\nconsole.log(JSON.stringify(arr));\n\ndocument.getElementById('out').textContent =\n  greet('小明') + '\\n' +\n  '注意：arr.push() 返回的是新长度，不是数组本身';"
+    },
+    errors: [
+      '以为参数名必须和外面一致：参数名只在函数内部有效，叫什么都行',
+      '数错参数个数：多传会被忽略，少传会得到 undefined（不报错，静默出错）',
+      '把方法的返回值当成了别的东西：push 返回长度、forEach 返回 undefined、map 返回新数组 —— 这几个最容易记反'
+    ],
+    related: ['concept-function', 'concept-method', 'js-push', 'js-foreach'],
+    tip: '<b>查文档时先看两个地方</b>：这个函数要什么参数（括号里）、它返回什么（Return value）。大多数"用了没效果"的问题都出在这两处。'
+  },
+
+  {
+    id: 'concept-object', name: '对象 Object', zh: '一堆键值对',
+    purpose: '把相关的数据打包在一起，用「键: 值」的形式，用点号或方括号读取。',
+    syntax: "const user = {\n  name: '小明',\n  age: 17\n};\n\nuser.name        // '小明'\nuser['age']      // 17",
+    status: 'modern',
+    keywords: ['对象', 'object', '键值对', '属性', 'json'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "const user = {\n  name: '小明',\n  age: 17,\n  tags: ['读者', '会员']\n};\n\nconsole.log(user.name);\nconsole.log(user['age']);\nuser.age = 18;                       // 改一个值\nuser.city = '重庆';                  // 加一个新键\n\ndocument.getElementById('out').textContent =\n  JSON.stringify(user, null, 2);"
+    },
+    errors: [
+      '把对象和 JSON 混为一谈：对象是 JS 里的东西，JSON 是一种文本格式（键必须双引号、不能有函数）',
+      '读不存在的键：返回 undefined，不报错，然后你会在下一步出错',
+      '把对象属性叫成"方法"：user.name 是属性，user.sayHi() 才是方法'
+    ],
+    related: ['js-json-stringify', 'concept-variable', 'concept-method'],
+    tip: '<b>对象属性也常被叫「属性」，这是第三个「属性」</b>：HTML 属性、CSS 属性、对象属性。看上下文就能分清 —— 在 HTML 标签里、在 CSS 花括号里、在 JS 对象的键里。'
+  },
+
+  {
+    id: 'concept-expression', name: '表达式 vs 语句', zh: '有值 vs 要做的事',
+    purpose: '表达式是「能算出一个值的片段」（1 + 2、a > b）；语句是「让程序做一件事的指令」（let x = 1、if (...)）。',
+    syntax: '1 + 2              ← 表达式（有值）\nlet x = 1 + 2;     ← 语句（做了一件事）\nconsole.log(x);    ← 语句',
+    status: 'modern',
+    keywords: ['表达式', '语句', 'expression', 'statement'],
+    example: {
+      html: '<p id="out"></p>',
+      css: 'p { font: 15px/1.7 monospace; white-space: pre-wrap; }',
+      js: "// 表达式可以直接放进 console.log 里\nconsole.log(1 + 2);\nconsole.log(10 > 3);\n\n// 语句不能\n// console.log(let x = 1);   ← 这会报错\n\n// if 的条件位置要放表达式\nif (10 > 3) {\n  document.getElementById('out').textContent =\n    '在 if(...) 和 console.log(...) 的括号里，你写的都是「表达式」（有值的东西）。';\n}"
+    },
+    errors: [
+      '在需要表达式的地方写了语句：比如 console.log(let x = 1) 或 if (let y = 2)',
+      '箭头函数的简写只能用于表达式：() => { return 1 } 可以简写成 () => 1，但里面是语句就不能省花括号'
+    ],
+    related: ['concept-variable', 'concept-function']
+  },
+
+  {
+    id: 'concept-dom', name: 'DOM', zh: '页面在 JS 里的样子',
+    purpose: '浏览器把 HTML 解析成一棵「节点树」并把它们变成 JS 对象，这棵树就叫 DOM。JS 通过 DOM 读写页面。',
+    syntax: 'HTML 文本  →（浏览器解析）→  DOM 对象树  →（JS 操作）\n\ndocument.getElementById()\nel.textContent = …',
+    status: 'modern',
+    keywords: ['dom', '文档对象模型', '节点', 'document', '操作页面'],
+    example: {
+      html: '<div id="box"><p>原来的第一段</p></div>\n<button id="b">用 JS 改这个盒子</button>',
+      css: '#box { border: 1px solid #ccd2dc; padding: 12px; border-radius: 8px; }',
+      js: "const box = document.getElementById('box');\nconsole.log('通过 DOM 读到的对象：', box);\nconsole.log('它的子元素个数：', box.children.length);\n\ndocument.getElementById('b').addEventListener('click', function () {\n  const p = document.createElement('p');\n  p.textContent = '这是 JS 新加的一段（' + new Date().toLocaleTimeString() + '）';\n  box.appendChild(p);\n});"
+    },
+    errors: [
+      '以为改了 HTML 文件页面就会变：页面已经在内存里了，改文件要刷新才生效；想动态改就得操作 DOM',
+      '用 JS 大段拼接字符串然后 innerHTML：能跑，但效率低且有注入风险，优先用 createElement + appendChild',
+      '把 DOM 操作写在元素出现之前：拿到 null'
+    ],
+    related: ['concept-element', 'js-queryselector', 'js-createelement', 'html-script'],
+    tip: '<b>一句话理解 DOM</b>：HTML 是「说明书」，DOM 是「浏览器照着说明书搭好的实物」，JS 控制的是那个实物。你改 HTML 文件不会自动改实物，得刷新。'
+  }
+
+];
+
+</script>
+<script>
+/* ==========================================================================
+   data.js — 汇总词条、定义分类、提供校验
+   --------------------------------------------------------------------------
+   加载顺序在 js/data/*.js 之后。它把五个数据文件合并成一个总表，
+   并给每条词条补上「类别」信息，供搜索和界面使用。
+   ========================================================================== */
+
+window.WDT = (function () {
+
+  /* 五个类别。加新类别时：在这里加一项，再新建对应的 js/data/xxx.js，
+     并在 index.html 里加一行 <script>。 */
+  const CATS = [
+    { key: 'html-tag',  label: 'HTML 标签', short: '标签', hex: '#ff9e64', arr: window.WDT_HTML_TAGS },
+    { key: 'html-attr', label: 'HTML 属性', short: '属性', hex: '#e0af68', arr: window.WDT_HTML_ATTRS },
+    { key: 'css-prop',  label: 'CSS 属性',  short: 'CSS',  hex: '#7dcfff', arr: window.WDT_CSS_PROPS },
+    { key: 'js-method', label: 'JS 方法',   short: 'JS',   hex: '#bb9af7', arr: window.WDT_JS_METHODS },
+    { key: 'concept',   label: '基础概念',  short: '概念', hex: '#9aa5ce', arr: window.WDT_CONCEPTS }
+  ];
+
+  const ALL = [];
+  CATS.forEach(function (c) {
+    (c.arr || []).forEach(function (e) {
+      e.cat = c.key;
+      e.catLabel = c.label;
+      e.catHex = c.hex;
+      ALL.push(e);
+    });
+  });
+
+  const BY_ID = new Map();
+  ALL.forEach(function (e) { BY_ID.set(e.id, e); });
+
+  /* 搜索用的归一化：去掉尖括号、括号、空格，统一小写。
+     这样搜 "<div>" 和 "div" 效果一样。 */
+  function norm(s) {
+    return String(s == null ? '' : s)
+      .toLowerCase()
+      .replace(/[<>()（）]/g, '')
+      .trim();
+  }
+
+  const STATUS_ZH = {
+    modern:     null,               // 推荐写法不显示徽章，减少干扰
+    legacy:     '旧写法',
+    deprecated: '已废弃'
+  };
+
+  function statusLabel(st) { return STATUS_ZH[st] || null; }
+
+  /* 需要哪些字段（自检用） */
+  const REQUIRED = ['id', 'name', 'zh', 'purpose', 'syntax', 'status', 'keywords', 'example', 'errors', 'related'];
+  const STATUSES = ['modern', 'legacy', 'deprecated'];
+
+  function validate() {
+    const issues = [];
+    const seen = new Set();
+
+    ALL.forEach(function (e, i) {
+      const where = (e && e.id) ? e.id : ('第 ' + (i + 1) + ' 条（没有 id）');
+
+      REQUIRED.forEach(function (f) {
+        const v = e[f];
+        if (v === undefined || v === null || v === '') {
+          issues.push(where + '：缺字段 ' + f);
+        }
+      });
+
+      if (e.id) {
+        if (seen.has(e.id)) issues.push(where + '：id 重复');
+        seen.add(e.id);
+      }
+
+      if (e.status && STATUSES.indexOf(e.status) < 0) {
+        issues.push(where + '：status 只能是 modern / legacy / deprecated，现在是 "' + e.status + '"');
+      }
+
+      if (e.example) {
+        ['html', 'css', 'js'].forEach(function (k) {
+          if (typeof e.example[k] !== 'string') {
+            issues.push(where + '：example 缺 "' + k + '"（不用的话给空字符串）');
+          }
+        });
+        const blank = !e.example.html && !e.example.css && !e.example.js;
+        if (blank) issues.push(where + '：example 三段全是空的，实验区会是一片空白');
+      }
+
+      ['keywords', 'errors', 'related'].forEach(function (k) {
+        if (e[k] && !Array.isArray(e[k])) issues.push(where + '：' + k + ' 应该是数组');
+      });
+    });
+
+    // 相关概念指向的词条必须真实存在
+    ALL.forEach(function (e) {
+      (e.related || []).forEach(function (rid) {
+        if (!BY_ID.has(rid)) {
+          issues.push(e.id + '：related 里的 "' + rid + '" 不存在');
+        }
+        if (rid === e.id) {
+          issues.push(e.id + '：related 指向了自己');
+        }
+      });
+    });
+
+    return issues;
+  }
+
+  function countsByCat() {
+    const m = {};
+    CATS.forEach(function (c) { m[c.key] = 0; });
+    ALL.forEach(function (e) { m[e.cat] = (m[e.cat] || 0) + 1; });
+    return m;
+  }
+
+  return {
+    CATS: CATS,
+    ALL: ALL,
+    BY_ID: BY_ID,
+    norm: norm,
+    statusLabel: statusLabel,
+    validate: validate,
+    countsByCat: countsByCat,
+    meta: {
+      title: 'Web 学习工具箱',
+      total: ALL.length
+    }
+  };
+})();
+
+</script>
+<script>
+/* ==========================================================================
+   search.js — 搜索与排序
+   --------------------------------------------------------------------------
+   支持：按名称、中文别名、用途、关键词搜索；空格分隔多个关键词（要全中）。
+   计分方式简单直白：匹配得越"靠前、越完整"，分越高。
+   ========================================================================== */
+
+window.WDT.search = (function () {
+
+  const norm = window.WDT.norm;
+
+  /* 单条词条 vs 单个关键词的最高得分；0 表示不匹配 */
+  function scoreOne(entry, t) {
+    const name = norm(entry.name);
+    const zh = String(entry.zh || '').toLowerCase();
+    const purpose = String(entry.purpose || '').toLowerCase();
+    const kws = (entry.keywords || []).map(function (k) { return String(k).toLowerCase(); });
+
+    /* 单个 ASCII 字母（比如 a、p）走严格模式：只认完全相等或名字开头。
+       否则搜 "a" 会因为 "background-color" 里含 a 而返回一大片，没法用。
+       单个汉字不受此限 —— "居" 这种半截词是常见输入。 */
+    const singleAscii = t.length === 1 && t.charCodeAt(0) < 128;
+
+    let best = 0;
+
+    if (name === t) best = Math.max(best, 120);
+    else if (name.indexOf(t) === 0) best = Math.max(best, 90);
+    else if (!singleAscii && name.indexOf(t) >= 0) best = Math.max(best, 70);
+
+    if (zh === t) best = Math.max(best, 100);
+    else if (!singleAscii && zh.indexOf(t) >= 0) best = Math.max(best, 60);
+
+    kws.forEach(function (k) {
+      if (k === t) best = Math.max(best, 80);
+      else if (!singleAscii && k.indexOf(t) >= 0) best = Math.max(best, 45);
+    });
+
+    if (singleAscii) return best;
+
+    const catLabel = String(entry.catLabel || '').toLowerCase();
+    if (catLabel.indexOf(t) >= 0) best = Math.max(best, 20);
+
+    if (purpose.indexOf(t) >= 0) best = Math.max(best, 30);
+
+    const tip = String(entry.tip || '').toLowerCase();
+    if (tip.indexOf(t) >= 0) best = Math.max(best, 12);
+
+    const errs = (entry.errors || []).join(' ').toLowerCase();
+    if (errs.indexOf(t) >= 0) best = Math.max(best, 10);
+
+    return best;
+  }
+
+  /**
+   * 搜索入口。
+   * @param {string} query 原始查询串
+   * @param {{or?: boolean}} [opts] or=true 时只要命中任一个关键词就算（用于兜底）
+   * @returns {Array<{entry, score, hit}>} 按分数从高到低
+   */
+  function run(query, opts) {
+    const or = !!(opts && opts.or);
+    const q = String(query || '').trim();
+    if (!q) return [];
+
+    const tokens = q.split(/\s+/).map(norm).filter(Boolean);
+    if (!tokens.length) return [];
+
+    const out = [];
+    window.WDT.ALL.forEach(function (entry) {
+      let total = 0;
+      let hits = 0;
+      let firstHit = 0;
+
+      for (let i = 0; i < tokens.length; i++) {
+        const s = scoreOne(entry, tokens[i]);
+        if (!s) continue;
+        hits++;
+        total += s;
+        if (!firstHit) firstHit = s;
+      }
+
+      if (or ? hits === 0 : hits !== tokens.length) return;
+
+      // 命中越多关键词排越前；名称命中再加权
+      const boost = or ? hits * 60 : (tokens.length - 1) * 15;
+      out.push({ entry: entry, score: total + firstHit * 0.5 + boost, hit: firstHit, hits: hits });
+    });
+
+    out.sort(function (a, b) {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.entry.name.localeCompare(b.entry.name);
+    });
+
+    return out;
+  }
+
+  /* 生成一小段"为什么这条会被搜到"的摘要 */
+  function snippet(entry, query) {
+    const text = String(entry.purpose || '');
+    const tokens = String(query || '').split(/\s+/).map(norm).filter(Boolean);
+    const lower = text.toLowerCase();
+    let idx = -1;
+    tokens.forEach(function (t) {
+      if (idx >= 0) return;
+      idx = lower.indexOf(t);
+    });
+    if (idx < 0) return text.length > 60 ? text.slice(0, 60) + '…' : text;
+    const start = Math.max(0, idx - 12);
+    const end = Math.min(text.length, idx + 48);
+    return (start > 0 ? '…' : '') + text.slice(start, end) + (end < text.length ? '…' : '');
+  }
+
+  return { run: run, snippet: snippet };
+})();
+
+</script>
+<script>
+/* ==========================================================================
+   playground.js — 代码实验区
+   --------------------------------------------------------------------------
+   三块可编辑代码（HTML / CSS / JS）拼成一份完整文档，
+   塞进 sandbox iframe 的 srcdoc 里运行 —— 与主页面完全隔离。
+   子页面里的 console.log 会通过 postMessage 回传到这里显示。
+   ========================================================================== */
+
+window.WDT.playground = (function () {
+
+  /* 预览网页的基础样式：让示例看起来干净一点。
+     用户自己的 CSS 写在它后面，所以可以覆盖它。 */
+  const BASE_CSS = [
+    '*{box-sizing:border-box}',
+    'body{margin:0;padding:14px;background:#fff;color:#1c2129;' +
+      'font:15px/1.7 system-ui,-apple-system,"Segoe UI","Microsoft YaHei","PingFang SC",sans-serif}',
+    'p{margin:0 0 10px}',
+    'img{max-width:100%}',
+    'button,input,select,textarea{font:inherit}'
+  ].join('\n');
+
+  /* 注入到预览页里的小工具：转发 console 输出 + 捕获未处理错误 */
+  const BRIDGE = [
+    '(function(){',
+    '  function fmt(v){',
+    '    if (typeof v === "string") return v;',
+    '    if (v === null) return "null";',
+    '    if (v === undefined) return "undefined";',
+    '    if (typeof v === "function") return "[函数]";',
+    '    if (v instanceof Error) return v.message;',
+    '    if (v && v.nodeType === 1) return "<" + String(v.tagName).toLowerCase() + ">";',
+    '    try { var s = JSON.stringify(v); return s === undefined ? String(v) : s; }',
+    '    catch (e) { return String(v); }',
+    '  }',
+    '  function send(level, args){',
+    '    try {',
+    '      var parts = [];',
+    '      for (var i = 0; i < args.length; i++) parts.push(fmt(args[i]));',
+    '      parent.postMessage({ __wdt: 1, level: level, text: parts.join(" ") }, "*");',
+    '    } catch (e) {}',
+    '  }',
+    '  ["log","info","warn","error"].forEach(function(k){',
+    '    var old = console[k];',
+    '    console[k] = function(){',
+    '      send(k === "info" ? "log" : k, arguments);',
+    '      try { old.apply(console, arguments); } catch (e) {}',
+    '    };',
+    '  });',
+    '  window.addEventListener("error", function(e){',
+    '    send("error", ["未捕获错误：" + e.message + (e.lineno ? "（第 " + e.lineno + " 行）" : "")]);',
+    '  });',
+    '})();'
+  ].join('\n');
+
+  const TABS = [
+    { k: 'html', label: 'HTML' },
+    { k: 'css',  label: 'CSS' },
+    { k: 'js',   label: 'JS' }
+  ];
+  const MAX_LOGS = 80;
+
+  let mount = null;
+  let tabsEl = null;
+  let editorEl = null;
+  let frameEl = null;
+  let consoleEl = null;
+  let titleEl = null;
+
+  let cur = 'html';
+  const code = { html: '', css: '', js: '' };
+  let loaded = null;          // 当前加载的词条
+  let timer = null;
+
+  /* ---------- 组装文档 ---------- */
+  function escapeScript(js) {
+    // 避免用户代码里的 <\/script> 提前结束脚本块
+    return String(js || '').replace(/<\/script/gi, '<\\/script');
+  }
+
+  function buildDoc() {
+    return '<!DOCTYPE html>\n' +
+      '<html lang="zh-CN">\n<head>\n<meta charset="utf-8">\n<style>\n' +
+      BASE_CSS + '\n' + code.css + '\n</style>\n</head>\n<body>\n' +
+      code.html +
+      '\n<script>\n' + BRIDGE + '\n<\/script>\n' +
+      '<script>\n' + escapeScript(code.js) + '\n<\/script>\n' +
+      '</body>\n</html>';
+  }
+
+  /* ---------- 控制台 ---------- */
+  function pushLog(level, text) {
+    if (!consoleEl) return;
+    const line = document.createElement('div');
+    line.className = 'console-line lv-' + (level || 'log');
+    const tag = document.createElement('span');
+    tag.className = 'lv';
+    tag.textContent = level === 'error' ? '✕' : (level === 'warn' ? '!' : '›');
+    line.appendChild(tag);
+    line.appendChild(document.createTextNode(text));
+    consoleEl.appendChild(line);
+    while (consoleEl.childNodes.length > MAX_LOGS) consoleEl.removeChild(consoleEl.firstChild);
+    consoleEl.scrollTop = consoleEl.scrollHeight;
+  }
+
+  function clearLogs() { if (consoleEl) consoleEl.textContent = ''; }
+
+  /* ---------- 运行 ---------- */
+  function stash() {
+    if (editorEl) code[cur] = editorEl.value;
+  }
+
+  function run() {
+    stash();
+    if (!frameEl) return;
+    clearLogs();
+    frameEl.srcdoc = buildDoc();
+  }
+
+  function scheduleRun() {
+    clearTimeout(timer);
+    timer = setTimeout(run, 500);
+  }
+
+  /* ---------- 标签页 ---------- */
+  function paintTabs() {
+    if (!tabsEl) return;
+    tabsEl.querySelectorAll('.pg-tab').forEach(function (b) {
+      const k = b.dataset.k;
+      b.classList.toggle('is-active', k === cur);
+      b.classList.toggle('has-code', String(code[k] || '').trim().length > 0);
+    });
+    if (editorEl) {
+      editorEl.value = code[cur] || '';
+      editorEl.placeholder = cur === 'html' ? '<!-- 在这里写 HTML -->'
+        : cur === 'css' ? '/* 在这里写 CSS */'
+        : '// 在这里写 JavaScript';
+    }
+  }
+
+  function switchTo(k) {
+    if (k === cur) return;
+    stash();
+    cur = k;
+    paintTabs();
+  }
+
+  /* ---------- 挂载 ---------- */
+  function mountUI() {
+    mount.innerHTML = '';
+
+    const head = document.createElement('div');
+    head.className = 'pg-head';
+    head.innerHTML =
+      '<div class="pg-title">代码实验区</div>' +
+      '<div class="pg-tabs"></div>';
+    mount.appendChild(head);
+    tabsEl = head.querySelector('.pg-tabs');
+
+    TABS.forEach(function (t) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pg-tab';
+      b.dataset.k = t.k;
+      b.innerHTML = t.label + '<span class="dot"></span>';
+      b.addEventListener('click', function () { switchTo(t.k); });
+      tabsEl.appendChild(b);
+    });
+
+    const body = document.createElement('div');
+    body.className = 'pg-body';
+    mount.appendChild(body);
+
+    const codeWrap = document.createElement('div');
+    codeWrap.className = 'pg-code';
+    editorEl = document.createElement('textarea');
+    editorEl.spellcheck = false;
+    editorEl.setAttribute('wrap', 'off');
+    editorEl.setAttribute('aria-label', '代码编辑区');
+    editorEl.addEventListener('input', function () { code[cur] = editorEl.value; paintTabs(); scheduleRun(); });
+    editorEl.addEventListener('keydown', function (e) {
+      if (e.key === 'Tab') {
+        e.preventDefault();
+        const s = editorEl.selectionStart, en = editorEl.selectionEnd;
+        editorEl.value = editorEl.value.slice(0, s) + '  ' + editorEl.value.slice(en);
+        editorEl.selectionStart = editorEl.selectionEnd = s + 2;
+        code[cur] = editorEl.value;
+        paintTabs();
+        scheduleRun();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); run(); }
+    });
+    codeWrap.appendChild(editorEl);
+    body.appendChild(codeWrap);
+
+    const actions = document.createElement('div');
+    actions.className = 'pg-actions';
+    actions.innerHTML =
+      '<button type="button" class="btn-run">运行</button>' +
+      '<button type="button" class="ghost-btn" id="pg-reset">重置</button>' +
+      '<span class="pg-hint">Ctrl+Enter 运行</span>';
+    body.appendChild(actions);
+    actions.querySelector('.btn-run').addEventListener('click', run);
+    actions.querySelector('#pg-reset').addEventListener('click', function () {
+      if (loaded) load(loaded); else run();
+    });
+
+    const pv = document.createElement('div');
+    pv.className = 'pg-preview-wrap';
+    pv.innerHTML =
+      '<div class="pg-preview-head">预览<span class="live" id="pg-live"></span></div>' +
+      '<iframe id="pg-frame" sandbox="allow-scripts allow-modals" title="预览"></iframe>';
+    body.appendChild(pv);
+    frameEl = pv.querySelector('#pg-frame');
+    titleEl = pv.querySelector('#pg-live');
+
+    consoleEl = document.createElement('div');
+    consoleEl.className = 'pg-console';
+    consoleEl.setAttribute('aria-live', 'polite');
+    mount.appendChild(consoleEl);
+  }
+
+  /* ---------- 对外接口 ---------- */
+  function load(entry) {
+    loaded = entry || null;
+    const ex = (entry && entry.example) || { html: '', css: '', js: '' };
+    code.html = ex.html || '';
+    code.css = ex.css || '';
+    code.js = ex.js || '';
+    cur = 'html';
+    paintTabs();
+    if (titleEl) {
+      titleEl.textContent = entry ? ('正在实验：' + entry.name) : '还没有载入示例';
+    }
+    run();
+  }
+
+  function init(selector) {
+    mount = document.querySelector(selector);
+    if (!mount) return;
+    mountUI();
+    paintTabs();
+    load(null);
+
+    // 子页面回传的 console 与错误
+    window.addEventListener('message', function (ev) {
+      const d = ev.data;
+      if (!d || d.__wdt !== 1) return;
+      pushLog(d.level, d.text);
+    });
+  }
+
+  return { init: init, load: load, run: run, getLoaded: function () { return loaded; } };
+})();
+
+</script>
+<script>
+/* ==========================================================================
+   app.js — 界面渲染、路由、搜索交互、主题、收藏、自检
+   ========================================================================== */
+
+(function () {
+
+  const D = window.WDT;
+  const $ = function (s, root) { return (root || document).querySelector(s); };
+
+  /* ---------- 安全存储（file:// 下某些浏览器会禁用 localStorage） ---------- */
+  const LS = {
+    get: function (k, fallback) {
+      try {
+        const v = localStorage.getItem(k);
+        return v === null ? fallback : JSON.parse(v);
+      } catch (e) { return fallback; }
+    },
+    set: function (k, v) {
+      try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {}
+    }
+  };
+
+  const K_FAV = 'wdt.fav', K_RECENT = 'wdt.recent', K_THEME = 'wdt.theme';
+  const MAX_RECENT = 12;
+
+  /* ---------- 状态 ---------- */
+  const state = {
+    cat: 'all',
+    q: '',
+    results: null,     // 搜索命中结果（{entry,score}）
+    sel: null,         // 当前打开的词条 id
+    cursor: 0,         // 搜索结果键盘高亮位置
+    view: 'entry'      // entry | welcome | audit
+  };
+
+  let favSet = new Set(LS.get(K_FAV, []));
+  let recent = LS.get(K_RECENT, []);
+
+  /* ---------- 小工具 ---------- */
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+
+  function copyText(text, btn) {
+    const done = function () {
+      const old = btn.textContent;
+      btn.textContent = '已复制';
+      setTimeout(function () { btn.textContent = old; }, 1200);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { fallback(); });
+    } else { fallback(); }
+
+    function fallback() {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  }
+
+  function codeBlock(text, label) {
+    if (!text || !String(text).trim()) return '';
+    return '<div class="section">' +
+      (label ? '<h2 class="section-title">' + esc(label) + '</h2>' : '') +
+      '<div class="code-block"><pre>' + esc(text) + '</pre>' +
+      '<button type="button" class="copy" data-copy>复制</button></div></div>';
+  }
+
+  /* ---------- 分类导航 ---------- */
+  function catItems() {
+    const counts = D.countsByCat();
+    const items = [{ key: 'all', label: '全部词条', hex: 'var(--fg-dim)', n: D.ALL.length }];
+    D.CATS.forEach(function (c) {
+      items.push({ key: c.key, label: c.label, hex: c.hex, n: counts[c.key] || 0 });
+    });
+    items.push({ key: 'fav', label: '我的收藏', hex: 'var(--warn)', n: favSet.size });
+    items.push({ key: 'recent', label: '最近查看', hex: 'var(--ok)', n: recent.length });
+    return items;
+  }
+
+  function renderCats() {
+    const box = $('#cats');
+    box.innerHTML = '';
+    catItems().forEach(function (c) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cat' + (state.cat === c.key && !state.q ? ' is-active' : '');
+      b.dataset.cat = c.key;
+      b.innerHTML = '<span class="cat-dot" style="--dot:' + c.hex + '"></span>' +
+        '<span class="cat-name">' + esc(c.label) + '</span>' +
+        '<span class="cat-n">' + c.n + '</span>';
+      b.addEventListener('click', function () {
+        state.cat = c.key;
+        state.q = '';
+        state.results = null;
+        $('#q').value = '';
+        $('#q-clear').hidden = true;
+        state.cursor = 0;
+        renderCats();
+        renderList();
+        closeDrawer();
+      });
+      box.appendChild(b);
+    });
+  }
+
+  /* ---------- 当前该显示哪些词条 ---------- */
+  function visibleEntries() {
+    if (state.q) return (state.results || []).map(function (r) { return r.entry; });
+    if (state.cat === 'fav') {
+      return Array.from(favSet).map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
+    }
+    if (state.cat === 'recent') {
+      return recent.map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
+    }
+    if (state.cat === 'all') return D.ALL;
+    return D.ALL.filter(function (e) { return e.cat === state.cat; });
+  }
+
+  function renderList() {
+    const list = $('#entries');
+    const items = visibleEntries();
+    const titleBox = $('#list-title');
+    const countBox = $('#list-count');
+
+    if (state.q) titleBox.textContent = state.fallback ? '宽松匹配' : '搜索结果';
+    else {
+      const c = catItems().filter(function (x) { return x.key === state.cat; })[0];
+      titleBox.textContent = c ? c.label : '词条';
+    }
+    countBox.textContent = items.length + ' 条';
+
+    list.innerHTML = '';
+
+    if (!items.length) {
+      const li = document.createElement('li');
+      li.className = 'empty-note';
+      if (state.q) {
+        li.textContent = '没找到「' + state.q + '」。试试更短的关键词，比如只输 div、颜色、居中。';
+      } else if (state.cat === 'fav') {
+        li.textContent = '还没有收藏。打开任意词条，点标题右边的「收藏」就会出现在这里。';
+      } else if (state.cat === 'recent') {
+        li.textContent = '还没有浏览记录。看过的词条会自动记在这里。';
+      } else {
+        li.textContent = '这个分类下暂时没有词条。';
+      }
+      list.appendChild(li);
+      return;
+    }
+
+    items.forEach(function (e, i) {
+      const li = document.createElement('li');
+      if (state.q && state.fallback && i === 0) {
+        const note = document.createElement('div');
+        note.className = 'empty-note';
+        note.textContent = '没有同时包含这几个词的词条，下面是包含其中任意一个的：';
+        li.appendChild(note);
+      }
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'entry-item' +
+        (e.id === state.sel ? ' is-active' : '') +
+        (state.q && i === state.cursor ? ' is-cursor' : '');
+      b.dataset.id = e.id;
+      const isFav = favSet.has(e.id);
+      b.innerHTML = (isFav ? '<span class="ei-star">★</span>' : '') +
+        '<span class="ei-mark">' + esc(e.name) + '</span>' +
+        '<span class="ei-zh">' + esc(e.zh) + '</span>';
+      b.title = e.catLabel + ' · ' + e.name + (e.zh ? '（' + e.zh + '）' : '');
+      b.addEventListener('click', function () { select(e.id); });
+      li.appendChild(b);
+      list.appendChild(li);
+    });
+  }
+
+  /* ---------- 详情 ---------- */
+  function renderWelcome() {
+    state.view = 'welcome';
+    $('#detail').innerHTML =
+      '<div class="welcome">' +
+      '<h2>边查边改，看它真的会发生什么</h2>' +
+      '<p>左边挑一个词条，中间读讲解，右边那块代码可以直接改 —— 改完立刻能看到效果，' +
+      '不用新建文件、不用配环境。</p>' +
+      '<p>当前收录 <b>' + D.ALL.length + '</b> 条：' +
+      D.CATS.map(function (c) { return c.label + ' ' + (D.countsByCat()[c.key] || 0); }).join(' · ') +
+      '</p>' +
+      '<div class="audit-out">' +
+      '<h3>三件值得先做的事</h3><ul>' +
+      '<li>按 <b>/</b> 跳到搜索框，输入 <b>居中</b>、<b>显示</b>、<b>数组</b> 试试</li>' +
+      '<li>先看「基础概念」里的 <b>HTML 属性 vs CSS 属性</b> —— 那是初学者最容易混的地方</li>' +
+      '<li>在右边改一行代码，按 <b>Ctrl+Enter</b> 重新运行，看看哪里变了</li>' +
+      '</ul></div>' +
+      '<div class="audit-out">' +
+      '<h3>怎么知道一条写法是不是过时了</h3>' +
+      '<p class="muted" style="margin:0">带橙色徽章的就是：' +
+      '「已废弃」表示标准不再推荐，「旧写法」表示能用但新代码不该这么写。' +
+      '每条都会写清楚现在该用什么代替。</p>' +
+      '</div>' +
+      '</div>';
+    renderPlaygroundHint();
+  }
+
+  function renderPlaygroundHint() {
+    window.WDT.playground.load(null);
+  }
+
+  function select(id, opts) {
+    const e = D.BY_ID.get(id);
+    if (!e) return;
+    state.sel = id;
+    state.view = 'entry';
+
+    // 记进最近查看
+    recent = [id].concat(recent.filter(function (x) { return x !== id; })).slice(0, MAX_RECENT);
+    LS.set(K_RECENT, recent);
+
+    // 地址栏同步，方便收藏和分享
+    if (!opts || !opts.silent) {
+      try { history.replaceState(null, '', '#' + id); } catch (err) { location.hash = id; }
+    }
+
+    paintDetail(e);
+    renderCats();
+    renderList();
+    window.WDT.playground.load(e);
+    $('#detail').scrollTop = 0;
+    closeDrawer();
+  }
+
+  function paintDetail(e) {
+    const items = visibleEntries();
+    const idx = items.map(function (x) { return x.id; }).indexOf(e.id);
+    const st = D.statusLabel(e.status);
+    const isFav = favSet.has(e.id);
+
+    let h = '';
+    h += '<div class="entry-head">';
+    h += '<div class="crumbs"><b>' + esc(e.catLabel) + '</b>' +
+         (idx >= 0 ? ' · 第 ' + (idx + 1) + ' / ' + items.length + ' 条' : '') + '</div>';
+    h += '<h1 class="entry-title"' + (e.cat === 'concept' ? ' style="font-family:var(--sans)"' : '') + '>' +
+         esc(e.name) + (e.zh ? '<span class="t-zh">' + esc(e.zh) + '</span>' : '') + '</h1>';
+    h += '<div class="badges">';
+    h += '<span class="badge badge-cat" style="--bc:' + e.catHex + '">' + esc(e.catLabel) + '</span>';
+    if (st) h += '<span class="badge badge-warn">' + esc(st) + '</span>';
+    else h += '<span class="badge badge-ok">推荐写法</span>';
+    h += '<button type="button" class="star-btn' + (isFav ? ' is-on' : '') + '" id="star">' +
+         (isFav ? '★ 已收藏' : '☆ 收藏') + '</button>';
+    h += '</div></div>';
+
+    h += '<div class="section"><h2 class="section-title">用途</h2>' +
+         '<p class="purpose">' + esc(e.purpose) + '</p></div>';
+
+    h += codeBlock(e.syntax, '语法');
+
+    // 示例：三段分开列
+    const ex = e.example || {};
+    const hasEx = String(ex.html || '').trim() || String(ex.css || '').trim() || String(ex.js || '').trim();
+    if (hasEx) {
+      h += '<div class="section"><h2 class="section-title">示例' +
+           '<span style="font-weight:400;text-transform:none;letter-spacing:0">（右边实验区里可以直接改）</span>' +
+           '</h2>';
+      if (String(ex.html || '').trim()) h += codeBlock(ex.html, null);
+      if (String(ex.css || '').trim()) h += codeBlock(ex.css, null);
+      if (String(ex.js || '').trim()) h += codeBlock(ex.js, null);
+      h += '</div>';
+    }
+
+    if ((e.errors || []).length) {
+      h += '<div class="section"><h2 class="section-title">常见错误</h2><ul class="err-list">';
+      e.errors.forEach(function (x) { h += '<li>' + esc(x) + '</li>'; });
+      h += '</ul></div>';
+    }
+
+    if (e.tip) {
+      h += '<div class="section"><h2 class="section-title">新手提示</h2>' +
+           '<div class="tip">' + e.tip + '</div></div>';
+    }
+
+    const rel = (e.related || []).map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
+    if (rel.length) {
+      h += '<div class="section"><h2 class="section-title">相关概念</h2><div class="chips">';
+      rel.forEach(function (r) {
+        h += '<button type="button" class="chip" data-goto="' + esc(r.id) + '">' +
+             esc(r.name) + '<span class="chip-zh">' + esc(r.zh) + '</span></button>';
+      });
+      h += '</div></div>';
+    }
+
+    const det = $('#detail');
+    det.innerHTML = h;
+
+    det.querySelectorAll('[data-copy]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const pre = btn.parentNode.querySelector('pre');
+        copyText(pre ? pre.textContent : '', btn);
+      });
+    });
+    det.querySelectorAll('[data-goto]').forEach(function (btn) {
+      btn.addEventListener('click', function () { select(btn.dataset.goto); });
+    });
+    const star = det.querySelector('#star');
+    if (star) star.addEventListener('click', function () {
+      if (favSet.has(e.id)) favSet.delete(e.id); else favSet.add(e.id);
+      LS.set(K_FAV, Array.from(favSet));
+      paintDetail(e);
+      renderCats();
+      renderList();
+    });
+  }
+
+  /* ---------- 词条自检 ---------- */
+  function showAudit() {
+    state.view = 'audit';
+    const issues = D.validate();
+    let h = '<div class="entry-head"><div class="crumbs"><b>词条自检</b></div>' +
+            '<h1 class="entry-title" style="font-family:var(--sans);font-size:24px">词条库检查结果</h1></div>';
+
+    h += '<div class="section"><p class="purpose">共检查 <b>' + D.ALL.length + '</b> 条词条：' +
+         '字段是否齐全、id 有没有重复、status 取值对不对、' +
+         'example 三段是否都在、related 是否指向真实存在的词条。</p></div>';
+
+    if (!issues.length) {
+      h += '<div class="audit-out"><div class="audit-ok">✓ 全部通过，没有发现问题。</div>' +
+           '<p class="muted" style="margin:8px 0 0">你新加的词条也可以通过这里确认一下再提交。</p></div>';
+    } else {
+      h += '<div class="audit-out"><h3>发现 ' + issues.length + ' 个问题</h3><ul>';
+      issues.forEach(function (x) { h += '<li>' + esc(x) + '</li>'; });
+      h += '</ul></div>';
+    }
+
+    h += '<div class="section"><h2 class="section-title">各分类条数</h2><ul class="ok-list">';
+    D.CATS.forEach(function (c) {
+      h += '<li>' + esc(c.label) + '：' + (D.countsByCat()[c.key] || 0) + ' 条</li>';
+    });
+    h += '</ul></div>';
+
+    h += '<div class="section"><button type="button" class="ghost-btn" id="back-entry">回到刚才的词条</button></div>';
+
+    const det = $('#detail');
+    det.innerHTML = h;
+    det.scrollTop = 0;
+    const back = det.querySelector('#back-entry');
+    if (back) back.addEventListener('click', function () {
+      if (state.sel) select(state.sel, { silent: true }); else renderWelcome();
+    });
+  }
+
+  /* ---------- 搜索 ---------- */
+  function doSearch(q) {
+    state.q = String(q || '').trim();
+    state.fallback = false;
+
+    if (!state.q) {
+      state.results = null;
+    } else {
+      state.results = window.WDT.search.run(state.q);
+      // 多个关键词一个都没同时命中时，退一步：只要命中任意一个就列出来，并说明原因
+      if (!state.results.length && state.q.split(/\s+/).length > 1) {
+        const loose = window.WDT.search.run(state.q, { or: true });
+        if (loose.length) { state.results = loose; state.fallback = true; }
+      }
+    }
+
+    state.cursor = 0;
+    renderCats();
+    renderList();
+  }
+
+  function moveCursor(d) {
+    const n = visibleEntries().length;
+    if (!n) return;
+    state.cursor = (state.cursor + d + n) % n;
+    renderList();
+    const cur = $('#entries .is-cursor');
+    if (cur) cur.scrollIntoView({ block: 'nearest' });
+  }
+
+  /* ---------- 主题 ---------- */
+  function readParam(k) {
+    try { return new URLSearchParams(location.search).get(k) || ''; } catch (e) { return ''; }
+  }
+
+  function applyTheme(t, skipSave) {
+    document.documentElement.setAttribute('data-theme', t);
+    if (!skipSave) LS.set(K_THEME, t);
+    const b = $('#theme-btn');
+    if (b) b.textContent = t === 'dark' ? '浅色' : '深色';
+  }
+
+  /* ---------- 手机端抽屉 ---------- */
+  function openDrawer() { $('#sidebar').classList.add('is-open'); $('#scrim').hidden = false; }
+  function closeDrawer() {
+    $('#sidebar').classList.remove('is-open');
+    $('#scrim').hidden = true;
+  }
+
+  /* ---------- 初始化 ---------- */
+  function init() {
+    // 地址栏上强制指定主题（?theme=light）时不写入本地设置，免得分享链接改掉了别人的偏好
+    const forcedTheme = readParam('theme');
+    if (forcedTheme === 'light' || forcedTheme === 'dark') applyTheme(forcedTheme, true);
+    else applyTheme(LS.get(K_THEME, 'dark'));
+
+    $('#stats').textContent = '共 ' + D.ALL.length + ' 条';
+
+    window.WDT.playground.init('#playground');
+
+    // 搜索框
+    const q = $('#q');
+    q.addEventListener('input', function () {
+      $('#q-clear').hidden = !q.value;
+      doSearch(q.value);
+    });
+    q.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { e.preventDefault(); moveCursor(1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); moveCursor(-1); }
+      else if (e.key === 'Enter') {
+        const items = visibleEntries();
+        if (items.length) select(items[Math.min(state.cursor, items.length - 1)].id);
+      } else if (e.key === 'Escape') { q.value = ''; $('#q-clear').hidden = true; doSearch(''); q.blur(); }
+    });
+    $('#q-clear').addEventListener('click', function () {
+      q.value = ''; $('#q-clear').hidden = true; doSearch(''); q.focus();
+    });
+
+    // 顶栏按钮
+    $('#theme-btn').addEventListener('click', function () {
+      applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    });
+    $('#random-btn').addEventListener('click', function () {
+      select(D.ALL[Math.floor(Math.random() * D.ALL.length)].id);
+    });
+    $('#audit-btn').addEventListener('click', showAudit);
+    $('#menu-btn').addEventListener('click', function () {
+      if ($('#sidebar').classList.contains('is-open')) closeDrawer(); else openDrawer();
+    });
+    $('#scrim').addEventListener('click', closeDrawer);
+
+    // 全局快捷键
+    document.addEventListener('keydown', function (e) {
+      const tag = (e.target.tagName || '').toLowerCase();
+      const typing = tag === 'input' || tag === 'textarea';
+      if (e.key === '/' && !typing) { e.preventDefault(); $('#q').focus(); }
+      else if (e.key === 'Escape' && !typing) { closeDrawer(); }
+      else if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && !typing && state.q) {
+        e.preventDefault(); moveCursor(e.key === 'ArrowDown' ? 1 : -1);
+      }
+    });
+
+    // 地址栏 hash → 打开对应词条
+    function fromHash() {
+      const id = String(location.hash || '').replace(/^#/, '');
+      if (id && D.BY_ID.has(id)) select(id, { silent: true });
+    }
+    window.addEventListener('hashchange', fromHash);
+
+    // ?q=居中 这种链接可以直接分享出去，打开就带着搜索结果
+    const preset = readParam('q');
+    if (preset) {
+      q.value = preset;
+      $('#q-clear').hidden = false;
+      doSearch(preset);
+    }
+
+    renderCats();
+    renderList();
+
+    const id = String(location.hash || '').replace(/^#/, '');
+    if (id && D.BY_ID.has(id)) select(id, { silent: true });
+    else renderWelcome();
+
+    // 自检模式：index.html#__audit 直接打开检查面板（方便加词条后验证）
+    if (id === '__audit') showAudit();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+
+  // 暴露给调试和自动化使用
+  window.WDT.app = { select: select, audit: showAudit, state: state, search: function (q) { return window.WDT.search.run(q); } };
+})();
+
+</script>
+</body>
+</html>

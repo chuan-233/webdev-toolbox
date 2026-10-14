@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web 学习工具箱 · HTML / CSS / JavaScript</title>
+<meta name="description" content="面向初学者的网页开发速查与试验工具箱：HTML 标签、HTML 属性、CSS 属性、JavaScript 方法，边查边改边看效果。">
+<meta name="theme-color" content="#0e1014">
+<meta name="color-scheme" content="dark light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Web 工具箱">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon-32.png" sizes="32x32">
+<link rel="icon" href="icons/favicon.ico">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#detail">跳到内容</a>
+
+<header class="topbar">
+  <button id="menu-btn" class="icon-btn only-narrow" aria-label="打开目录">☰</button>
+
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">&lt;/&gt;</span>
+    <span class="brand-text">Web 学习工具箱</span>
+  </div>
+
+  <div class="search" role="search">
+    <input id="q" type="search" placeholder="搜索名称、用途或关键词…" autocomplete="off"
+           spellcheck="false" aria-label="搜索词条">
+    <button id="q-clear" class="q-clear" aria-label="清空搜索" hidden>✕</button>
+    <kbd class="q-kbd" aria-hidden="true">/</kbd>
+  </div>
+
+  <div class="topbar-right">
+    <button id="random-btn" class="icon-btn" title="随机看一条" aria-label="随机词条">随机</button>
+    <button id="theme-btn" class="icon-btn" title="切换浅色 / 深色" aria-label="切换主题">主题</button>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar" id="sidebar" aria-label="分类与词条列表">
+    <nav class="cats" id="cats" aria-label="分类导航"></nav>
+
+    <div class="list-head">
+      <span id="list-title">全部词条</span>
+      <span id="list-count" class="muted"></span>
+    </div>
+
+    <ul class="entries" id="entries"></ul>
+
+    <div class="sidebar-foot">
+      <button id="audit-btn" class="ghost-btn" title="检查词条字段是否完整、id 是否重复">词条自检</button>
+      <span id="stats" class="muted"></span>
+    </div>
+  </aside>
+
+  <main class="detail" id="detail" tabindex="-1" aria-label="词条详情"></main>
+
+  <section class="playground" id="playground" aria-label="代码实验区"></section>
+
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+
+<noscript>
+  <p style="padding:24px;font:16px/1.7 system-ui,sans-serif">
+    这个工具需要 JavaScript 才能运行，请在浏览器设置里开启后刷新页面。
+  </p>
+</noscript>
+
+<script src="js/data/html-tags.js"></script>
+<script src="js/data/html-attrs.js"></script>
+<script src="js/data/css-props.js"></script>
+<script src="js/data/js-methods.js"></script>
+<script src="js/data/concepts.js"></script>
+<script src="js/data.js"></script>
+<script src="js/search.js"></script>
+<script src="js/playground.js"></script>
+<script src="js/app.js"></script>
+<script>
+  /* 注册离线缓存。
+     只在 https 或 localhost 下注册 —— 双击 index.html（file://）时跳过，
+     否则浏览器会因为「不安全的来源」在控制台刷一片报错。 */
+  (function () {
+    if (!('serviceWorker' in navigator)) return;
+    var h = location.hostname;
+    var secure = location.protocol === 'https:' ||
+                 h === 'localhost' || h === '127.0.0.1' || h === '[::1]';
+    if (!secure) return;
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () { /* 忽略: 不影响使用 */ });
+    });
+  })();
+</script>
+</body>
+</html>
