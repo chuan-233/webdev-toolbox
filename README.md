@@ -106,6 +106,7 @@ webdev-toolbox/
 │   ├── content-check.js  # 示例代码语法核对（Python 编译 / JS 解析 / CSS HTML 配对）
 │   ├── css-top-level.js  # CSS 示例不能有裸声明（缺选择器）
 │   ├── name-scan.js      # 渲染结果里查个人信息残留
+│   ├── live-check.js     # 线上 Pages 验收（浏览器实开）
 │   ├── ui-smoke.js       # 无头 Edge 打开关键页面，检查渲染结果
 │   ├── cdp-smoke.js      # 真点按钮：筛选 / 复制 / 收藏 / 主题 / 搜索
 │   └── mobile-check.js   # 390px 宽度横向溢出检查 + 截图
@@ -245,6 +246,7 @@ webdev-toolbox/
 node tests/content-check.js   # Python / JS / CSS / HTML 示例语法核对
 node tests/css-top-level.js    # CSS 示例不能有裸声明（缺选择器）
 node tests/name-scan.js        # 真实渲染结果里查个人信息残留
+node tests/live-check.js       # 验收线上 GitHub Pages（真的用浏览器打开）
 node tests/ui-smoke.js        # 无头 Edge 渲染检查
 node tests/cdp-smoke.js       # 真交互：筛选、复制、收藏、主题、搜索
 node tests/mobile-check.js    # 390px 横向溢出 + 截图
