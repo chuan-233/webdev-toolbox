@@ -3467,7 +3467,7 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['花括号', '大括号', 'braces', '字典', '对象', '代码块', '规则块', 'f-string'],
       cmp: {
-        python: P('d = {"a": 1}\ns = {1, 2, 3}\nname = "小林"\nprint(f"{name} 你好")', '字典、集合、f-string 占位符。Python 不用 { } 包代码块。'),
+        python: P('d = {"a": 1}\ns = {1, 2, 3}\nname = "小明"\nprint(f"{name} 你好")', '字典、集合、f-string 占位符。Python 不用 { } 包代码块。'),
         html: NA('HTML 没有花括号语法。正文里的 {} 只是文字；Vue/Handlebars 的 {{ }} 是模板引擎的语法，不是 HTML 本身。'),
         css: P('.card {\n  color: red;\n  padding: 8px;\n}\n@media (max-width: 600px) {\n  .card { padding: 4px; }\n}', '包住一组声明，形成规则块。@media 也用 { } 包住内部规则。'),
         js: P('if (x > 0) {\n  console.log("正数");\n}\nconst obj = { a: 1, b: 2 };\nconst { a } = obj;', '代码块、对象字面量、解构。单独一行的 { a: 1 } 可能被当成代码块。')
@@ -3482,7 +3482,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p>看控制台里的对象。</p>',
         css: 'p { color: #2f6fdd; }',
-        js: 'const user = { name: "小林", age: 20 };\nconsole.log(user);\nif (user.age >= 18) {\n  console.log("成年");\n}'
+        js: 'const user = { name: "小明", age: 20 };\nconsole.log(user);\nif (user.age >= 18) {\n  console.log("成年");\n}'
       }
     },
 
@@ -3615,7 +3615,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p class="note">这一段有 .note 样式。</p>',
         css: '.note { color: #6b3bb5; font-weight: 600; }',
-        js: 'const obj = { name: "小林" };\nconsole.log(obj.name);\nconsole.log((3.14).toFixed(1));'
+        js: 'const obj = { name: "小明" };\nconsole.log(obj.name);\nconsole.log((3.14).toFixed(1));'
       }
     },
 
@@ -3764,10 +3764,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['变量', 'variable', '赋值', 'let', 'const', '自定义属性', 'var'],
       cmp: {
-        python: P('name = "小林"\nage = 20\n# 变量名区分大小写，不需要声明类型', '直接赋值即创建；变量可以重新绑定到不同类型的值。'),
+        python: P('name = "小明"\nage = 20\n# 变量名区分大小写，不需要声明类型', '直接赋值即创建；变量可以重新绑定到不同类型的值。'),
         html: NA('HTML 没有变量；要存数据得用 JavaScript 或表单元素的值。'),
         css: P(':root { --main-color: #2f6fdd; }\n.card { color: var(--main-color); }', '自定义属性：名字必须以 -- 开头，用 var() 读取，沿 DOM 继承。'),
-        js: P('let name = "小林";\nconst age = 20;\nvar old = "不推荐";', 'let 可重新赋值，const 不能重新绑定，var 是旧写法（函数作用域、会提升）。')
+        js: P('let name = "小明";\nconst age = 20;\nvar old = "不推荐";', 'let 可重新赋值，const 不能重新绑定，var 是旧写法（函数作用域、会提升）。')
       },
       errors: [
         'JS 用未声明的变量：严格模式下 ReferenceError。',
@@ -3779,7 +3779,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p class="card">这段文字的颜色来自 CSS 变量。</p>',
         css: ':root { --main-color: #2f6fdd; }\n.card { color: var(--main-color); font-weight: 600; }',
-        js: 'let name = "小林";\nconst age = 20;\nconsole.log(name, age);'
+        js: 'let name = "小明";\nconst age = 20;\nconsole.log(name, age);'
       }
     },
 
@@ -3899,10 +3899,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['字典', '对象', 'dict', 'object', '键值', 'JSON', 'get'],
       cmp: {
-        python: P('user = {"name": "小林", "age": 20}\nprint(user["name"])\nprint(user.get("city", "未知"))', 'dict 字面量；键要加引号；用 get() 取不存在的键可给默认值。'),
+        python: P('user = {"name": "小明", "age": 20}\nprint(user["name"])\nprint(user.get("city", "未知"))', 'dict 字面量；键要加引号；用 get() 取不存在的键可给默认值。'),
         html: NA('HTML 没有键值对象；属性名/属性值只是标记配置，不是数据字典。'),
         css: NA('CSS 没有字典；自定义属性是一组名字到值的映射，但不能像对象那样遍历。'),
-        js: P('const user = { name: "小林", age: 20 };\nconsole.log(user.name);\nconsole.log(user["name"]);', '对象字面量；键通常不加引号；点访问和 [] 访问都行。')
+        js: P('const user = { name: "小明", age: 20 };\nconsole.log(user.name);\nconsole.log(user["name"]);', '对象字面量；键通常不加引号；点访问和 [] 访问都行。')
       },
       errors: [
         'Python 用 user.name 访问字典：AttributeError。',
@@ -3914,7 +3914,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p>看控制台。</p>',
         css: '',
-        js: 'const user = { name: "小林", age: 20 };\nconsole.log(user.name);\nconsole.log(user["age"]);'
+        js: 'const user = { name: "小明", age: 20 };\nconsole.log(user.name);\nconsole.log(user["age"]);'
       }
     },
 
@@ -3981,10 +3981,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['插值', '拼接', 'f-string', '模板字符串', 'template literal', 'format', 'content'],
       cmp: {
-        python: P('name = "小林"\nprint(f"你好，{name}！")\nprint("你好，" + name + "！")', 'f-string 最直观；+ 拼接要求两边都是字符串。'),
+        python: P('name = "小明"\nprint(f"你好，{name}！")\nprint("你好，" + name + "！")', 'f-string 最直观；+ 拼接要求两边都是字符串。'),
         html: NA('HTML 没有字符串插值；动态内容要靠 JavaScript 写入 DOM 或服务端模板。'),
         css: P('li::before { content: "第 " counter(item) " 项"; }', '可以拼接字符串和 counter()，但不是通用表达式插值。'),
-        js: P('const name = "小林";\nconsole.log(`你好，${name}！`);\nconsole.log("你好，" + name + "！");', '模板字符串用反引号和 ${}；+ 拼接要注意类型。')
+        js: P('const name = "小明";\nconsole.log(`你好，${name}！`);\nconsole.log("你好，" + name + "！");', '模板字符串用反引号和 ${}；+ 拼接要注意类型。')
       },
       errors: [
         'JS 模板字符串用了单引号而不是反引号：${} 不会生效。',
@@ -3996,7 +3996,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p id="out">看控制台。</p>',
         css: '',
-        js: 'const name = "小林";\nconsole.log(`你好，${name}！`);\nconsole.log("你好，" + name + "！");'
+        js: 'const name = "小明";\nconsole.log(`你好，${name}！`);\nconsole.log("你好，" + name + "！");'
       }
     },
 
@@ -4171,10 +4171,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['函数', '定义', 'def', 'function', '方法', '箭头函数'],
       cmp: {
-        python: P('def greet(name):\n    return "你好，" + name\n\nprint(greet("小林"))', 'def + 冒号 + 缩进；return 返回值。'),
+        python: P('def greet(name):\n    return "你好，" + name\n\nprint(greet("小明"))', 'def + 冒号 + 缩进；return 返回值。'),
         html: NA('HTML 没有函数；事件属性里写的是 JavaScript。'),
         css: NA('CSS 没有自定义函数；calc()/rgb()/var() 是内置函数。'),
-        js: P('function greet(name) {\n  return "你好，" + name;\n}\n\nconsole.log(greet("小林"));', 'function + 花括号；也可以写成 const greet = (name) => ...。')
+        js: P('function greet(name) {\n  return "你好，" + name;\n}\n\nconsole.log(greet("小明"));', 'function + 花括号；也可以写成 const greet = (name) => ...。')
       },
       errors: [
         'Python 忘冒号/缩进：SyntaxError。',
@@ -4186,7 +4186,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p id="out">看控制台。</p>',
         css: '',
-        js: 'function greet(name) {\n  return "你好，" + name;\n}\nconsole.log(greet("小林"));'
+        js: 'function greet(name) {\n  return "你好，" + name;\n}\nconsole.log(greet("小明"));'
       }
     },
 
@@ -4199,9 +4199,9 @@ window.WDT_SYNTAX = (function () {
       keywords: ['调用', '函数调用', 'call', '括号', 'onclick'],
       cmp: {
         python: P('print("hi")\nlen([1, 2])', '名字后面加括号才是调用；只写名字得到函数对象。'),
-        html: P('<button onclick="greet(\'小林\')">点我</button>', '这是 HTML 里嵌 JavaScript，不是 HTML 自己的函数调用。'),
+        html: P('<button onclick="greet(\'小明\')">点我</button>', '这是 HTML 里嵌 JavaScript，不是 HTML 自己的函数调用。'),
         css: P('.box { width: calc(100% - 20px); color: rgb(0, 0, 0); }', 'CSS 的函数调用只出现在值里，不能调用自定义函数。'),
-        js: P('console.log("hi");\ngreet("小林");', '名字后面加括号才是调用；没有括号得到函数本身。')
+        js: P('console.log("hi");\ngreet("小明");', '名字后面加括号才是调用；没有括号得到函数本身。')
       },
       errors: [
         'Python 调用时漏括号：拿到函数对象，不执行。',
@@ -4213,7 +4213,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<button id="btn">点我</button>\n<p id="out">还没点</p>',
         css: 'button { padding: 6px 12px; }',
-        js: 'function greet(name) {\n  return "你好，" + name;\n}\ndocument.getElementById("btn").addEventListener("click", function () {\n  document.getElementById("out").textContent = greet("小林");\n});'
+        js: 'function greet(name) {\n  return "你好，" + name;\n}\ndocument.getElementById("btn").addEventListener("click", function () {\n  document.getElementById("out").textContent = greet("小明");\n});'
       }
     },
 
@@ -4225,10 +4225,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['参数', '默认值', 'parameter', 'argument', '实参', '形参'],
       cmp: {
-        python: P('def greet(name, greeting="你好"):\n    return greeting + "，" + name\n\ngreet("小林")\ngreet("小林", "早安")', '默认参数写在后面；调用时按位置或关键字传。'),
+        python: P('def greet(name, greeting="你好"):\n    return greeting + "，" + name\n\ngreet("小明")\ngreet("小明", "早安")', '默认参数写在后面；调用时按位置或关键字传。'),
         html: NA('HTML 没有参数；属性是配置，不是函数参数。'),
         css: P('/* 内置函数有参数：rgb(红, 绿, 蓝) */\n.link { color: rgb(47, 111, 221); }', '参数由 CSS 规范定义，不能自定义。'),
-        js: P('function greet(name, greeting = "你好") {\n  return greeting + "，" + name;\n}\n\ngreet("小林");\ngreet("小林", "早安");', '默认值用 =；参数按位置传。')
+        js: P('function greet(name, greeting = "你好") {\n  return greeting + "，" + name;\n}\n\ngreet("小明");\ngreet("小明", "早安");', '默认值用 =；参数按位置传。')
       },
       errors: [
         'Python 默认参数写在非默认参数前面：SyntaxError。',
@@ -4240,7 +4240,7 @@ window.WDT_SYNTAX = (function () {
       playground: {
         html: '<p>看控制台。</p>',
         css: '',
-        js: 'function greet(name, greeting = "你好") {\n  return greeting + "，" + name;\n}\nconsole.log(greet("小林"));\nconsole.log(greet("小林", "早安"));'
+        js: 'function greet(name, greeting = "你好") {\n  return greeting + "，" + name;\n}\nconsole.log(greet("小明"));\nconsole.log(greet("小明", "早安"));'
       }
     },
 
@@ -4957,10 +4957,10 @@ window.WDT_SYNTAX = (function () {
       status: 'modern',
       keywords: ['四种写法', '对照', '字符串', '判断', '循环', '函数', '按钮', 'Flask'],
       cmp: {
-        python: P('name = "小林"\nif len(name) > 3:\n    print(f"你好，{name}")', '变量、条件、f-string。'),
+        python: P('name = "小明"\nif len(name) > 3:\n    print(f"你好，{name}")', '变量、条件、f-string。'),
         html: P('<button id="like">点赞</button>', '只负责结构；行为要交给 JavaScript。'),
         css: P('#like {\n  padding: 8px 16px;\n  background: #2f6fdd;\n  color: #fff;\n}', '只负责外观；不处理点击逻辑。'),
-        js: P('const name = "小林";\nif (name.length > 3) {\n  console.log(`你好，${name}`);\n}', '变量、条件、模板字符串。')
+        js: P('const name = "小明";\nif (name.length > 3) {\n  console.log(`你好，${name}`);\n}', '变量、条件、模板字符串。')
       },
       errors: [
         '以为 HTML/CSS 也有 if/for/function：它们没有这些编程结构。',
@@ -4975,10 +4975,10 @@ window.WDT_SYNTAX = (function () {
           {
             title: '1. 字符串与变量',
             rows: [
-              { lang: 'Python', code: 'name = "小林"\ngreeting = f"你好，{name}"\nprint(greeting)', note: '变量直接赋值；f-string 插值。' },
-              { lang: 'HTML', code: '<p>你好，小林</p>', note: '没有变量和插值；文字就是文字。动态内容交给 JS 或服务端模板。' },
+              { lang: 'Python', code: 'name = "小明"\ngreeting = f"你好，{name}"\nprint(greeting)', note: '变量直接赋值；f-string 插值。' },
+              { lang: 'HTML', code: '<p>你好，小明</p>', note: '没有变量和插值；文字就是文字。动态内容交给 JS 或服务端模板。' },
               { lang: 'CSS', code: '/* 不适用：CSS 没有字符串变量 */', note: 'CSS 只有自定义属性（--name: 值），存的是 CSS 值，不是任意字符串变量。' },
-              { lang: 'JavaScript', code: 'const name = "小林";\nconst greeting = `你好，${name}`;\nconsole.log(greeting);', note: 'const 声明；模板字符串插值。' }
+              { lang: 'JavaScript', code: 'const name = "小明";\nconst greeting = `你好，${name}`;\nconsole.log(greeting);', note: 'const 声明；模板字符串插值。' }
             ]
           },
           {
@@ -5002,10 +5002,10 @@ window.WDT_SYNTAX = (function () {
           {
             title: '4. 函数或类似结构',
             rows: [
-              { lang: 'Python', code: 'def greet(name):\n    return "你好，" + name\n\nprint(greet("小林"))', note: 'def + 缩进。' },
+              { lang: 'Python', code: 'def greet(name):\n    return "你好，" + name\n\nprint(greet("小明"))', note: 'def + 缩进。' },
               { lang: 'HTML', code: '<!-- 不适用：HTML 没有函数 -->', note: 'onclick 里写的是 JavaScript。' },
               { lang: 'CSS', code: '/* 不适用：CSS 不能自定义函数 */\nwidth: calc(100% - 20px);', note: '只能调用 calc()/rgb()/var() 等内置函数。' },
-              { lang: 'JavaScript', code: 'function greet(name) {\n  return "你好，" + name;\n}\nconsole.log(greet("小林"));', note: 'function + 花括号；也可用箭头函数。' }
+              { lang: 'JavaScript', code: 'function greet(name) {\n  return "你好，" + name;\n}\nconsole.log(greet("小明"));', note: 'function + 花括号；也可用箭头函数。' }
             ]
           },
           {
