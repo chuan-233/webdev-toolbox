@@ -9,7 +9,7 @@
    如果你是用双击 index.html（file://）的方式打开，app.js 里会跳过注册，不影响使用。
    ========================================================================== */
 
-const CACHE = 'wdt-v1';
+const CACHE = 'wdt-v2';
 
 const ASSETS = [
   './',
@@ -19,12 +19,14 @@ const ASSETS = [
   './js/data.js',
   './js/search.js',
   './js/playground.js',
+  './js/syntax.js',
   './js/app.js',
   './js/data/html-tags.js',
   './js/data/html-attrs.js',
   './js/data/css-props.js',
   './js/data/js-methods.js',
   './js/data/concepts.js',
+  './js/data/syntax-compare.js',
   './icons/icon-192.png',
   './icons/icon-512.png'
 ];

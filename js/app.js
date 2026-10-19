@@ -5,6 +5,7 @@
 (function () {
 
   const D = window.WDT;
+  const SYN = window.WDT.syntax;
   const $ = function (s, root) { return (root || document).querySelector(s); };
 
   /* ---------- 安全存储（file:// 下某些浏览器会禁用 localStorage） ---------- */
@@ -30,7 +31,10 @@
     results: null,     // 搜索命中结果（{entry,score}）
     sel: null,         // 当前打开的词条 id
     cursor: 0,         // 搜索结果键盘高亮位置
-    view: 'entry'      // entry | welcome | audit
+    view: 'entry',     // entry | welcome | audit | syntax-table
+    synLang: 'all',    // 语法对照：语言筛选
+    synGroup: 'all',   // 语法对照：二级分类筛选
+    synView: 'list'    // 语法对照：list（详情）| table（总表）
   };
 
   let favSet = new Set(LS.get(K_FAV, []));
@@ -105,6 +109,10 @@
         state.cursor = 0;
         renderCats();
         renderList();
+        if (c.key === 'syntax') {
+          state.synView = 'table';
+          paintSyntaxTable();
+        }
         closeDrawer();
       });
       box.appendChild(b);
@@ -113,15 +121,88 @@
 
   /* ---------- 当前该显示哪些词条 ---------- */
   function visibleEntries() {
-    if (state.q) return (state.results || []).map(function (r) { return r.entry; });
-    if (state.cat === 'fav') {
-      return Array.from(favSet).map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
+    let list;
+    if (state.q) list = (state.results || []).map(function (r) { return r.entry; });
+    else if (state.cat === 'fav') {
+      list = Array.from(favSet).map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
     }
-    if (state.cat === 'recent') {
-      return recent.map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
+    else if (state.cat === 'recent') {
+      list = recent.map(function (id) { return D.BY_ID.get(id); }).filter(Boolean);
     }
-    if (state.cat === 'all') return D.ALL;
-    return D.ALL.filter(function (e) { return e.cat === state.cat; });
+    else if (state.cat === 'all') list = D.ALL;
+    else list = D.ALL.filter(function (e) { return e.cat === state.cat; });
+
+    // 语法对照的二级筛选只在「语法对照」分类里生效，免得把全站搜索结果筛没
+    if (state.cat === 'syntax') {
+      if (state.q) list = list.filter(function (e) { return e.cat === 'syntax'; });
+      if (state.synGroup !== 'all') {
+        list = list.filter(function (e) { return e.group === state.synGroup; });
+      }
+      if (state.synLang !== 'all') {
+        list = list.filter(function (e) {
+          const c = e.cmp && e.cmp[state.synLang];
+          return !!(c && !c.na);
+        });
+      }
+    }
+    return list;
+  }
+
+  /* ---------- 语法对照筛选栏 ---------- */
+  function renderSynFilters() {
+    const box = $('#syn-filters');
+    if (!box) return;
+    if (state.cat !== 'syntax') { box.hidden = true; box.innerHTML = ''; return; }
+    box.hidden = false;
+
+    const langs = [{ key: 'all', label: '全部' }].concat(SYN.LANGS);
+    let h = '<div class="syn-filter-row"><span class="syn-filter-label">语言</span><div class="syn-chips">';
+    langs.forEach(function (l) {
+      h += '<button type="button" class="syn-chip' + (state.synLang === l.key ? ' is-on' : '') +
+           '" data-lang="' + l.key + '">' + esc(l.label) + '</button>';
+    });
+    h += '</div></div>';
+
+    h += '<div class="syn-filter-row"><span class="syn-filter-label">分类</span>';
+    h += '<select id="syn-group" class="syn-select" aria-label="语法对照分类">';
+    h += '<option value="all">全部分类</option>';
+    SYN.groups().forEach(function (g) {
+      h += '<option value="' + esc(g) + '"' + (state.synGroup === g ? ' selected' : '') + '>' + esc(g) + '</option>';
+    });
+    h += '</select>';
+    h += '<button type="button" class="ghost-btn syn-view-btn" id="syn-view-btn">' +
+         (state.synView === 'table' ? '详情视图' : '表格视图') + '</button>';
+    h += '</div>';
+
+    h += '<div class="syn-filter-meta">当前 <b>' + visibleEntries().length + '</b> 条 · 收藏/最近查看照常可用</div>';
+    box.innerHTML = h;
+
+    box.querySelectorAll('[data-lang]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        state.synLang = b.dataset.lang;
+        renderSynFilters();
+        renderList();
+        if (state.synView === 'table') paintSyntaxTable();
+      });
+    });
+    const sel = box.querySelector('#syn-group');
+    if (sel) sel.addEventListener('change', function () {
+      state.synGroup = sel.value;
+      renderSynFilters();
+      renderList();
+      if (state.synView === 'table') paintSyntaxTable();
+    });
+    const vb = box.querySelector('#syn-view-btn');
+    if (vb) vb.addEventListener('click', function () {
+      state.synView = state.synView === 'table' ? 'list' : 'table';
+      renderSynFilters();
+      if (state.synView === 'table') paintSyntaxTable();
+      else if (state.sel && D.BY_ID.has(state.sel)) select(state.sel, { silent: true });
+      else {
+        const first = visibleEntries()[0];
+        if (first) select(first.id); else renderWelcome();
+      }
+    });
   }
 
   function renderList() {
@@ -129,6 +210,8 @@
     const items = visibleEntries();
     const titleBox = $('#list-title');
     const countBox = $('#list-count');
+
+    renderSynFilters();
 
     if (state.q) titleBox.textContent = state.fallback ? '宽松匹配' : '搜索结果';
     else {
@@ -144,6 +227,8 @@
       li.className = 'empty-note';
       if (state.q) {
         li.textContent = '没找到「' + state.q + '」。试试更短的关键词，比如只输 div、颜色、居中。';
+      } else if (state.cat === 'syntax') {
+        li.textContent = '没有符合当前筛选条件的对照。换一个语言或分类，或点「全部分类」再试。';
       } else if (state.cat === 'fav') {
         li.textContent = '还没有收藏。打开任意词条，点标题右边的「收藏」就会出现在这里。';
       } else if (state.cat === 'recent') {
@@ -172,7 +257,8 @@
       const isFav = favSet.has(e.id);
       b.innerHTML = (isFav ? '<span class="ei-star">★</span>' : '') +
         '<span class="ei-mark">' + esc(e.name) + '</span>' +
-        '<span class="ei-zh">' + esc(e.zh) + '</span>';
+        '<span class="ei-zh">' + esc(e.zh) + '</span>' +
+        (e.cat === 'syntax' ? '<span class="ei-group">' + esc(e.group) + '</span>' : '');
       b.title = e.catLabel + ' · ' + e.name + (e.zh ? '（' + e.zh + '）' : '');
       b.addEventListener('click', function () { select(e.id); });
       li.appendChild(b);
@@ -214,6 +300,7 @@
   function select(id, opts) {
     const e = D.BY_ID.get(id);
     if (!e) return;
+    if (e.cat === 'syntax') state.synView = 'list';
     state.sel = id;
     state.view = 'entry';
 
@@ -229,12 +316,15 @@
     paintDetail(e);
     renderCats();
     renderList();
-    window.WDT.playground.load(e);
+    window.WDT.playground.load(e.cat === 'syntax'
+      ? { name: e.name, example: e.playground || { html: '', css: '', js: '' } }
+      : e);
     $('#detail').scrollTop = 0;
     closeDrawer();
   }
 
   function paintDetail(e) {
+    if (e.cat === 'syntax') { paintSyntaxDetail(e); return; }
     const items = visibleEntries();
     const idx = items.map(function (x) { return x.id; }).indexOf(e.id);
     const st = D.statusLabel(e.status);
@@ -295,7 +385,36 @@
 
     const det = $('#detail');
     det.innerHTML = h;
+    bindDetailActions(e);
+  }
 
+  /* 语法对照的详情：模板在 syntax.js 里，这里只负责挂载和事件 */
+  function paintSyntaxDetail(e) {
+    state.view = 'entry';
+    const det = $('#detail');
+    det.innerHTML = SYN.detailHtml(e);
+    const star = det.querySelector('#star');
+    if (star && favSet.has(e.id)) {
+      star.textContent = '★ 已收藏';
+      star.classList.add('is-on');
+    }
+    bindDetailActions(e);
+    det.scrollTop = 0;
+  }
+
+  /* 语法对照的总表：横向看所有条目 */
+  function paintSyntaxTable() {
+    state.view = 'syntax-table';
+    const det = $('#detail');
+    det.innerHTML = SYN.tableHtml(visibleEntries());
+    det.querySelectorAll('[data-goto]').forEach(function (btn) {
+      btn.addEventListener('click', function () { select(btn.dataset.goto); });
+    });
+    det.scrollTop = 0;
+  }
+
+  function bindDetailActions(e) {
+    const det = $('#detail');
     det.querySelectorAll('[data-copy]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         const pre = btn.parentNode.querySelector('pre');
@@ -356,6 +475,13 @@
   function doSearch(q) {
     state.q = String(q || '').trim();
     state.fallback = false;
+    // 输入关键词时先把「语法对照」的二级筛选清掉：
+    // 否则在「注释」分类下搜 calc 会得到 0 条，看起来像搜索坏了。
+    // 搜索之后仍然可以再点语言/分类继续收窄。
+    if (state.q && state.cat === 'syntax') {
+      state.synLang = 'all';
+      state.synGroup = 'all';
+    }
 
     if (!state.q) {
       state.results = null;
@@ -380,6 +506,23 @@
     renderList();
     const cur = $('#entries .is-cursor');
     if (cur) cur.scrollIntoView({ block: 'nearest' });
+  }
+
+  /* ---------- 打开「语法对照」总表 ---------- */
+  function openSyntaxTable() {
+    state.cat = 'syntax';
+    state.q = '';
+    state.results = null;
+    state.synLang = 'all';
+    state.synGroup = 'all';
+    state.synView = 'table';
+    state.cursor = 0;
+    $('#q').value = '';
+    $('#q-clear').hidden = true;
+    renderCats();
+    renderList();
+    paintSyntaxTable();
+    closeDrawer();
   }
 
   /* ---------- 主题 ---------- */
@@ -438,6 +581,8 @@
       select(D.ALL[Math.floor(Math.random() * D.ALL.length)].id);
     });
     $('#audit-btn').addEventListener('click', showAudit);
+    const syntaxBtn = $('#syntax-btn');
+    if (syntaxBtn) syntaxBtn.addEventListener('click', openSyntaxTable);
     $('#menu-btn').addEventListener('click', function () {
       if ($('#sidebar').classList.contains('is-open')) closeDrawer(); else openDrawer();
     });
@@ -457,6 +602,8 @@
     // 地址栏 hash → 打开对应词条
     function fromHash() {
       const id = String(location.hash || '').replace(/^#/, '');
+      if (id === '__syntax-table' || id === '__syntax') { openSyntaxTable(); return; }
+      if (id === '__audit') { showAudit(); return; }
       if (id && D.BY_ID.has(id)) select(id, { silent: true });
     }
     window.addEventListener('hashchange', fromHash);
@@ -478,6 +625,8 @@
 
     // 自检模式：index.html#__audit 直接打开检查面板（方便加词条后验证）
     if (id === '__audit') showAudit();
+    // 语法对照总表：index.html#__syntax-table
+    if (id === '__syntax-table' || id === '__syntax') openSyntaxTable();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

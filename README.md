@@ -1,6 +1,8 @@
 # Web 学习工具箱（HTML / CSS / JavaScript）
 
 给初学者用的**速查 + 试验**工具：左边查词条，中间读讲解，右边直接改代码看效果。
+除了 HTML / CSS / JavaScript，还带一个独立的「语法对照」分类，横向对比
+Python / HTML / CSS / JavaScript 的符号、写法和常见陷阱。
 
 原生 HTML / CSS / JavaScript，**零依赖、零构建、不需要联网**。
 
@@ -56,7 +58,7 @@ Chrome / Edge / Firefox / Safari 近两年版本都可以。
 python build_single.py
 ```
 
-会生成 `工具箱-单文件.html` —— **样式和 131 条词条全部内联在这一个文件里**。
+会生成 `工具箱-单文件.html` —— **样式和 188 条词条全部内联在这一个文件里**。
 
 把它传到手机（微信 / Telegram / 网盘都行），存到「文件」里，点开选浏览器打开即可。
 全程离线可用，不需要登录任何账号，也不需要服务器。
@@ -93,14 +95,22 @@ webdev-toolbox/
     │   ├── html-attrs.js     # HTML 属性
     │   ├── css-props.js      # CSS 属性
     │   ├── js-methods.js     # JavaScript 方法
-    │   └── concepts.js       # 基础概念（标签/属性/变量/函数/方法…）
+    │   ├── concepts.js       # 基础概念（标签/属性/变量/函数/方法…）
+    │   └── syntax-compare.js # ★ 四语言语法对照（53 条对照 + 4 个专题，共 57 条）
     ├── data.js           # 汇总数据、分类定义、字段校验
     ├── search.js         # 搜索索引与评分排序
     ├── playground.js     # 代码实验区（编辑 + 沙箱预览 + 控制台）
+    ├── syntax.js         # 语法对照专用渲染（四语言卡片 / 专题表 / 总表）
     └── app.js            # 界面渲染、路由、键盘快捷键、主题
+├── tests/                # 无依赖冒烟测试（Node + 本机 Edge）
+│   ├── content-check.js  # 示例代码语法核对（Python 编译 / JS 解析 / CSS HTML 配对）
+│   ├── css-top-level.js  # CSS 示例不能有裸声明（缺选择器）
+│   ├── ui-smoke.js       # 无头 Edge 打开关键页面，检查渲染结果
+│   ├── cdp-smoke.js      # 真点按钮：筛选 / 复制 / 收藏 / 主题 / 搜索
+│   └── mobile-check.js   # 390px 宽度横向溢出检查 + 截图
 ```
 
-加载顺序（`index.html` 底部）：`data/*` → `data.js` → `search.js` → `playground.js` → `app.js`
+加载顺序（`index.html` 底部）：`data/*` → `data.js` → `search.js` → `playground.js` → `syntax.js` → `app.js`
 
 ---
 
@@ -113,6 +123,8 @@ webdev-toolbox/
 | 详情面板 | 名称、类别、用途、语法、示例、常见错误、相关概念；过时写法带橙色警告徽章 |
 | 代码实验区 | 分 HTML / CSS / JS 三个标签页编辑，`iframe` 沙箱里实时预览，并捕获 `console` 输出 |
 | 基础概念 | 专门解释「标签 / 元素 / 属性 / 变量 / 函数 / 方法 / 参数」这些容易混的词 |
+| 语法对照 | 独立分类：Python / HTML / CSS / JavaScript 的符号、变量、字符串、判断、循环、函数、注释、DOM 对照；带语言/分类筛选、横向总表、单项详情 |
+| 语法对照专题 | 中英文标点、注释语法、同一功能的四种写法、易混淆语法总表 |
 | 词条自检 | 侧边栏底部按钮：检查字段缺失、id 重复、`related` 指向不存在的词条 |
 
 ### 键盘快捷键
@@ -132,6 +144,7 @@ webdev-toolbox/
 - `index.html?q=居中` —— 打开就带着搜索结果
 - `index.html?theme=light` —— 强制浅色主题（不会写进本地设置）
 - `index.html#__audit` —— 直接打开词条自检面板
+- `index.html#__syntax-table` —— 直接打开「语法对照」总表
 
 ---
 
@@ -188,8 +201,54 @@ webdev-toolbox/
 
 ### 4. 想加一个新类别
 
-在 `js/data.js` 顶部的 `CATEGORIES` 数组里加一项（`key` / `label` / `color` / `file`），
+在 `js/data.js` 顶部的 `CATS` 数组里加一项（`key` / `label` / `short` / `hex` / `arr`），
 再新建对应的 `js/data/xxx.js`，并在 `index.html` 里加一行 `<script src="js/data/xxx.js"></script>`。
+
+### 5. 加一条「语法对照」
+
+打开 `js/data/syntax-compare.js`，往数组里加一个对象。它比普通词条多三个字段：
+
+```js
+{
+  id: 'syn-bracket', name: '方括号 [ ]', zh: '中括号 / 下标 / 列表',
+  group: '符号', confuse: 3,
+  purpose: '一句话说明它是干什么的',
+  explanation: '中文解释：它在四种语言里分别是什么角色',
+  syntax: '数据[位置] / [元素, 元素] / [属性="值"]',
+  status: 'modern',
+  keywords: ['方括号', '数组', '下标'],
+  cmp: {
+    python: { code: 'nums[0]', note: '下标' },
+    html:   { na: 'HTML 没有方括号语法，正文里的 [] 只是文字。' },
+    css:    { code: 'input[type="text"] { }', note: '属性选择器' },
+    js:     { code: 'const nums = [1, 2];', note: '数组/下标' }
+  },
+  errors: ['……'],
+  notes: '适用范围和注意事项',
+  related: ['syn-list', 'syn-index'],
+  playground: { html: '', css: '', js: 'console.log([1, 2][0]);' } // 可选
+}
+```
+
+规则：
+
+- **不适用就写 `na` 并说明原因**，不要为填满四列编一个不存在的等价语法。
+- `group` 只能是这 13 个之一：符号、运算符、变量与数据类型、字符串、条件与循环、函数、代码块、注释、模块与导入、HTML 元素与属性、CSS 选择器与声明、JavaScript DOM 操作、专题。
+- `confuse` 是 1 / 2 / 3（3 表示最容易混），详情页会显示徽章。
+- `playground` 可选，只放真正能在浏览器里跑的 HTML/CSS/JS；Python 示例放 `cmp.python`，右侧实验区跑不了。
+- 加完刷新页面，点「词条自检」，再访问 `index.html#你的id` 确认。
+
+### 6. 跑测试
+
+```bash
+node tests/content-check.js   # Python / JS / CSS / HTML 示例语法核对
+node tests/css-top-level.js    # CSS 示例不能有裸声明（缺选择器）
+node tests/ui-smoke.js        # 无头 Edge 渲染检查
+node tests/cdp-smoke.js       # 真交互：筛选、复制、收藏、主题、搜索
+node tests/mobile-check.js    # 390px 横向溢出 + 截图
+```
+
+三个脚本都不依赖 npm 包，只需要本机装了 Edge。
 
 ---
 
@@ -211,6 +270,10 @@ webdev-toolbox/
 - 示例里的 `fetch()` 在 `file://` 下会失败，这是浏览器的安全策略，不是 bug ——
   该词条的示例故意演示了这个现象。想看它成功，用「方式 B」起本地服务器。
 - 词条数量是**第一版**：每类十几个到三十几个，覆盖最常用的部分，不是完整参考手册。
+- 语法对照里的 Python 示例**不能在右侧实验区运行**（实验区是浏览器沙箱，只跑 HTML/CSS/JS）。
+  详情页会提示复制到本地解释器；需要在线跑 Python 得另接后端。
+- 「同一功能的四种写法」里，HTML/CSS 没有变量、判断、循环、函数这些编程结构，
+  页面会明确写「不适用」，不是漏写。
 - 单文件版没有离线缓存（`sw.js`）—— 它本身就是完整文件，不需要缓存。
 - 可以继续加：拼音搜索、代码高亮、深浅色跟随系统、把「收藏」导出成文件、
   按学习顺序排的「新手路线」。

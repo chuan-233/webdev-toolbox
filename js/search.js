@@ -48,6 +48,11 @@ window.WDT.search = (function () {
     const errs = (entry.errors || []).join(' ').toLowerCase();
     if (errs.indexOf(t) >= 0) best = Math.max(best, 10);
 
+    /* 语法对照的附加文本：四语言示例、说明、专题表格。
+       没有它，搜「calc」「elif」「addEventListener」只能碰运气命中 name。 */
+    const extra = String(entry.searchExtra || '').toLowerCase();
+    if (!singleAscii && extra.indexOf(t) >= 0) best = Math.max(best, 24);
+
     return best;
   }
 

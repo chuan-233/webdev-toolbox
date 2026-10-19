@@ -23,6 +23,13 @@ import os
 import re
 import sys
 
+# Windows 控制台默认是 GBK，输出 ✓ 会直接抛 UnicodeEncodeError。
+# 只影响打印，不影响生成的 HTML；这里把标准输出切成 UTF-8。
+try:
+    sys.stdout.reconfigure(encoding='utf-8')
+except Exception:
+    pass
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, 'index.html')
 OUT = os.path.join(HERE, '工具箱-单文件.html')
@@ -34,9 +41,11 @@ JS_ORDER = [
     'js/data/css-props.js',
     'js/data/js-methods.js',
     'js/data/concepts.js',
+    'js/data/syntax-compare.js',
     'js/data.js',
     'js/search.js',
     'js/playground.js',
+    'js/syntax.js',
     'js/app.js',
 ]
 
@@ -84,7 +93,7 @@ def main():
                             '</title>\n<link rel="icon" href="data:image/png;base64,%s">' % b64, 1)
 
     # ---- 5. 标题标记 ----
-    html = html.replace('<title>Web 学习工具箱 · HTML / CSS / JavaScript</title>',
+    html = html.replace('<title>Web 学习工具箱 · HTML / CSS / JavaScript · 语法对照</title>',
                         '<title>Web 学习工具箱（单文件版）</title>', 1)
 
     # ---- 6. 顶部加一行说明 ----
