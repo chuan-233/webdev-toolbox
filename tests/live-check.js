@@ -34,9 +34,20 @@ function run(name, hash, musts, mustNots) {
   if (expect(name, html, musts, mustNots)) pass++;
 }
 
-run('首页：188 条 + 语法对照分类', '', ['188', '语法对照'], ['Agave']);
-run('线上语法对照总表', '#__syntax-table', ['四种语言对照总表', '小括号', '不适用'], ['Agave', '小林']);
-run('线上详情页', '#syn-paren', ['四种语言怎么写', 'calc'], ['Agave']);
+// 负向断言不写具体人名：需要查的人名放在本地 .private-names（已 gitignore），
+// 这样测试脚本本身就是「可公开」的。
+const PRIVATE = loadPrivateNames();
+
+function loadPrivateNames() {
+  try {
+    return require('fs').readFileSync(path.join(__dirname, '..', '.private-names'), 'utf8')
+      .split('\n').map(function (x) { return x.trim(); }).filter(Boolean);
+  } catch (e) { return []; }
+}
+
+run('首页：188 条 + 语法对照分类', '', ['188', '语法对照'], PRIVATE);
+run('线上语法对照总表', '#__syntax-table', ['四种语言对照总表', '小括号', '不适用'], PRIVATE);
+run('线上详情页', '#syn-paren', ['四种语言怎么写', 'calc'], PRIVATE);
 run('线上专题：中英文标点', '#syn-topic-punct', ['中英文标点对照', '全角'], []);
 
 console.log('\n线上验收: ' + pass + ' / ' + total + ' 通过');
